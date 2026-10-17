@@ -2,13 +2,13 @@
 
 My portfolio website: **https://simar25.github.io**
 
-Plain HTML, CSS and JavaScript (no framework, no build step), hosted for free on GitHub Pages.
+Plain HTML and CSS (no framework, no build step), hosted for free on GitHub Pages.
 
 | File | What it is |
 |---|---|
-| `index.html` | All the page content: about, projects, skills, education, contact |
-| `style.css` | Colours (light and dark theme), layout, phone layout |
-| `script.js` | Theme button, phone menu, fade-in on scroll |
+| `index.html` | All the page content: intro, projects, about, contact |
+| `style.css` | Colours, fonts, layout and the phone layout |
+| `images/` | Profile photo and project screenshots |
 | `Simarjot_Singh_Anand_Resume.pdf` | Resume linked from the site (public copy, no phone number) |
 | `og-image.png` | Preview image shown when the link is shared on LinkedIn/WhatsApp |
 | `.nojekyll` | Tells GitHub Pages to serve the files as they are |

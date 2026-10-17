@@ -3,265 +3,251 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Simarjot Singh Anand · AI/ML &amp; Software Developer</title>
-  <meta name="description" content="Computer Science student at VIT Chennai building end-to-end AI systems: edge computer vision (patent filed), RAG over SEC filings, and deployed ML apps.">
+  <title>Simarjot Singh Anand</title>
+  <meta name="description" content="Computer Science student at VIT Chennai building AI projects end to end: an edge-AI venue sensor (patent filed), an analyst for SEC annual reports, and deployed ML apps.">
   <meta name="author" content="Simarjot Singh Anand">
+  <meta name="theme-color" content="#f5f2ea">
 
   <!-- How the link looks when shared on LinkedIn, WhatsApp, etc. -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://simar25.github.io/">
-  <meta property="og:title" content="Simarjot Singh Anand · AI/ML &amp; Software Developer">
-  <meta property="og:description" content="CS student at VIT Chennai building end-to-end AI systems, from edge computer vision to LLM-powered search over annual reports.">
+  <meta property="og:title" content="Simarjot Singh Anand">
+  <meta property="og:description" content="CS student at VIT Chennai building AI projects that work outside the notebook.">
   <meta property="og:image" content="https://simar25.github.io/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
 
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-
-  <!-- Apply the saved light/dark theme before the page paints, so it never flashes -->
-  <script>
-    try {
-      var saved = localStorage.getItem("theme");
-      if (saved === "light" || saved === "dark") document.documentElement.setAttribute("data-theme", saved);
-    } catch (e) {}
-    document.documentElement.classList.add("js");
-  </script>
 </head>
 <body>
 
-<!-- Reusable icons -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="i-github" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.2.8.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1.1.9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3"/></symbol>
-  <symbol id="i-linkedin" viewBox="0 0 24 24"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></symbol>
-  <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></symbol>
-  <symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></symbol>
-  <symbol id="i-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
-  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
-  <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></symbol>
-  <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></symbol>
-  <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
-</svg>
+<a class="skip-link" href="#work">Skip to work</a>
 
-<a class="skip-link" href="#main">Skip to content</a>
-
-<header class="nav">
-  <div class="container nav-inner">
-    <a class="brand" href="#top" aria-label="Simarjot Singh Anand, back to top">simarjot<span>.</span></a>
-    <nav id="nav-links" class="nav-links" aria-label="Main">
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="#education">Education</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <div class="nav-actions">
-      <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch between light and dark theme">
-        <svg class="icon show-light"><use href="#i-moon"/></svg>
-        <svg class="icon show-dark"><use href="#i-sun"/></svg>
-      </button>
-      <a class="btn btn-small" href="Simarjot_Singh_Anand_Resume.pdf" target="_blank" rel="noopener">Resume</a>
-      <button class="icon-btn menu-btn" id="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
-        <svg class="icon"><use href="#i-menu"/></svg>
-      </button>
-    </div>
-  </div>
+<header class="site-header wrap">
+  <a class="wordmark" href="#top">Simarjot Singh Anand</a>
+  <nav aria-label="Main">
+    <a href="#work">Work</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+    <a href="Simarjot_Singh_Anand_Resume.pdf" target="_blank" rel="noopener">Resume&nbsp;↗</a>
+  </nav>
 </header>
 
-<main id="main">
+<main>
 
-  <!-- HERO -->
-  <section class="hero" id="top">
-    <div class="container hero-grid">
-      <div class="hero-text">
-        <p class="status"><span class="dot"></span>Open to AI/ML &amp; software internships</p>
-        <h1>Simarjot Singh Anand</h1>
-        <p class="lead">I build AI systems end to end, from computer vision running on a Raspberry Pi to LLM-powered search over company annual reports. B.Tech Computer Science student at <strong>VIT Chennai</strong>.</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#projects">See my work <svg class="icon"><use href="#i-arrow"/></svg></a>
-          <a class="btn" href="Simarjot_Singh_Anand_Resume.pdf" download>Download resume <svg class="icon"><use href="#i-download"/></svg></a>
-        </div>
-        <div class="socials">
-          <a href="https://github.com/Simar25" target="_blank" rel="noopener" aria-label="GitHub"><svg class="icon"><use href="#i-github"/></svg></a>
-          <a href="https://www.linkedin.com/in/simarjot-singh-anand" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="icon"><use href="#i-linkedin"/></svg></a>
-          <a href="mailto:simaranand250@gmail.com" aria-label="Email"><svg class="icon"><use href="#i-mail"/></svg></a>
-        </div>
+  <!-- INTRO -->
+  <section class="intro wrap" id="top">
+    <div class="intro-top">
+      <div>
+        <p class="overline">B.Tech Computer Science · VIT Chennai · 2024–2028</p>
+        <h1>I build AI projects that work <em>outside the notebook.</em></h1>
       </div>
-
-      <div class="code-card" aria-hidden="true">
-        <div class="code-bar"><span></span><span></span><span></span><em>simarjot.py</em></div>
-<pre><code><span class="k">class</span> <span class="f">Simarjot</span>:
-    degree   = <span class="s">"B.Tech CSE, VIT Chennai"</span>
-    focus    = [<span class="s">"AI/ML"</span>, <span class="s">"computer vision"</span>, <span class="s">"RAG"</span>]
-    building = <span class="s">"FilingLens"</span>  <span class="c"># AI analyst for 10-Ks</span>
-    patents  = <span class="n">1</span>             <span class="c"># filed, co-inventor</span>
-
-    <span class="k">def</span> <span class="f">next</span>(self):
-        <span class="k">return</span> <span class="s">"an internship with you"</span></code></pre>
-      </div>
+      <figure class="portrait">
+        <img src="images/simarjot.jpg" alt="Simarjot Singh Anand in a grey double-breasted suit and maroon turban" width="544" height="680">
+      </figure>
     </div>
+
+    <div class="intro-grid">
+      <p class="intro-text">I’m a third-year student who likes taking a project all the way, from collecting the data to deploying the result. Recently that meant a Raspberry Pi camera that reads the atmosphere of a restaurant (we filed a patent on it) and a tool that answers questions about company annual reports, with citations. I’m looking for an AI/ML or software engineering internship.</p>
+
+      <dl class="facts">
+        <div><dt>Now</dt><dd>Building <a href="#filinglens">FilingLens</a></dd></div>
+        <div><dt>Studying</dt><dd>B.Tech CSE, VIT Chennai</dd></div>
+        <div><dt>CGPA</dt><dd>8.3 / 10</dd></div>
+        <div><dt>Email</dt><dd><a href="mailto:simaranand250@gmail.com">simaranand250@gmail.com</a></dd></div>
+      </dl>
+    </div>
+
+    <ul class="link-row">
+      <li><a href="https://github.com/Simar25" target="_blank" rel="noopener">GitHub ↗</a></li>
+      <li><a href="https://www.linkedin.com/in/simarjot-singh-anand" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+      <li><a href="Simarjot_Singh_Anand_Resume.pdf" target="_blank" rel="noopener">Resume (PDF) ↗</a></li>
+    </ul>
   </section>
 
-  <!-- KEY NUMBERS -->
-  <section class="container stats" aria-label="Highlights">
-    <div class="stat reveal"><strong>Patent filed</strong><span>Co-inventor of an edge-AI venue sensing device</span></div>
-    <div class="stat reveal"><strong>8.3 CGPA</strong><span>B.Tech CSE, VIT Chennai (2024–2028)</span></div>
-    <div class="stat reveal"><strong>21,005</strong><span>Annual-report passages indexed in FilingLens</span></div>
-    <div class="stat reveal"><strong>0.83 AUC</strong><span>Churn model, live on Streamlit</span></div>
+  <!-- WORK -->
+  <section class="work wrap" id="work">
+    <div class="section-head">
+      <h2>Selected work</h2>
+      <p>Five projects I’ve built or helped build</p>
+    </div>
+
+    <!-- 01 -->
+    <article class="project" id="ambient-vibe">
+      <div class="project-index"><span class="num">01</span><span class="status">Patent filed</span></div>
+      <div class="project-body">
+        <div class="project-text">
+          <h3>Ambient Vibe Intelligence System</h3>
+          <p class="lede">A small edge-AI device that tells a restaurant or venue what its atmosphere is like right now.</p>
+          <p>A Raspberry Pi camera combines lighting, how full the room is, the look of the space and infrastructure signals into a live “vibe” score. A matching platform uses that score to pair venues with local musicians. There is a working end-to-end prototype (TRL-3), and the patent disclosure was filed through VIT Chennai.</p>
+          <dl class="meta">
+            <div><dt>Role</dt><dd>Co-inventor. Built the on-device inference pipeline and the REST API.</dd></div>
+            <div><dt>Built with</dt><dd>Raspberry Pi, YOLOv8-nano, MobileNetV3, Flask/FastAPI</dd></div>
+          </dl>
+          <p class="note">Code is private while the patent is pending.</p>
+        </div>
+
+        <figure class="project-figure">
+          <div class="frame flow">
+            <div class="flow-col">
+              <span class="flow-label">Input</span>
+              <span class="node"><b>Raspberry Pi camera</b>live video of the room</span>
+            </div>
+            <span class="flow-arrow" aria-hidden="true">→</span>
+            <div class="flow-col">
+              <span class="flow-label">On the device</span>
+              <span class="node"><b>YOLOv8-nano</b>how full the room is</span>
+              <span class="node"><b>MobileNetV3</b>what the space looks like</span>
+              <span class="node"><b>Lighting &amp; infrastructure</b>extra signals</span>
+            </div>
+            <span class="flow-arrow" aria-hidden="true">→</span>
+            <div class="flow-col">
+              <span class="flow-label">Output</span>
+              <span class="node node-accent"><b>Vibe score</b>updated in real time</span>
+              <span class="node"><b>REST API</b>feeds artist–venue matching</span>
+            </div>
+          </div>
+          <figcaption>How the prototype works. The models run on the Raspberry Pi itself.</figcaption>
+        </figure>
+      </div>
+    </article>
+
+    <!-- 02 -->
+    <article class="project" id="filinglens">
+      <div class="project-index"><span class="num">02</span><span class="status">In progress</span></div>
+      <div class="project-body">
+        <div class="project-text">
+          <h3>FilingLens</h3>
+          <p class="lede">An AI analyst for company annual reports. Ask a question in plain English and get an answer drawn from the report and the numbers, with citations.</p>
+          <p>The data pipeline pulls 10-K filings, XBRL financial statements and daily stock prices from SEC EDGAR and Yahoo Finance into DuckDB, and every figure can be traced back to its filing. Reports are split into sections and passages, embedded, and searched by a RAG pipeline that answers with numbered citations. Next up: text-to-SQL for the numbers, and a small replication of the “Lazy Prices” paper on whether changes in report wording predict stock returns.</p>
+          <dl class="meta">
+            <div><dt>Role</dt><dd>Solo project</dd></div>
+            <div><dt>Built with</dt><dd>Python, DuckDB, ChromaDB, bge-base-en-v1.5, Gemini, pytest</dd></div>
+          </dl>
+          <p class="links"><a href="https://github.com/Simar25/FilingLens" target="_blank" rel="noopener">Code on GitHub ↗</a></p>
+        </div>
+
+        <figure class="project-figure">
+          <div class="frame funnel">
+            <div class="funnel-steps">
+              <div class="step"><span class="big">84</span><span>10-K annual reports</span></div>
+              <span class="funnel-arrow" aria-hidden="true">→</span>
+              <div class="step"><span class="big">1,862</span><span>report sections</span></div>
+              <span class="funnel-arrow" aria-hidden="true">→</span>
+              <div class="step"><span class="big">21,005</span><span>searchable passages</span></div>
+            </div>
+            <p class="funnel-foot">Each passage is embedded with bge-base-en-v1.5 and stored in ChromaDB, then filtered by company and year when a question comes in. Financials and prices sit next to them in DuckDB.</p>
+          </div>
+          <figcaption>From raw filings to passages an LLM can cite.</figcaption>
+        </figure>
+      </div>
+    </article>
+
+    <!-- 03 -->
+    <article class="project" id="churn">
+      <div class="project-index"><span class="num">03</span><span class="status">Live demo</span></div>
+      <div class="project-body">
+        <div class="project-text">
+          <h3>Customer Churn Prediction</h3>
+          <p class="lede">Predicts which telecom customers are about to cancel, and explains why.</p>
+          <p>Trained on the IBM Telco dataset: 7,043 customers, 26% of whom churned. I balanced the classes with SMOTE on the training split only, so nothing leaked into the test set, and compared Logistic Regression, Random Forest and XGBoost on recall and ROC-AUC instead of accuracy. The best model reached a ROC-AUC of 0.83, and it runs as a Streamlit app.</p>
+          <dl class="meta">
+            <div><dt>Built with</dt><dd>pandas, scikit-learn, imbalanced-learn, XGBoost, SHAP, Streamlit</dd></div>
+          </dl>
+          <p class="links">
+            <a href="https://customer-churn-prediction-simar25.streamlit.app/" target="_blank" rel="noopener">Live demo ↗</a>
+            <a href="https://github.com/Simar25/Customer-Churn-Prediction" target="_blank" rel="noopener">Code on GitHub ↗</a>
+          </p>
+        </div>
+
+        <figure class="project-figure">
+          <div class="frame frame-img frame-white">
+            <img src="images/churn-shap.png" alt="SHAP summary plot ranking tenure, two-year contracts and number of services as the strongest churn factors" loading="lazy">
+          </div>
+          <figcaption>SHAP summary from the project. Short tenure pushes churn risk up; two-year contracts pull it down.</figcaption>
+        </figure>
+      </div>
+    </article>
+
+    <!-- 04 -->
+    <article class="project" id="mannsay">
+      <div class="project-index"><span class="num">04</span><span class="status">Client project</span></div>
+      <div class="project-body">
+        <div class="project-text">
+          <h3>Mannsay</h3>
+          <p class="lede">A website for a clinical psychologist, where clients can read about therapy and book a session online.</p>
+          <p>A responsive front end with appointment booking, sign-up and login, and a short wellness self-check. Behind it, a PHP and MySQL backend stores accounts, appointments and progress notes, and a dashboard lets the practice manage appointment status, with email notifications through EmailJS.</p>
+          <dl class="meta">
+            <div><dt>Role</dt><dd>Developer, built for a real client</dd></div>
+            <div><dt>Built with</dt><dd>HTML, CSS, JavaScript, PHP, MySQL, EmailJS</dd></div>
+          </dl>
+        </div>
+
+        <figure class="project-figure">
+          <div class="frame frame-img">
+            <img src="images/mannsay.jpg" alt="Mannsay homepage with the headline “We Have The Power To Help People Thrive” and a Book Appointment button" loading="lazy">
+          </div>
+          <figcaption>The homepage of the client site.</figcaption>
+        </figure>
+      </div>
+    </article>
+
+    <!-- 05 -->
+    <article class="project" id="campus-finder">
+      <div class="project-index"><span class="num">05</span><span class="status">Team project</span></div>
+      <div class="project-body">
+        <div class="project-text">
+          <h3>Campus Finder</h3>
+          <p class="lede">A lost-and-found system for a college campus, built for our database course.</p>
+          <p>Students report lost or found items, search every report and claim what is theirs. The interesting part is matching: a single SQL self-join scores every lost–found pair out of 100 on category, location, date and description, and surfaces the likely matches.</p>
+          <dl class="meta">
+            <div><dt>Built with</dt><dd>SQLite, SQL, Python, HTML, CSS, JavaScript</dd></div>
+          </dl>
+          <p class="links"><a href="https://github.com/PranjalSingh2217/DBMS_PROJECT" target="_blank" rel="noopener">Code on GitHub ↗</a></p>
+        </div>
+
+        <figure class="project-figure">
+          <div class="frame frame-img">
+            <img src="images/campus-finder.jpg" alt="Campus Finder matches page showing lost and found reports paired with scores of 100 and 80 out of 100" loading="lazy">
+          </div>
+          <figcaption>The Matches page. Each pair’s score comes straight from the SQL query.</figcaption>
+        </figure>
+      </div>
+    </article>
   </section>
 
   <!-- ABOUT -->
-  <section class="section" id="about">
-    <div class="container"><div class="narrow reveal">
-      <p class="kicker">About</p>
-      <h2>From raw data to something people can use</h2>
-      <p>I'm a third-year Computer Science student at VIT Chennai. I like projects that go all the way: a Raspberry Pi camera that scores the atmosphere of a venue, a churn model with a live demo, a booking website for a real client.</p>
-      <p>Right now I'm building <a href="https://github.com/Simar25/FilingLens" target="_blank" rel="noopener">FilingLens</a>, an AI analyst that reads SEC 10-K annual reports and answers questions with citations. I'm looking for AI/ML and software engineering internships where I can learn from experienced engineers and ship real work.</p>
-    </div></div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section class="section" id="projects">
-    <div class="container">
-      <p class="kicker">Projects</p>
-      <h2>Things I've built</h2>
-
-      <div class="projects">
-
-        <article class="project reveal">
-          <div class="project-top"><span class="badge badge-amber">Patent filed</span></div>
-          <h3>Ambient Vibe Intelligence System</h3>
-          <p>An edge-AI IoT device that scores the atmosphere (“vibe”) of hospitality venues in real time.</p>
-          <ul>
-            <li>Fuses lighting, occupancy, scene-aesthetic and infrastructure signals from a Raspberry Pi camera into one live score.</li>
-            <li>Runs YOLOv8-nano (occupancy) and MobileNetV3 (scene type) on the device itself.</li>
-            <li>Serves scores through a REST API to an artist–venue matching platform that connects restaurants with local musicians.</li>
-            <li>Working end-to-end prototype (TRL-3); patent disclosure filed through VIT Chennai.</li>
-          </ul>
-          <div class="tags"><span>Raspberry Pi</span><span>YOLOv8</span><span>MobileNetV3</span><span>FastAPI</span><span>Flask</span></div>
-          <div class="links"><span class="muted">Code private while the patent is pending</span></div>
-        </article>
-
-        <article class="project reveal">
-          <div class="project-top"><span class="badge badge-blue">In progress</span></div>
-          <h3>FilingLens</h3>
-          <p>An AI analyst for company annual reports: ask a question in plain English and get an answer backed by the report text and the numbers, with citations.</p>
-          <ul>
-            <li>Data pipeline loads 10-K filings, XBRL financials and daily stock prices (SEC EDGAR, Yahoo Finance) into DuckDB, every figure traceable to its filing.</li>
-            <li>Parsed 84 reports into 1,862 sections and 21,005 passages, embedded with bge-base-en-v1.5 into ChromaDB.</li>
-            <li>RAG pipeline answers with numbered citations. Next: text-to-SQL, a query router, and a “Lazy Prices” study of report wording vs. stock returns.</li>
-          </ul>
-          <div class="tags"><span>Python</span><span>DuckDB</span><span>RAG</span><span>ChromaDB</span><span>Gemini</span><span>pytest</span></div>
-          <div class="links"><a href="https://github.com/Simar25/FilingLens" target="_blank" rel="noopener"><svg class="icon"><use href="#i-github"/></svg>Code</a></div>
-        </article>
-
-        <article class="project reveal">
-          <div class="project-top"><span class="badge badge-green">Live demo</span></div>
-          <h3>Customer Churn Prediction</h3>
-          <p>Predicts which telecom customers are about to leave, and explains why.</p>
-          <ul>
-            <li>IBM Telco dataset: 7,043 customers, 26% churners. SMOTE applied to the training split only, so no data leakage.</li>
-            <li>Compared Logistic Regression, Random Forest and XGBoost on recall and ROC-AUC rather than accuracy (best AUC 0.83).</li>
-            <li>SHAP shows short tenure and month-to-month contracts drive churn. Deployed as an interactive Streamlit app.</li>
-          </ul>
-          <div class="tags"><span>scikit-learn</span><span>XGBoost</span><span>SHAP</span><span>imbalanced-learn</span><span>Streamlit</span></div>
-          <div class="links">
-            <a href="https://customer-churn-prediction-simar25.streamlit.app/" target="_blank" rel="noopener"><svg class="icon"><use href="#i-external"/></svg>Live demo</a>
-            <a href="https://github.com/Simar25/Customer-Churn-Prediction" target="_blank" rel="noopener"><svg class="icon"><use href="#i-github"/></svg>Code</a>
-          </div>
-        </article>
-
-        <article class="project reveal">
-          <div class="project-top"><span class="badge badge-violet">Client project</span></div>
-          <h3>Mannsay: Online Counselling Platform</h3>
-          <p>A website for a clinical psychologist where clients can learn about therapy and book sessions online.</p>
-          <ul>
-            <li>Responsive site with appointment booking, client login and a wellness self-check.</li>
-            <li>PHP/MySQL backend for user accounts, appointments and progress tracking.</li>
-            <li>Dashboard to manage appointment status, with email notifications through EmailJS.</li>
-          </ul>
-          <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>PHP</span><span>MySQL</span></div>
-        </article>
-
-        <article class="project reveal">
-          <div class="project-top"><span class="badge badge-teal">Research</span></div>
-          <h3>Multimodal Biodiversity Estimation</h3>
-          <p>Estimating how many species live across regions of Costa Rica from satellite images and climate data.</p>
-          <ul>
-            <li>Part of an AI/ML research team working on species-richness prediction.</li>
-            <li>Combined satellite imagery with climate records into one dataset.</li>
-            <li>Trained and evaluated XGBoost and scikit-learn models on the combined features.</li>
-          </ul>
-          <div class="tags"><span>Python</span><span>XGBoost</span><span>scikit-learn</span><span>Remote sensing</span></div>
-        </article>
-
-        <article class="project reveal">
-          <div class="project-top"><span class="badge badge-gray">Team project</span></div>
-          <h3>Campus Finder</h3>
-          <p>A lost-and-found system for a college campus, built for a database course.</p>
-          <ul>
-            <li>Six-table SQL schema, including weak entities for claims and item images.</li>
-            <li>One SQL self-join scores every lost–found pair out of 100 (category, location, date, description) to suggest matches.</li>
-            <li>Python server with pages to report, search, claim and review items.</li>
-          </ul>
-          <div class="tags"><span>SQL</span><span>SQLite</span><span>Python</span><span>JavaScript</span></div>
-          <div class="links"><a href="https://github.com/PranjalSingh2217/DBMS_PROJECT" target="_blank" rel="noopener"><svg class="icon"><use href="#i-github"/></svg>Code</a></div>
-        </article>
-
-      </div>
-
-      <p class="more"><a href="https://github.com/Simar25?tab=repositories" target="_blank" rel="noopener">See all my repositories on GitHub <svg class="icon"><use href="#i-arrow"/></svg></a></p>
+  <section class="about wrap" id="about">
+    <div class="section-head">
+      <h2>About</h2>
     </div>
-  </section>
+    <div class="about-grid">
+      <p class="about-lede">I’m Simarjot, a Computer Science student at VIT Chennai. I enjoy the whole path of a project: finding the data, checking the model honestly, and putting it somewhere people can use it.</p>
 
-  <!-- SKILLS -->
-  <section class="section" id="skills">
-    <div class="container">
-      <p class="kicker">Skills</p>
-      <h2>What I work with</h2>
-      <div class="skill-grid">
-        <div class="skill-group reveal">
-          <h3>Languages</h3>
-          <div class="chips"><span>Python</span><span>C</span><span>C++</span><span>Java</span><span>SQL</span><span>JavaScript</span><span>PHP</span><span>R</span></div>
+      <div class="about-cols">
+        <div>
+          <h3>Education</h3>
+          <p><b>Vellore Institute of Technology, Chennai</b><br>B.Tech, Computer Science &amp; Engineering<br>2024–2028 · CGPA 8.3 / 10</p>
+          <p>Class XII (CBSE) 93.0%<br>Class X (CBSE) 91.2%</p>
         </div>
-        <div class="skill-group reveal">
-          <h3>AI / ML</h3>
-          <div class="chips"><span>scikit-learn</span><span>XGBoost</span><span>SHAP</span><span>SMOTE</span><span>YOLOv8</span><span>MobileNetV3</span><span>RAG</span><span>Embeddings</span><span>Gemini API</span></div>
+        <div>
+          <h3>Toolkit</h3>
+          <dl class="toolkit">
+            <dt>Languages</dt><dd>Python, C, C++, Java, SQL, JavaScript, PHP, R</dd>
+            <dt>Machine learning</dt><dd>scikit-learn, XGBoost, SHAP, YOLOv8, MobileNetV3, RAG, embeddings, Gemini API</dd>
+            <dt>Data &amp; backend</dt><dd>pandas, NumPy, DuckDB, MySQL, SQLite, ChromaDB, Flask, FastAPI, Streamlit</dd>
+            <dt>Tools</dt><dd>Git, GitHub, pytest, Raspberry Pi, HTML, CSS</dd>
+          </dl>
         </div>
-        <div class="skill-group reveal">
-          <h3>Data &amp; Backend</h3>
-          <div class="chips"><span>pandas</span><span>NumPy</span><span>DuckDB</span><span>MySQL</span><span>ChromaDB</span><span>Flask</span><span>FastAPI</span><span>Streamlit</span></div>
-        </div>
-        <div class="skill-group reveal">
-          <h3>Web &amp; Tools</h3>
-          <div class="chips"><span>HTML</span><span>CSS</span><span>Git</span><span>GitHub</span><span>pytest</span><span>Raspberry Pi</span><span>Kaggle</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- EDUCATION & ACHIEVEMENTS -->
-  <section class="section" id="education">
-    <div class="container">
-      <p class="kicker">Education &amp; achievements</p>
-      <h2>Background</h2>
-      <div class="edu-grid">
-        <div class="edu-card reveal">
-          <div class="edu-head">
-            <h3>Vellore Institute of Technology, Chennai</h3>
-            <span class="muted">2024 – 2028</span>
-          </div>
-          <p>B.Tech, Computer Science &amp; Engineering · <strong class="nowrap">CGPA 8.3 / 10</strong></p>
-          <p class="muted">Class XII (CBSE): 93.0% · Class X (CBSE): 91.2%</p>
-        </div>
-        <div class="edu-card reveal">
-          <h3>Achievements &amp; certifications</h3>
-          <ul class="checklist">
-            <li>Co-inventor on a patent disclosure filed through VIT Chennai (Ambient Vibe Intelligence System)</li>
+        <div>
+          <h3>Also</h3>
+          <ul class="plain">
+            <li>Co-inventor on a patent disclosure filed through VIT Chennai</li>
             <li>19 Google Cloud Skills Boost courses, GDG on Campus VIT Chennai Study Jams (2025)</li>
-            <li>Infosys Springboard: Basics of Python; Programming Fundamentals using Python (Feb 2025)</li>
+            <li>Infosys Springboard Python certifications (2025)</li>
             <li>Speaks English, Hindi and Punjabi</li>
           </ul>
         </div>
@@ -270,29 +256,23 @@
   </section>
 
   <!-- CONTACT -->
-  <section class="section" id="contact">
-    <div class="container">
-      <div class="contact-card reveal">
-        <p class="kicker">Contact</p>
-        <h2>Let's talk</h2>
-        <p>I'm open to AI/ML and software engineering internships. Email is the fastest way to reach me.</p>
-        <div class="hero-actions center">
-          <a class="btn btn-primary" href="mailto:simaranand250@gmail.com"><svg class="icon"><use href="#i-mail"/></svg>simaranand250@gmail.com</a>
-          <a class="btn" href="https://www.linkedin.com/in/simarjot-singh-anand" target="_blank" rel="noopener"><svg class="icon"><use href="#i-linkedin"/></svg>LinkedIn</a>
-          <a class="btn" href="https://github.com/Simar25" target="_blank" rel="noopener"><svg class="icon"><use href="#i-github"/></svg>GitHub</a>
-        </div>
-      </div>
-    </div>
+  <section class="contact wrap" id="contact">
+    <h2>Let’s talk.</h2>
+    <p>I’m looking for AI/ML and software engineering internships. Email is the quickest way to reach me.</p>
+    <a class="big-link" href="mailto:simaranand250@gmail.com">simaranand250@gmail.com</a>
+    <ul class="link-row">
+      <li><a href="https://github.com/Simar25" target="_blank" rel="noopener">GitHub ↗</a></li>
+      <li><a href="https://www.linkedin.com/in/simarjot-singh-anand" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+      <li><a href="Simarjot_Singh_Anand_Resume.pdf" target="_blank" rel="noopener">Resume (PDF) ↗</a></li>
+    </ul>
   </section>
 
 </main>
 
-<footer class="footer">
-  <div class="container">
-    <p>© <span id="year">2026</span> Simarjot Singh Anand · Built with HTML, CSS &amp; JavaScript · Hosted on GitHub Pages</p>
-  </div>
+<footer class="site-footer wrap">
+  <span>© 2026 Simarjot Singh Anand</span>
+  <span>Last updated October 2026</span>
 </footer>
 
-<script src="script.js"></script>
 </body>
 </html>
