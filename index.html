@@ -6,7 +6,7 @@
   <title>Simarjot Singh Anand</title>
   <meta name="description" content="Computer Science student at VIT Chennai building AI projects end to end: an edge-AI venue sensor (patent filed), an analyst for SEC annual reports, and deployed ML apps.">
   <meta name="author" content="Simarjot Singh Anand">
-  <meta name="theme-color" content="#f5f2ea">
+  <meta name="theme-color" content="#fafaf7">
 
   <!-- How the link looks when shared on LinkedIn, WhatsApp, etc. -->
   <meta property="og:type" content="website">
@@ -19,230 +19,277 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script>document.documentElement.className += " js";</script>
+  <script src="script.js" defer></script>
 </head>
 <body>
 
 <a class="skip-link" href="#work">Skip to work</a>
 
-<header class="site-header wrap">
-  <a class="wordmark" href="#top">Simarjot Singh Anand</a>
-  <nav aria-label="Main">
-    <a href="#work">Work</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-    <a href="Simarjot_Singh_Anand_Resume.pdf" target="_blank" rel="noopener">Resume&nbsp;↗</a>
-  </nav>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="wordmark" href="#top">Simarjot<span class="wm-rest"> Singh Anand</span></a>
+    <nav aria-label="Main">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a href="Simarjot_Singh_Anand_Resume.pdf" target="_blank" rel="noopener">Resume&nbsp;↗</a>
+    </nav>
+  </div>
+  <div class="progress" aria-hidden="true"></div>
 </header>
 
 <main>
 
-  <!-- INTRO -->
-  <section class="intro wrap" id="top">
-    <div class="intro-top">
-      <div>
-        <p class="overline">B.Tech Computer Science · VIT Chennai · 2024–2028</p>
-        <h1>I build AI projects that work <em>outside the notebook.</em></h1>
+  <!-- HERO: fills the first screen -->
+  <section class="hero" id="top">
+    <div class="wrap hero-inner">
+      <div class="hero-top label">
+        <p>B.Tech <span class="long">Computer Science &amp; Engineering</span><span class="short">CSE</span><br>VIT Chennai, 2024–2028</p>
+        <p class="hero-clock">Chennai, India<br><span id="clock">IST, UTC+5:30</span></p>
       </div>
-      <figure class="portrait">
-        <img src="images/simarjot.jpg" alt="Simarjot Singh Anand in a grey double-breasted suit and maroon turban" width="544" height="680">
-      </figure>
+
+      <h1 class="hero-name">
+        <span class="line"><span>Simarjot</span></span>
+        <span class="line"><span>Singh Anand<i class="sq" aria-hidden="true"></i></span></span>
+      </h1>
+
+      <div class="hero-foot">
+        <p class="hero-statement">I build AI projects that work <mark>outside the notebook</mark>, from collecting the data to deploying the result.</p>
+        <dl class="hero-facts">
+          <div><dt class="label">Now</dt><dd>Building <a href="#filinglens">FilingLens</a>, an AI analyst for company annual reports</dd></div>
+          <div><dt class="label">Looking for</dt><dd>AI/ML and software engineering internships</dd></div>
+        </dl>
+      </div>
+
+      <a class="scroll-cue label" href="#work"><span class="arrow" aria-hidden="true">↓</span> Selected work</a>
     </div>
-
-    <div class="intro-grid">
-      <p class="intro-text">I’m a third-year student who likes taking a project all the way, from collecting the data to deploying the result. Recently that meant a Raspberry Pi camera that reads the atmosphere of a restaurant (we filed a patent on it) and a tool that answers questions about company annual reports, with citations. I’m looking for an AI/ML or software engineering internship.</p>
-
-      <dl class="facts">
-        <div><dt>Now</dt><dd>Building <a href="#filinglens">FilingLens</a></dd></div>
-        <div><dt>Studying</dt><dd>B.Tech CSE, VIT Chennai</dd></div>
-        <div><dt>Email</dt><dd><a href="mailto:simaranand250@gmail.com">simaranand250@gmail.com</a></dd></div>
-      </dl>
-    </div>
-
-    <ul class="link-row">
-      <li><a href="https://github.com/Simar25" target="_blank" rel="noopener">GitHub ↗</a></li>
-      <li><a href="https://www.linkedin.com/in/simarjot-singh-anand" target="_blank" rel="noopener">LinkedIn ↗</a></li>
-      <li><a href="Simarjot_Singh_Anand_Resume.pdf" target="_blank" rel="noopener">Resume (PDF) ↗</a></li>
-    </ul>
   </section>
 
-  <!-- WORK -->
-  <section class="work wrap" id="work">
-    <div class="section-head">
-      <h2>Selected work</h2>
-      <p>Five projects I’ve built or helped build</p>
+  <!-- TICKER: sits at the bottom of the first screen -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>Edge AI</span><span>Computer vision</span><span>RAG pipelines</span><span>Machine learning</span><span>Data engineering</span><span>Full-stack web</span><span>SQL</span>
+      <span>Edge AI</span><span>Computer vision</span><span>RAG pipelines</span><span>Machine learning</span><span>Data engineering</span><span>Full-stack web</span><span>SQL</span>
+      <span>Edge AI</span><span>Computer vision</span><span>RAG pipelines</span><span>Machine learning</span><span>Data engineering</span><span>Full-stack web</span><span>SQL</span>
+      <span>Edge AI</span><span>Computer vision</span><span>RAG pipelines</span><span>Machine learning</span><span>Data engineering</span><span>Full-stack web</span><span>SQL</span>
     </div>
+  </div>
 
-    <!-- 01 -->
-    <article class="project" id="ambient-vibe">
-      <div class="project-index"><span class="num">01</span><span class="status">Patent filed</span></div>
-      <div class="project-body">
-        <div class="project-text">
+  <!-- WORK -->
+  <section class="section work" id="work">
+    <div class="wrap">
+      <header class="section-head" data-reveal="head">
+        <h2><span class="rise">Selected work<i class="sq" aria-hidden="true"></i></span></h2>
+        <p class="label">Five projects I’ve built<br>or helped build</p>
+      </header>
+
+      <!-- 01 -->
+      <article class="project" id="ambient-vibe">
+        <div class="project-head" data-reveal="stagger">
+          <p class="project-label label"><span class="num">01</span><span class="status">Patent filed</span><span class="tags">Edge AI · Computer vision</span></p>
           <h3>Ambient Vibe Intelligence System</h3>
           <p class="lede">A small edge-AI device that tells a restaurant or venue what its atmosphere is like right now.</p>
-          <p>A Raspberry Pi camera combines lighting, how full the room is, the look of the space and infrastructure signals into a live “vibe” score. A matching platform uses that score to pair venues with local musicians. There is a working end-to-end prototype (TRL-3), and the patent disclosure was filed through VIT Chennai.</p>
-          <dl class="meta">
-            <div><dt>Role</dt><dd>Co-inventor. Built the on-device inference pipeline and the REST API.</dd></div>
-            <div><dt>Built with</dt><dd>Raspberry Pi, YOLOv8-nano, MobileNetV3, Flask/FastAPI</dd></div>
-          </dl>
-          <p class="note">Code is private while the patent is pending.</p>
         </div>
 
-        <figure class="project-figure">
+        <figure class="project-figure" data-reveal="figure">
           <div class="frame flow">
             <div class="flow-col">
-              <span class="flow-label">Input</span>
+              <span class="flow-label label">Input</span>
               <span class="node"><b>Raspberry Pi camera</b>live video of the room</span>
             </div>
             <span class="flow-arrow" aria-hidden="true">→</span>
             <div class="flow-col">
-              <span class="flow-label">On the device</span>
+              <span class="flow-label label">On the device</span>
               <span class="node"><b>YOLOv8-nano</b>how full the room is</span>
               <span class="node"><b>MobileNetV3</b>what the space looks like</span>
               <span class="node"><b>Lighting &amp; infrastructure</b>extra signals</span>
             </div>
             <span class="flow-arrow" aria-hidden="true">→</span>
             <div class="flow-col">
-              <span class="flow-label">Output</span>
+              <span class="flow-label label">Output</span>
               <span class="node node-accent"><b>Vibe score</b>updated in real time</span>
               <span class="node"><b>REST API</b>feeds artist–venue matching</span>
             </div>
           </div>
-          <figcaption>How the prototype works. The models run on the Raspberry Pi itself.</figcaption>
+          <figcaption><span class="fig label">Fig. 01</span>How the prototype works. The models run on the Raspberry Pi itself.</figcaption>
         </figure>
-      </div>
-    </article>
 
-    <!-- 02 -->
-    <article class="project" id="filinglens">
-      <div class="project-index"><span class="num">02</span><span class="status">In progress</span></div>
-      <div class="project-body">
-        <div class="project-text">
+        <div class="project-detail" data-reveal>
+          <div class="project-text">
+            <p>A Raspberry Pi camera combines lighting, how full the room is, the look of the space and infrastructure signals into a live “vibe” score. A matching platform uses that score to pair venues with local musicians. There is a working end-to-end prototype (TRL-3), and the patent disclosure was filed through VIT Chennai.</p>
+            <p class="note">Code is private while the patent is pending.</p>
+          </div>
+          <dl class="meta">
+            <div><dt class="label">Role</dt><dd>Co-inventor. Built the on-device inference pipeline and the REST API.</dd></div>
+            <div><dt class="label">Built with</dt><dd>Raspberry Pi, YOLOv8-nano, MobileNetV3, Flask/FastAPI</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <!-- 02 -->
+      <article class="project" id="filinglens">
+        <div class="project-head" data-reveal="stagger">
+          <p class="project-label label"><span class="num">02</span><span class="status">In progress</span><span class="tags">RAG · Data engineering</span></p>
           <h3>FilingLens</h3>
           <p class="lede">An AI analyst for company annual reports. Ask a question in plain English and get an answer drawn from the report and the numbers, with citations.</p>
-          <p>The data pipeline pulls 10-K filings, XBRL financial statements and daily stock prices from SEC EDGAR and Yahoo Finance into DuckDB, and every figure can be traced back to its filing. Reports are split into sections and passages, embedded, and searched by a RAG pipeline that answers with numbered citations. Next up: text-to-SQL for the numbers, and a small replication of the “Lazy Prices” paper on whether changes in report wording predict stock returns.</p>
-          <dl class="meta">
-            <div><dt>Role</dt><dd>Solo project</dd></div>
-            <div><dt>Built with</dt><dd>Python, DuckDB, ChromaDB, bge-base-en-v1.5, Gemini, pytest</dd></div>
-          </dl>
-          <p class="links"><a href="https://github.com/Simar25/FilingLens" target="_blank" rel="noopener">Code on GitHub ↗</a></p>
         </div>
 
-        <figure class="project-figure">
+        <figure class="project-figure" data-reveal="figure">
           <div class="frame funnel">
             <div class="funnel-steps">
-              <div class="step"><span class="big">84</span><span>10-K annual reports</span></div>
+              <div class="step"><span class="big" data-count="84">84</span><span>10-K annual reports</span></div>
               <span class="funnel-arrow" aria-hidden="true">→</span>
-              <div class="step"><span class="big">1,862</span><span>report sections</span></div>
+              <div class="step"><span class="big" data-count="1862">1,862</span><span>report sections</span></div>
               <span class="funnel-arrow" aria-hidden="true">→</span>
-              <div class="step"><span class="big">21,005</span><span>searchable passages</span></div>
+              <div class="step"><span class="big" data-count="21005">21,005</span><span>searchable passages</span></div>
             </div>
             <p class="funnel-foot">Each passage is embedded with bge-base-en-v1.5 and stored in ChromaDB, then filtered by company and year when a question comes in. Financials and prices sit next to them in DuckDB.</p>
           </div>
-          <figcaption>From raw filings to passages an LLM can cite.</figcaption>
+          <figcaption><span class="fig label">Fig. 02</span>From raw filings to passages an LLM can cite.</figcaption>
         </figure>
-      </div>
-    </article>
 
-    <!-- 03 -->
-    <article class="project" id="churn">
-      <div class="project-index"><span class="num">03</span><span class="status">Live demo</span></div>
-      <div class="project-body">
-        <div class="project-text">
+        <div class="project-detail" data-reveal>
+          <div class="project-text">
+            <p>The data pipeline pulls 10-K filings, XBRL financial statements and daily stock prices from SEC EDGAR and Yahoo Finance into DuckDB, and every figure can be traced back to its filing. Reports are split into sections and passages, embedded, and searched by a RAG pipeline that answers with numbered citations.</p>
+            <p>Next up: text-to-SQL for the numbers, and a small replication of the “Lazy Prices” paper on whether changes in report wording predict stock returns.</p>
+          </div>
+          <div class="project-side">
+            <dl class="meta">
+              <div><dt class="label">Role</dt><dd>Solo project</dd></div>
+              <div><dt class="label">Built with</dt><dd>Python, DuckDB, ChromaDB, bge-base-en-v1.5, Gemini, pytest</dd></div>
+            </dl>
+            <p class="links"><a class="btn" href="https://github.com/Simar25/FilingLens" target="_blank" rel="noopener">Code on GitHub <span class="ar" aria-hidden="true">↗</span></a></p>
+          </div>
+        </div>
+      </article>
+
+      <!-- 03 -->
+      <article class="project" id="churn">
+        <div class="project-head" data-reveal="stagger">
+          <p class="project-label label"><span class="num">03</span><span class="status">Live demo</span><span class="tags">Machine learning · Explainability</span></p>
           <h3>Customer Churn Prediction</h3>
           <p class="lede">Predicts which telecom customers are about to cancel, and explains why.</p>
-          <p>Trained on the IBM Telco dataset: 7,043 customers, 26% of whom churned. I balanced the classes with SMOTE on the training split only, so nothing leaked into the test set, and compared Logistic Regression, Random Forest and XGBoost on recall and ROC-AUC instead of accuracy. The best model reached a ROC-AUC of 0.83, and it runs as a Streamlit app.</p>
-          <dl class="meta">
-            <div><dt>Built with</dt><dd>pandas, scikit-learn, imbalanced-learn, XGBoost, SHAP, Streamlit</dd></div>
-          </dl>
-          <p class="links">
-            <a href="https://customer-churn-prediction-simar25.streamlit.app/" target="_blank" rel="noopener">Live demo ↗</a>
-            <a href="https://github.com/Simar25/Customer-Churn-Prediction" target="_blank" rel="noopener">Code on GitHub ↗</a>
-          </p>
         </div>
 
-        <figure class="project-figure">
-          <div class="frame frame-img frame-white">
-            <img src="images/churn-shap.png" alt="SHAP summary plot ranking tenure, two-year contracts and number of services as the strongest churn factors" loading="lazy">
+        <figure class="project-figure" data-reveal="figure">
+          <div class="frame churn">
+            <dl class="churn-stats">
+              <div><dt class="label">Customers</dt><dd data-count="7043">7,043</dd></div>
+              <div><dt class="label">Churned</dt><dd data-count="26" data-suffix="%">26%</dd></div>
+              <div><dt class="label">Best ROC-AUC</dt><dd class="hi" data-count="0.83" data-decimals="2">0.83</dd></div>
+            </dl>
+            <div class="churn-plot">
+              <img src="images/churn-shap.png" alt="SHAP summary plot ranking tenure, two-year contracts and number of services as the strongest churn factors" width="803" height="940" loading="lazy">
+            </div>
           </div>
-          <figcaption>SHAP summary from the project. Short tenure pushes churn risk up; two-year contracts pull it down.</figcaption>
+          <figcaption><span class="fig label">Fig. 03</span>SHAP summary from the project. Short tenure pushes churn risk up; two-year contracts pull it down.</figcaption>
         </figure>
-      </div>
-    </article>
 
-    <!-- 04 -->
-    <article class="project" id="mannsay">
-      <div class="project-index"><span class="num">04</span><span class="status">Client project</span></div>
-      <div class="project-body">
-        <div class="project-text">
+        <div class="project-detail" data-reveal>
+          <div class="project-text">
+            <p>Trained on the IBM Telco dataset: 7,043 customers, 26% of whom churned. I balanced the classes with SMOTE on the training split only, so nothing leaked into the test set, and compared Logistic Regression, Random Forest and XGBoost on recall and ROC-AUC instead of accuracy. The best model reached a ROC-AUC of 0.83, and it runs as a Streamlit app.</p>
+          </div>
+          <div class="project-side">
+            <dl class="meta">
+              <div><dt class="label">Built with</dt><dd>pandas, scikit-learn, imbalanced-learn, XGBoost, SHAP, Streamlit</dd></div>
+            </dl>
+            <p class="links">
+              <a class="btn btn-solid" href="https://customer-churn-prediction-simar25.streamlit.app/" target="_blank" rel="noopener">Live demo <span class="ar" aria-hidden="true">↗</span></a>
+              <a class="btn" href="https://github.com/Simar25/Customer-Churn-Prediction" target="_blank" rel="noopener">Code on GitHub <span class="ar" aria-hidden="true">↗</span></a>
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <!-- 04 -->
+      <article class="project" id="mannsay">
+        <div class="project-head" data-reveal="stagger">
+          <p class="project-label label"><span class="num">04</span><span class="status">Client project</span><span class="tags">Full stack · Web</span></p>
           <h3>Mannsay</h3>
           <p class="lede">A website for a clinical psychologist, where clients can read about therapy and book a session online.</p>
-          <p>A responsive front end with appointment booking, sign-up and login, and a short wellness self-check. Behind it, a PHP and MySQL backend stores accounts, appointments and progress notes, and a dashboard lets the practice manage appointment status, with email notifications through EmailJS.</p>
-          <dl class="meta">
-            <div><dt>Role</dt><dd>Developer, built for a real client</dd></div>
-            <div><dt>Built with</dt><dd>HTML, CSS, JavaScript, PHP, MySQL, EmailJS</dd></div>
-          </dl>
         </div>
 
-        <figure class="project-figure">
-          <div class="frame frame-img">
-            <img src="images/mannsay.jpg" alt="Mannsay homepage with the headline “We Have The Power To Help People Thrive” and a Book Appointment button" loading="lazy">
+        <figure class="project-figure" data-reveal="figure">
+          <div class="frame frame-shot">
+            <img src="images/mannsay.jpg" alt="Mannsay homepage with the headline “We Have The Power To Help People Thrive” and a Book Appointment button" width="1200" height="708" loading="lazy">
           </div>
-          <figcaption>The homepage of the client site.</figcaption>
+          <figcaption><span class="fig label">Fig. 04</span>The homepage of the client site.</figcaption>
         </figure>
-      </div>
-    </article>
 
-    <!-- 05 -->
-    <article class="project" id="campus-finder">
-      <div class="project-index"><span class="num">05</span><span class="status">Team project</span></div>
-      <div class="project-body">
-        <div class="project-text">
+        <div class="project-detail" data-reveal>
+          <div class="project-text">
+            <p>A responsive front end with appointment booking, sign-up and login, and a short wellness self-check. Behind it, a PHP and MySQL backend stores accounts, appointments and progress notes, and a dashboard lets the practice manage appointment status, with email notifications through EmailJS.</p>
+          </div>
+          <dl class="meta">
+            <div><dt class="label">Role</dt><dd>Developer, built for a real client</dd></div>
+            <div><dt class="label">Built with</dt><dd>HTML, CSS, JavaScript, PHP, MySQL, EmailJS</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <!-- 05 -->
+      <article class="project" id="campus-finder">
+        <div class="project-head" data-reveal="stagger">
+          <p class="project-label label"><span class="num">05</span><span class="status">Team project</span><span class="tags">Databases · SQL</span></p>
           <h3>Campus Finder</h3>
           <p class="lede">A lost-and-found system for a college campus, built for our database course.</p>
-          <p>Students report lost or found items, search every report and claim what is theirs. The interesting part is matching: a single SQL self-join scores every lost–found pair out of 100 on category, location, date and description, and surfaces the likely matches.</p>
-          <dl class="meta">
-            <div><dt>Built with</dt><dd>SQLite, SQL, Python, HTML, CSS, JavaScript</dd></div>
-          </dl>
-          <p class="links"><a href="https://github.com/PranjalSingh2217/DBMS_PROJECT" target="_blank" rel="noopener">Code on GitHub ↗</a></p>
         </div>
 
-        <figure class="project-figure">
-          <div class="frame frame-img">
-            <img src="images/campus-finder.jpg" alt="Campus Finder matches page showing lost and found reports paired with scores of 100 and 80 out of 100" loading="lazy">
+        <figure class="project-figure" data-reveal="figure">
+          <div class="frame frame-shot">
+            <img src="images/campus-finder.jpg" alt="Campus Finder matches page showing lost and found reports paired with scores of 100 and 80 out of 100" width="1200" height="744" loading="lazy">
           </div>
-          <figcaption>The Matches page. Each pair’s score comes straight from the SQL query.</figcaption>
+          <figcaption><span class="fig label">Fig. 05</span>The Matches page. Each pair’s score comes straight from the SQL query.</figcaption>
         </figure>
-      </div>
-    </article>
+
+        <div class="project-detail" data-reveal>
+          <div class="project-text">
+            <p>Students report lost or found items, search every report and claim what is theirs. The interesting part is matching: a single SQL self-join scores every lost–found pair out of 100 on category, location, date and description, and surfaces the likely matches.</p>
+          </div>
+          <div class="project-side">
+            <dl class="meta">
+              <div><dt class="label">Built with</dt><dd>SQLite, SQL, Python, HTML, CSS, JavaScript</dd></div>
+            </dl>
+            <p class="links"><a class="btn" href="https://github.com/PranjalSingh2217/DBMS_PROJECT" target="_blank" rel="noopener">Code on GitHub <span class="ar" aria-hidden="true">↗</span></a></p>
+          </div>
+        </div>
+      </article>
+    </div>
   </section>
 
   <!-- ABOUT -->
-  <section class="about wrap" id="about">
-    <div class="section-head">
-      <h2>About</h2>
-    </div>
-    <div class="about-grid">
-      <p class="about-lede">I’m Simarjot, a Computer Science student at VIT Chennai. I enjoy the whole path of a project: finding the data, checking the model honestly, and putting it somewhere people can use it.</p>
+  <section class="section about" id="about">
+    <div class="wrap">
+      <header class="section-head" data-reveal="head">
+        <h2><span class="rise">About<i class="sq" aria-hidden="true"></i></span></h2>
+        <p class="label">Education, toolkit<br>and the rest</p>
+      </header>
 
-      <div class="about-cols">
-        <div>
-          <h3>Education</h3>
+      <p class="about-lede" data-reveal>I’m Simarjot, a Computer Science student at VIT Chennai. I enjoy <mark>the whole path of a project</mark>: finding the data, checking the model honestly, and putting it somewhere people can use it.</p>
+
+      <div class="about-cols" data-reveal="stagger">
+        <div class="about-edu">
+          <h3 class="label">Education</h3>
           <p><b>Vellore Institute of Technology, Chennai</b><br>B.Tech, Computer Science &amp; Engineering<br>2024–2028</p>
-          <p>Class XII (CBSE) 93.0%<br>Class X (CBSE) 91.2%</p>
-        </div>
-        <div>
-          <h3>Toolkit</h3>
-          <dl class="toolkit">
-            <dt>Languages</dt><dd>Python, C, C++, Java, SQL, JavaScript, PHP, R</dd>
-            <dt>Machine learning</dt><dd>scikit-learn, XGBoost, SHAP, YOLOv8, MobileNetV3, RAG, embeddings, Gemini API</dd>
-            <dt>Data &amp; backend</dt><dd>pandas, NumPy, DuckDB, MySQL, SQLite, ChromaDB, Flask, FastAPI, Streamlit</dd>
-            <dt>Tools</dt><dd>Git, GitHub, pytest, Raspberry Pi, HTML, CSS</dd>
+          <dl class="scores">
+            <div><dt>Class XII (CBSE)</dt><dd>93.0%</dd></div>
+            <div><dt>Class X (CBSE)</dt><dd>91.2%</dd></div>
           </dl>
         </div>
-        <div>
-          <h3>Also</h3>
+        <div class="about-tools">
+          <h3 class="label">Toolkit</h3>
+          <dl class="toolkit">
+            <div><dt>Languages</dt><dd>Python, C, C++, Java, SQL, JavaScript, PHP, R</dd></div>
+            <div><dt>Machine learning</dt><dd>scikit-learn, XGBoost, SHAP, YOLOv8, MobileNetV3, RAG, embeddings, Gemini API</dd></div>
+            <div><dt>Data &amp; backend</dt><dd>pandas, NumPy, DuckDB, MySQL, SQLite, ChromaDB, Flask, FastAPI, Streamlit</dd></div>
+            <div><dt>Tools</dt><dd>Git, GitHub, pytest, Raspberry Pi, HTML, CSS</dd></div>
+          </dl>
+        </div>
+        <div class="about-also">
+          <h3 class="label">Also</h3>
           <ul class="plain">
             <li>Co-inventor on a patent disclosure filed through VIT Chennai</li>
             <li>19 Google Cloud Skills Boost courses, GDG on Campus VIT Chennai Study Jams (2025)</li>
@@ -255,22 +302,35 @@
   </section>
 
   <!-- CONTACT -->
-  <section class="contact wrap" id="contact">
-    <h2>Let’s talk.</h2>
-    <p>I’m looking for AI/ML and software engineering internships. Email is the quickest way to reach me.</p>
-    <a class="big-link" href="mailto:simaranand250@gmail.com">simaranand250@gmail.com</a>
-    <ul class="link-row">
-      <li><a href="https://github.com/Simar25" target="_blank" rel="noopener">GitHub ↗</a></li>
-      <li><a href="https://www.linkedin.com/in/simarjot-singh-anand" target="_blank" rel="noopener">LinkedIn ↗</a></li>
-      <li><a href="Simarjot_Singh_Anand_Resume.pdf" target="_blank" rel="noopener">Resume (PDF) ↗</a></li>
-    </ul>
+  <section class="section contact" id="contact">
+    <div class="wrap">
+      <header class="section-head" data-reveal="head">
+        <h2><span class="rise">Let’s talk.</span></h2>
+        <p class="label">Open to internships</p>
+      </header>
+      <div class="contact-body" data-reveal>
+        <p class="contact-text">I’m looking for AI/ML and software engineering internships. Email is the quickest way to reach me.</p>
+        <a class="big-link" href="mailto:simaranand250@gmail.com">simaranand250@gmail.com<span class="big-arrow" aria-hidden="true">→</span></a>
+        <p class="links">
+          <a class="btn" href="https://github.com/Simar25" target="_blank" rel="noopener">GitHub <span class="ar" aria-hidden="true">↗</span></a>
+          <a class="btn" href="https://www.linkedin.com/in/simarjot-singh-anand" target="_blank" rel="noopener">LinkedIn <span class="ar" aria-hidden="true">↗</span></a>
+          <a class="btn" href="Simarjot_Singh_Anand_Resume.pdf" target="_blank" rel="noopener">Resume (PDF) <span class="ar" aria-hidden="true">↗</span></a>
+        </p>
+      </div>
+    </div>
   </section>
 
 </main>
 
-<footer class="site-footer wrap">
-  <span>© 2026 Simarjot Singh Anand</span>
-  <span>Last updated October 2026</span>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-inner label">
+      <span>© 2026 Simarjot Singh Anand</span>
+      <span>Plain HTML and CSS, hosted on GitHub Pages</span>
+      <span>Last updated October 2026</span>
+      <a href="#top">Back to top ↑</a>
+    </div>
+  </div>
 </footer>
 
 </body>
