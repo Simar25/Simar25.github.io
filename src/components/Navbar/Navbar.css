@@ -14,9 +14,9 @@
 .nav__strip {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 24px;
-  width: min(100%, 1120px);
+  max-width: 100%;
   height: 58px;
   padding: 0 28px;
   background:
@@ -28,24 +28,6 @@
   filter: drop-shadow(0 3px 4px rgba(30, 20, 8, 0.2));
   transform: rotate(-0.4deg);
   pointer-events: auto;
-}
-
-.nav__logo {
-  display: inline-flex;
-  align-items: flex-end;
-  font-family: var(--f-tag);
-  font-size: 2.05rem;
-  line-height: 1;
-  color: var(--ink);
-  transform: rotate(-4deg);
-}
-
-.nav__logo-dot {
-  width: 0.24em;
-  height: 0.24em;
-  margin: 0 0 0.16em 0.06em;
-  background: var(--ink);
-  border-radius: 50%;
 }
 
 .nav__links {
@@ -173,8 +155,13 @@
     display: inline-block;
   }
 
+  /* on phones the strip is just a small piece of tape holding the menu button */
+  .nav {
+    justify-content: flex-end;
+  }
+
   .nav__strip {
     height: 54px;
-    padding: 0 18px;
+    padding: 0 12px;
   }
 }

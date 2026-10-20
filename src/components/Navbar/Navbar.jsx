@@ -100,10 +100,6 @@ const Navbar = () => {
         transition={{ type: 'spring', stiffness: 260, damping: 28 }}
       >
         <div className="nav__strip">
-          <a href="#home" className="nav__logo" onClick={go('home')} aria-label="Back to top">
-            simar<span className="nav__logo-dot" />
-          </a>
-
           <nav aria-label="Primary">
             <ul className="nav__links">
               {NAV_ITEMS.map(({ id, label }) => (

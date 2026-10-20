@@ -4,18 +4,14 @@ import TornEdge from '../common/TornEdge';
 import Scribble from '../common/Scribble';
 import './Contact.css';
 
-const YEAR = new Date().getFullYear();
-
 const Footer = () => (
   <footer className="footer">
     <TornEdge color="var(--black-paper)" seed={29} fibre="rgba(255, 255, 255, 0.9)" height={24} />
     <div className="container footer__inner">
-      <span className="footer__tag" aria-hidden="true">
-        simar
-      </span>
       <p className="footer__text">
         <span>
-          Designed &amp; painted by <strong>Simarjot Singh Anand</strong> · © {YEAR}
+          Designed with <strong>React</strong>, <strong>Framer Motion</strong> and <strong>Vite</strong>, hosted on
+          GitHub Pages
         </span>
         <span className="footer__aside">no walls were harmed in the making of this site.</span>
       </p>

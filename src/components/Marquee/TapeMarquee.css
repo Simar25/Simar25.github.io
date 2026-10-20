@@ -1,8 +1,8 @@
 .tapes {
   position: relative;
   z-index: 5;
-  height: clamp(130px, 16vw, 170px);
-  margin-block: -40px -30px;
+  height: clamp(84px, 9vw, 110px);
+  margin-block: -8px -20px;
   overflow-x: clip;
   pointer-events: none;
 }
@@ -36,7 +36,7 @@
 
 /* white barrier tape with black edges */
 .tape-run--barrier {
-  top: 22%;
+  top: 50%;
   padding: 14px 0;
   font-family: var(--f-mono);
   font-weight: 700;
@@ -48,24 +48,9 @@
     repeating-linear-gradient(-45deg, var(--ink) 0 12px, transparent 12px 24px) top / 100% 7px no-repeat,
     repeating-linear-gradient(-45deg, var(--ink) 0 12px, transparent 12px 24px) bottom / 100% 7px no-repeat,
     var(--sticker);
-  transform: rotate(-2.6deg);
+  transform: translateY(-50%) rotate(-2.6deg);
 }
 
 .tape-run--barrier .tape-run__sep {
   color: var(--ink);
-}
-
-/* black gaffer tape */
-.tape-run--ink {
-  top: 50%;
-  padding: 10px 0;
-  font-family: var(--f-marker);
-  font-size: clamp(1.1rem, 2vw, 1.5rem);
-  color: var(--paper);
-  background: var(--ink);
-  transform: rotate(1.8deg);
-}
-
-.tape-run--ink .tape-run__sep {
-  color: var(--grey);
 }
