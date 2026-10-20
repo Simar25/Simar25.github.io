@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import './Stamp.css';
 
 /* Rubber stamp that slams onto the page when it scrolls into view. */
-const Stamp = ({ children, color = 'var(--spot)', rotate = -8, delay = 0, round = false, className = '' }) => (
+const Stamp = ({ children, color = 'var(--ink)', rotate = -8, delay = 0, round = false, className = '' }) => (
   <motion.span
     className={`stamp${round ? ' stamp--round' : ''} ${className}`}
     style={{ '--stamp': color }}

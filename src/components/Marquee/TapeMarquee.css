@@ -34,8 +34,8 @@
   padding-right: 0.9em;
 }
 
-/* red gaffer tape with black edges */
-.tape-run--spot {
+/* white barrier tape with black edges */
+.tape-run--barrier {
   top: 22%;
   padding: 14px 0;
   font-family: var(--f-mono);
@@ -47,11 +47,11 @@
   background:
     repeating-linear-gradient(-45deg, var(--ink) 0 12px, transparent 12px 24px) top / 100% 7px no-repeat,
     repeating-linear-gradient(-45deg, var(--ink) 0 12px, transparent 12px 24px) bottom / 100% 7px no-repeat,
-    var(--spot);
+    var(--sticker);
   transform: rotate(-2.6deg);
 }
 
-.tape-run--spot .tape-run__sep {
+.tape-run--barrier .tape-run__sep {
   color: var(--ink);
 }
 
@@ -67,5 +67,5 @@
 }
 
 .tape-run--ink .tape-run__sep {
-  color: var(--spot);
+  color: var(--grey);
 }

@@ -63,14 +63,14 @@ const Tape = ({ items, baseVelocity, className }) => {
 const TapeMarquee = () => (
   <div className="tapes" aria-hidden="true">
     <Tape
-      className="tape-run--spot"
+      className="tape-run--barrier"
       baseVelocity={-2.2}
       items={['Edge AI', 'Computer vision', 'RAG pipelines', 'Machine learning', 'Data engineering', 'Full-stack web', 'SQL']}
     />
     <Tape
       className="tape-run--ink"
       baseVelocity={1.8}
-      items={['Open to internships', 'Patent filed', 'VIT Chennai ’28', 'Chennai, India', 'Ship it']}
+      items={['Open to internships', 'Patent filed', 'Chennai, India', 'Ship it']}
     />
   </div>
 );

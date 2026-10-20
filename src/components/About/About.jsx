@@ -25,9 +25,9 @@ const CODE = [
 ];
 
 const STATS = [
-  { value: <CountUp to={5} />, label: 'Projects', color: 'var(--spot)', rotate: -10 },
-  { value: '1', label: 'Patent filed', color: 'var(--ink)', rotate: 6 },
-  { value: <CountUp to={3} />, label: 'Certs', color: 'var(--spot)', rotate: -4 },
+  { value: <CountUp to={5} />, label: 'Projects', rotate: -10 },
+  { value: '1', label: 'Patent filed', rotate: 6 },
+  { value: <CountUp to={3} />, label: 'Certs', rotate: -4 },
 ];
 
 const ALSO = [
@@ -137,7 +137,7 @@ const About = () => (
           <ul className="about__stamps">
             {STATS.map((s, i) => (
               <li key={s.label}>
-                <Stamp color={s.color} rotate={s.rotate} delay={0.15 + i * 0.14} round>
+                <Stamp rotate={s.rotate} delay={0.15 + i * 0.14} round>
                   <span className="about__stamp-value">{s.value}</span>
                   <span className="about__stamp-label">{s.label}</span>
                 </Stamp>

@@ -107,22 +107,14 @@ const PROJECTS = [
   },
 ];
 
-/* photocopies on the wall: off-white stock, printed in black or the one red */
+/* black-and-white photocopies on slightly different paper stock */
 const POSTERS = [
-  { paper: 'var(--sticker)', accent: 'var(--spot)', rotate: -1.1, seed: 31 },
-  { paper: 'var(--paper-2)', accent: 'var(--ink)', rotate: 0.9, seed: 47 },
-  { paper: 'var(--notebook)', accent: 'var(--spot)', rotate: -0.7, seed: 59 },
-  { paper: 'var(--sticker)', accent: 'var(--ink)', rotate: 1.1, seed: 73 },
-  { paper: 'var(--paper-2)', accent: 'var(--spot)', rotate: -0.9, seed: 89 },
+  { paper: 'var(--sticker)', rotate: -1.1, seed: 31 },
+  { paper: 'var(--paper-2)', rotate: 0.9, seed: 47 },
+  { paper: 'var(--notebook)', rotate: -0.7, seed: 59 },
+  { paper: 'var(--sticker)', rotate: 1.1, seed: 73 },
+  { paper: 'var(--paper-2)', rotate: -0.9, seed: 89 },
 ];
-
-const STATUS_COLOR = {
-  'Patent filed': 'var(--spot)',
-  'In progress': 'var(--spot)',
-  'Live demo': 'var(--spot)',
-  'Client project': 'var(--ink)',
-  'Team project': 'var(--ink)',
-};
 
 const BURST = burstClip(18, 0.8, 11);
 
@@ -273,7 +265,7 @@ const Poster = ({ project, index }) => {
     >
       <motion.article
         className="poster"
-        style={{ '--paper-c': style.paper, '--accent': style.accent, rotateX, rotateY, transformPerspective: 1400 }}
+        style={{ '--paper-c': style.paper, rotateX, rotateY, transformPerspective: 1400 }}
         onPointerMove={tilt}
         onPointerLeave={reset}
       >
@@ -283,7 +275,7 @@ const Poster = ({ project, index }) => {
               <span className="poster__num">{number}</span>
               <span className="poster__cat">{project.tags}</span>
               <span className="poster__stamp">
-                <Stamp color={STATUS_COLOR[project.status]} rotate={index % 2 ? 6 : -8} delay={0.4}>
+                <Stamp rotate={index % 2 ? 6 : -8} delay={0.4}>
                   {project.status}
                 </Stamp>
               </span>
@@ -368,12 +360,12 @@ const Poster = ({ project, index }) => {
 
 const Projects = () => (
   <section id="projects" className="projects section">
-    <TornEdge color="var(--kraft)" fibre="rgba(255, 250, 240, 0.85)" seed={11} />
+    <TornEdge color="var(--wall)" fibre="rgba(255, 250, 240, 0.85)" seed={11} />
     <div className="projects__ghost" aria-hidden="true">
       WALL OF WORK
     </div>
     <div className="container">
-      <SectionTitle index="03" kicker="wall of work" note="Five projects I’ve built or helped build.">
+      <SectionTitle index="02" kicker="wall of work" note="Five projects I’ve built or helped build.">
         Selected Work
       </SectionTitle>
 

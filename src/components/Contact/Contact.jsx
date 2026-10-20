@@ -213,7 +213,7 @@ const Contact = () => (
     <TornEdge color="var(--paper)" seed={23} />
     <div className="container">
       <SectionTitle
-        index="05"
+        index="04"
         kicker="open to internships"
         note="I’m looking for AI/ML and software engineering internships. Email is the quickest way to reach me."
       >

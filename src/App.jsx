@@ -7,7 +7,6 @@ import Navbar from './components/Navbar/Navbar'
 import Hero from './components/Hero/Hero'
 import TapeMarquee from './components/Marquee/TapeMarquee'
 import About from './components/About/About'
-import Skills from './components/Skills/Skills'
 import Projects from './components/Projects/Projects'
 import Education from './components/Education/Education'
 import Contact from './components/Contact/Contact'
@@ -40,7 +39,6 @@ function App() {
             <Hero />
             <TapeMarquee />
             <About />
-            <Skills />
             <Projects />
             <Education />
             <Contact />

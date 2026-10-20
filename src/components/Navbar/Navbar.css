@@ -44,7 +44,7 @@
   width: 0.24em;
   height: 0.24em;
   margin: 0 0 0.16em 0.06em;
-  background: var(--spot);
+  background: var(--ink);
   border-radius: 50%;
 }
 
@@ -138,8 +138,7 @@
 }
 
 .mnav__link.is-active {
-  color: var(--spot);
-  text-decoration: underline wavy var(--spot) 3px;
+  text-decoration: underline wavy var(--paper) 3px;
   text-underline-offset: 8px;
 }
 

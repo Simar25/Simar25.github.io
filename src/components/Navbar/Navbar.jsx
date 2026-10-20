@@ -6,7 +6,6 @@ import './Navbar.css';
 const NAV_ITEMS = [
   { id: 'home', label: 'Home' },
   { id: 'about', label: 'About' },
-  { id: 'skills', label: 'Skills' },
   { id: 'projects', label: 'Projects' },
   { id: 'education', label: 'Education' },
   { id: 'contact', label: 'Contact' },
@@ -26,7 +25,7 @@ const Circle = () => (
     <motion.path
       d="M120 8 C 175 6, 214 26, 210 52 C 206 80, 150 94, 96 90 C 42 86, 6 70, 10 44 C 14 20, 62 6, 128 10 C 152 12, 172 18, 186 26"
       fill="none"
-      stroke="var(--spot)"
+      stroke="var(--ink)"
       strokeWidth="9"
       strokeLinecap="round"
       initial={{ pathLength: 0 }}

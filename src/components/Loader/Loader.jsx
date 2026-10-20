@@ -85,9 +85,9 @@ const Loader = ({ onDone }) => {
           >
             <svg viewBox="0 0 40 80" width="34" height="68">
               <rect x="16" y="1" width="8" height="6" rx="1.5" fill="#15130f" />
-              <path d="M10 7h20v7a4 4 0 0 1-4 4H14a4 4 0 0 1-4-4z" fill="#e4412a" />
+              <path d="M10 7h20v7a4 4 0 0 1-4 4H14a4 4 0 0 1-4-4z" fill="#15130f" />
               <rect x="6" y="17" width="28" height="60" rx="6" fill="#ddd6cb" stroke="#15130f" strokeWidth="2.5" />
-              <rect x="7.5" y="30" width="25" height="30" fill="#e4412a" />
+              <rect x="7.5" y="30" width="25" height="30" fill="#15130f" />
               <rect x="11" y="19" width="3" height="56" rx="1.5" fill="#fff" opacity=".55" />
             </svg>
           </motion.span>

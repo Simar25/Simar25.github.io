@@ -14,12 +14,10 @@ const EDUCATION = [
   {
     institution: 'Class 12 (CBSE)',
     score: { label: 'Score', value: '93.0%' },
-    remark: 'great work ★',
   },
   {
     institution: 'Class 10 (CBSE)',
     score: { label: 'Score', value: '91.2%' },
-    remark: 'well done',
   },
 ];
 
@@ -29,7 +27,7 @@ const CERTIFICATIONS = [
     title: 'Programming Fundamentals using Python – Part 1',
     issuer: 'Infosys Springboard',
     date: 'Feb 2025',
-    color: 'var(--spot)',
+    color: 'var(--ink)',
   },
   {
     title: '19 Google Cloud Skill Courses, Study Jams 2025',
@@ -49,7 +47,7 @@ const Education = () => {
       <TornEdge color="var(--notebook)" seed={19} fibre="rgba(255, 255, 255, 0.95)" />
       <div className="container">
         <SectionTitle
-          index="04"
+          index="03"
           kicker="school daze"
           note="School, college and the courses along the way."
         >
@@ -88,8 +86,7 @@ const Education = () => {
                       <div className="index-card__grade">
                         <span className="index-card__grade-label">{item.score.label}</span>
                         <span className="index-card__grade-value">{item.score.value}</span>
-                        <Scribble type="circle" className="index-card__ring" color="var(--spot)" strokeWidth={3.5} delay={0.4} duration={0.8} />
-                        <span className="index-card__remark">{item.remark}</span>
+                        <Scribble type="circle" className="index-card__ring" color="var(--ink)" strokeWidth={3.5} delay={0.4} duration={0.8} />
                       </div>
                     )}
                   </div>
@@ -101,7 +98,7 @@ const Education = () => {
 
         <h3 className="certs__title">
           Certifications
-          <Scribble type="squiggle" className="certs__title-line" color="var(--spot)" strokeWidth={3.5} />
+          <Scribble type="squiggle" className="certs__title-line" color="var(--ink)" strokeWidth={3.5} />
         </h3>
 
         <ul className="certs">

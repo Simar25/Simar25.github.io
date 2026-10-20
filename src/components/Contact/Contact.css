@@ -28,7 +28,7 @@
   font-size: clamp(3rem, 7vw, 4.8rem);
   line-height: 1;
   text-transform: uppercase;
-  color: var(--spot);
+  color: var(--ink);
 }
 
 .flyer__what {
@@ -77,7 +77,7 @@
 }
 
 .flyer__row-text a:hover {
-  text-decoration: underline wavy var(--spot);
+  text-decoration: underline wavy var(--ink);
 }
 
 .flyer__row-label {
@@ -141,7 +141,7 @@
 .flyer__tab-label {
   font-family: var(--f-marker);
   font-size: 1.05rem;
-  color: var(--spot);
+  color: var(--ink);
 }
 
 .flyer__tab-value {
@@ -164,7 +164,7 @@
   background: var(--ink);
   border: 2.5px solid var(--ink);
   border-radius: 12px;
-  box-shadow: 3px 3px 0 var(--spot);
+  box-shadow: 3px 3px 0 var(--grey);
 }
 
 /* ---------- legal pad ---------- */
@@ -175,7 +175,7 @@
   gap: 4px;
   padding: 54px 34px 34px 64px;
   background:
-    linear-gradient(90deg, transparent 44px, rgba(228, 65, 42, 0.5) 44px 46px, transparent 46px, transparent 50px, rgba(228, 65, 42, 0.5) 50px 52px, transparent 52px),
+    linear-gradient(90deg, transparent 44px, rgba(21, 19, 15, 0.2) 44px 46px, transparent 46px, transparent 50px, rgba(21, 19, 15, 0.2) 50px 52px, transparent 52px),
     repeating-linear-gradient(180deg, transparent 0 35px, rgba(21, 19, 15, 0.1) 35px 36px) 0 40px / 100% calc(100% - 40px) no-repeat,
     var(--sticker);
   box-shadow: var(--shadow-lift);
@@ -246,7 +246,7 @@
 
 .pad__field input:focus-visible,
 .pad__field textarea:focus-visible {
-  border-bottom-color: var(--spot);
+  border-bottom-color: var(--ink);
 }
 
 .pad__actions {
@@ -294,7 +294,7 @@
   font-family: var(--f-tag);
   font-size: 3rem;
   line-height: 1;
-  color: var(--spot);
+  color: var(--paper);
   transform: rotate(-6deg);
 }
 
@@ -324,7 +324,7 @@
   color: var(--ink);
   background: var(--paper);
   border-radius: 999px;
-  box-shadow: 3px 3px 0 var(--spot);
+  box-shadow: 3px 3px 0 var(--grey);
 }
 
 .footer__zig {

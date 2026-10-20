@@ -15,7 +15,7 @@
   --paper: #f4efe6;
   --paper-2: #ebe6dc;
   --paper-3: #ddd6c9;
-  --kraft: #c8b08d;
+  --wall: #d5d0c7;
   --notebook: #fbf8f1;
   --sticker: #fffdf8;
   --black-paper: #161412;
@@ -25,8 +25,9 @@
   --ink-2: #3f3933;
   --ink-3: #6b6258;
 
-  /* the one can of colour on the wall */
-  --spot: #e4412a;
+  /* no colour on this wall: just greys for shadows and marker swipes */
+  --grey: #9a9389;
+  --grey-2: #c9c1b4;
 
   /* type */
   --f-drip: 'Rubik Wet Paint', 'Permanent Marker', 'Arial Black', sans-serif;
@@ -122,7 +123,7 @@ ul {
 }
 
 :focus-visible {
-  outline: 3px dashed var(--spot);
+  outline: 3px dashed var(--ink);
   outline-offset: 4px;
   border-radius: 4px;
 }
@@ -142,7 +143,7 @@ ul {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--spot);
+  background: var(--ink-2);
 }
 
 /* custom cursor (fine pointers only, see Cursor.jsx) */
@@ -233,7 +234,7 @@ ul {
 /* ---------- marker underline (swiped low, behind the words) ---------- */
 
 .hl {
-  --hl: var(--spot);
+  --hl: var(--grey);
   padding: 0 0.12em;
   margin: 0 -0.06em;
   background-image: linear-gradient(
@@ -255,8 +256,8 @@ ul {
 /* ---------- buttons ---------- */
 
 .btn-sticker {
-  --btn-bg: var(--spot);
-  --btn-fg: var(--ink);
+  --btn-bg: var(--ink);
+  --btn-fg: var(--paper);
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -270,19 +271,19 @@ ul {
   background: var(--btn-bg);
   border: 3px solid var(--ink);
   border-radius: 14px 6px 16px 8px;
-  box-shadow: 5px 5px 0 var(--ink);
+  box-shadow: 5px 5px 0 var(--grey);
   transform: rotate(-1.5deg);
   transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
 
 .btn-sticker:hover {
   transform: rotate(-1.5deg) translate(-2px, -3px);
-  box-shadow: 8px 9px 0 var(--ink);
+  box-shadow: 8px 9px 0 var(--grey);
 }
 
 .btn-sticker:active {
   transform: rotate(-1.5deg) translate(3px, 3px);
-  box-shadow: 1px 1px 0 var(--ink);
+  box-shadow: 1px 1px 0 var(--grey);
 }
 
 .btn-sticker[disabled] {

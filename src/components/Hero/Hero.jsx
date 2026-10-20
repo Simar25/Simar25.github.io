@@ -17,7 +17,6 @@ const TILT = (() => {
 const ROLES = ['B.Tech CS student @ VIT', 'AI / ML enthusiast', 'web developer'];
 
 const CANS = [
-  { name: 'Fire red', hex: '#e4412a' },
   { name: 'Ink black', hex: '#15130f' },
   { name: 'Chrome', hex: '#a9a6a0' },
   { name: 'Buff white', hex: '#fffdf8' },
@@ -26,7 +25,7 @@ const CANS = [
 const SOCIALS = [
   { icon: FiGithub, href: 'https://github.com/Simar25', label: 'GitHub', bg: 'var(--ink)', fg: 'var(--sticker)', rot: -8 },
   { icon: FiLinkedin, href: 'https://linkedin.com/in/simarjot-singh-anand', label: 'LinkedIn', bg: 'var(--sticker)', fg: 'var(--ink)', rot: 6 },
-  { icon: FiMail, href: 'mailto:simaranand250@gmail.com', label: 'Email', bg: 'var(--spot)', fg: 'var(--ink)', rot: -4 },
+  { icon: FiMail, href: 'mailto:simaranand250@gmail.com', label: 'Email', bg: 'var(--ink)', fg: 'var(--sticker)', rot: -4 },
 ];
 
 const BURST = burstClip(16, 0.76, 3);
@@ -268,15 +267,6 @@ const Hero = () => {
           </motion.ul>
         </div>
 
-        <div className="hero__visual">
-          <Sticker className="hello" rotate={-6} delay={0.8} constraints={heroRef} label="Hello, my name is Simar">
-            <span className="hello__top">
-              <strong>HELLO</strong>
-              <small>my name is</small>
-            </span>
-            <span className="hello__name">simar</span>
-          </Sticker>
-        </div>
       </div>
 
       {/* loose stickers — peel them off and move them around */}

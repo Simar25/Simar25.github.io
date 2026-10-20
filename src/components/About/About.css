@@ -18,7 +18,7 @@
 
 .blackbook {
   position: relative;
-  padding: 26px 30px 34px 40px;
+  padding: 26px 30px 86px 40px;
   color: var(--paper);
   background:
     radial-gradient(circle at 80% 10%, rgba(255, 255, 255, 0.05), transparent 45%),
@@ -34,7 +34,7 @@
   bottom: -6px;
   right: 46px;
   width: 12px;
-  background: var(--spot);
+  background: var(--grey);
   border-radius: 3px;
   box-shadow: 2px 0 4px rgba(0, 0, 0, 0.35);
   opacity: 0.92;
@@ -73,10 +73,11 @@
   user-select: none;
 }
 
-/* white paint pen, with the red one for keywords */
+/* white paint pen on the black page */
 .c-k,
 .c-b {
-  color: var(--spot);
+  color: var(--paper);
+  font-weight: 700;
 }
 
 .c-v {
@@ -183,7 +184,7 @@
   top: -0.1em;
   font-family: var(--f-marker);
   font-size: 1.15em;
-  color: var(--spot);
+  color: var(--ink);
 }
 
 .about__stamps {
@@ -220,7 +221,7 @@
 
 @media (max-width: 560px) {
   .blackbook {
-    padding: 22px 18px 30px 30px;
+    padding: 22px 18px 78px 30px;
   }
 
   .blackbook__band {

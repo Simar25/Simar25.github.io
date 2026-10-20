@@ -44,8 +44,8 @@
 .loader__tag-paint {
   position: absolute;
   inset: 0 0.1em;
-  color: var(--spot);
-  text-shadow: 0.035em 0.035em 0 var(--ink);
+  color: var(--ink);
+  text-shadow: 0.035em 0.035em 0 var(--grey-2);
 }
 
 .loader__drip {
@@ -53,7 +53,7 @@
   top: 72%;
   width: 7px;
   height: var(--h);
-  background: var(--spot);
+  background: var(--ink);
   border-radius: 0 0 6px 6px;
   transform-origin: top;
 }

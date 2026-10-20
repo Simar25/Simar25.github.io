@@ -56,7 +56,7 @@
   position: relative;
   z-index: 2;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) clamp(240px, 27vw, 360px);
+  grid-template-columns: minmax(0, 1fr);
   align-items: center;
   gap: clamp(24px, 4vw, 72px);
   pointer-events: none;
@@ -107,7 +107,7 @@
   display: flex;
   flex-wrap: nowrap;
   font-family: var(--f-drip);
-  font-size: clamp(3.3rem, 14.2vw, 9.6rem);
+  font-size: clamp(3.3rem, 14.2vw, 11.5rem);
   line-height: 0.92;
   letter-spacing: -0.005em;
   padding-right: 0.1em;
@@ -126,8 +126,8 @@
 }
 
 .throwup__shadow {
-  color: var(--spot);
-  -webkit-text-stroke: 0.1em var(--spot);
+  color: var(--grey);
+  -webkit-text-stroke: 0.1em var(--grey);
   transform: translate(0.1em, 0.11em);
 }
 
@@ -156,7 +156,7 @@
   position: absolute;
   width: clamp(48px, 6vw, 78px);
   top: clamp(-58px, -4.6vw, -36px);
-  left: 54%;
+  left: 44%;
   transform: rotate(12deg);
 }
 
@@ -201,7 +201,7 @@
   right: -4%;
   top: 52%;
   height: 4px;
-  background: var(--spot);
+  background: var(--ink);
   border-radius: 4px;
   transform-origin: left center;
 }
@@ -258,7 +258,7 @@
 .hero__facts a {
   font-weight: 700;
   text-decoration: underline;
-  text-decoration-color: var(--spot);
+  text-decoration-color: var(--ink);
   text-decoration-thickness: 2px;
   text-underline-offset: 3px;
 }
@@ -291,13 +291,7 @@
   box-shadow: 0 0 0 2px var(--ink), 3px 4px 0 2px var(--ink);
 }
 
-/* ---------- name sticker (where a photo would go) ---------- */
-
-.hero__visual {
-  position: relative;
-  justify-self: center;
-  width: 100%;
-}
+/* ---------- draggable stickers ---------- */
 
 .hsticker {
   position: absolute;
@@ -305,50 +299,6 @@
   touch-action: none;
   user-select: none;
   filter: drop-shadow(2px 4px 3px rgba(30, 20, 8, 0.28));
-}
-
-.hero__visual .hello {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  background: var(--sticker);
-  border-radius: 20px;
-  box-shadow: inset 0 0 0 10px var(--spot);
-}
-
-.hello__top {
-  display: grid;
-  justify-items: center;
-  padding: 18px 12px 14px;
-  color: var(--sticker);
-  background: var(--spot);
-  line-height: 1;
-}
-
-.hello__top strong {
-  font-family: var(--f-body);
-  font-weight: 700;
-  font-size: clamp(2.2rem, 3.8vw, 3.1rem);
-  letter-spacing: 0.1em;
-}
-
-.hello__top small {
-  margin-top: 6px;
-  font-family: var(--f-body);
-  font-size: clamp(0.85rem, 1.3vw, 1.05rem);
-  font-weight: 600;
-  letter-spacing: 0.06em;
-}
-
-.hello__name {
-  display: block;
-  padding: 26px 14px 40px;
-  font-family: var(--f-tag);
-  font-size: clamp(3.6rem, 7.4vw, 5.6rem);
-  line-height: 1;
-  text-align: center;
-  color: var(--ink);
-  transform: rotate(-5deg);
 }
 
 .hs-burst {
@@ -363,8 +313,8 @@
   height: 118px;
   font-family: var(--f-marker);
   font-size: 1.2rem;
-  color: var(--ink);
-  background: var(--spot);
+  color: var(--sticker);
+  background: var(--ink);
 }
 
 .hs-circle {
@@ -393,7 +343,7 @@
 
 .hs-pill {
   top: calc(var(--nav-h) + 34px);
-  left: 47%;
+  left: 52%;
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -412,7 +362,7 @@
 .hs-pill__dot {
   width: 10px;
   height: 10px;
-  background: var(--spot);
+  background: var(--ink);
   border: 2px solid var(--ink);
   border-radius: 50%;
   animation: pulse 1.6s ease-in-out infinite;
@@ -560,11 +510,6 @@
     grid-template-columns: 1fr;
   }
 
-  .hero__visual {
-    width: min(300px, 74%);
-    margin-top: 30px;
-  }
-
   .hs-burst {
     top: auto;
     left: auto;
@@ -578,8 +523,9 @@
   }
 
   .hs-circle {
-    left: 7%;
-    bottom: 22%;
+    left: auto;
+    right: 8%;
+    bottom: 20%;
   }
 
   .rack {
@@ -598,10 +544,6 @@
 @media (max-width: 600px) {
   .hero {
     padding-top: calc(var(--nav-h) + 28px);
-  }
-
-  .hero__visual {
-    width: min(250px, 70%);
   }
 
   .hs-pill {

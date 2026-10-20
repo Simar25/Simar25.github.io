@@ -13,7 +13,7 @@ const letter = {
   }),
 };
 
-/* Big drippy section heading: tape kicker, offset in spot colour, marker underline. */
+/* Big drippy section heading: tape kicker, grey offset, marker underline. */
 const SectionTitle = ({ index, kicker, children, dark = false, note }) => {
   const words = String(children)
     .split(' ')
