@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { FiArrowRight, FiCamera, FiDownload, FiGithub, FiLinkedin, FiMail, FiTrash2 } from 'react-icons/fi';
 import SprayCanvas from '../SprayCanvas/SprayCanvas';
 import Scribble from '../common/Scribble';
+import Mark from '../common/Mark';
 import { asset } from '../../lib/asset';
 import { between, burstClip, mulberry32 } from '../../lib/random';
 import './Hero.css';
@@ -29,6 +30,25 @@ const SOCIALS = [
 ];
 
 const BURST = burstClip(16, 0.76, 3);
+
+const chennaiTime = () =>
+  new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit' }).format(new Date());
+
+/* label-maker tape with the time in Chennai, ticking over every half minute */
+const LocalTime = () => {
+  const [time, setTime] = useState(chennaiTime);
+
+  useEffect(() => {
+    const id = setInterval(() => setTime(chennaiTime()), 30000);
+    return () => clearInterval(id);
+  }, []);
+
+  return (
+    <span className="dymo">
+      Chennai · <time>{time}</time> IST
+    </span>
+  );
+};
 
 const letterVariants = {
   hidden: (i) => ({ opacity: 0, y: -140, rotate: TILT[i] * 5, scale: 1.5 }),
@@ -176,7 +196,7 @@ const Hero = () => {
       <div className="container hero__inner">
         <div className="hero__text">
           <motion.div className="hero__kicker" {...rise(0.1)}>
-            <span className="dymo">Portfolio · Vol. 01</span>
+            <LocalTime />
             <span className="hero__hey">hey there, I&apos;m</span>
           </motion.div>
 
@@ -200,10 +220,24 @@ const Hero = () => {
             <RoleSwapper />
           </motion.p>
 
-          <motion.p className="hero__tagline" {...rise(1.4)}>
-            I build end-to-end AI systems, from edge computer vision (patent filed) to LLM-powered search over company
-            annual reports.
-          </motion.p>
+          <motion.div className="hero__tagline" {...rise(1.4)}>
+            <p className="hero__statement">
+              I build AI projects that work <Mark delay={1.9}>outside the notebook</Mark>, from collecting the data to
+              deploying the result.
+            </p>
+            <dl className="hero__facts">
+              <div>
+                <dt>Now</dt>
+                <dd>
+                  Building <a href="#filinglens">FilingLens</a>, an AI analyst for company annual reports
+                </dd>
+              </div>
+              <div>
+                <dt>Looking for</dt>
+                <dd>AI/ML and software engineering internships</dd>
+              </div>
+            </dl>
+          </motion.div>
 
           <motion.div className="hero__ctas" {...rise(1.55)}>
             <a href="#projects" className="btn-sticker">

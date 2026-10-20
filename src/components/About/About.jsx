@@ -11,22 +11,30 @@ import './About.css';
 const CODE = [
   [['k', 'const '], ['v', 'simarjot'], ['p', ' = {']],
   [['a', '  name'], ['p', ': '], ['s', '"Simarjot Singh Anand"'], ['p', ',']],
-  [['a', '  role'], ['p', ': '], ['s', '"CS Undergrad & Developer"'], ['p', ',']],
+  [['a', '  studying'], ['p', ': '], ['s', '"B.Tech CSE"'], ['p', ',']],
   [['a', '  university'], ['p', ': '], ['s', '"VIT Chennai"'], ['p', ',']],
   [['a', '  batch'], ['p', ': '], ['s', '"2024–2028"'], ['p', ',']],
-  [['a', '  interests'], ['p', ': [']],
-  [['s', '    "AI/ML"'], ['p', ',']],
-  [['s', '    "Deep Learning"'], ['p', ',']],
-  [['s', '    "Web Development"']],
+  [['a', '  building'], ['p', ': '], ['s', '"FilingLens"'], ['p', ',']],
+  [['a', '  into'], ['p', ': [']],
+  [['s', '    "Edge AI"'], ['p', ',']],
+  [['s', '    "RAG pipelines"'], ['p', ',']],
+  [['s', '    "Machine learning"']],
   [['p', '  ],']],
-  [['a', '  openToWork'], ['p', ': '], ['b', 'true']],
+  [['a', '  openToInternships'], ['p', ': '], ['b', 'true']],
   [['p', '};']],
 ];
 
 const STATS = [
-  { value: <CountUp to={4} suffix="+" />, label: 'Projects', color: 'var(--spot)', rotate: -10 },
-  { value: '1', label: 'Live client site', color: 'var(--ink)', rotate: 6 },
+  { value: <CountUp to={5} />, label: 'Projects', color: 'var(--spot)', rotate: -10 },
+  { value: '1', label: 'Patent filed', color: 'var(--ink)', rotate: 6 },
   { value: <CountUp to={3} />, label: 'Certs', color: 'var(--spot)', rotate: -4 },
+];
+
+const ALSO = [
+  'Co-inventor on a patent disclosure filed through VIT Chennai',
+  '19 Google Cloud Skills Boost courses, GDG on Campus VIT Chennai Study Jams (2025)',
+  'Infosys Springboard Python certifications (2025)',
+  'Speaks English, Hindi and Punjabi',
 ];
 
 const page = {
@@ -56,7 +64,7 @@ const About = () => (
       <SectionTitle
         index="01"
         kicker="who dis?"
-        note="A quick snapshot of who I am, what drives me, and where I'm headed."
+        note="The short version, and a few things that don't fit anywhere else."
       >
         About Me
       </SectionTitle>
@@ -103,27 +111,28 @@ const About = () => (
           >
             <span className="tape tape--top" />
             status:
-            <strong>open to work &amp; collabs ✓</strong>
+            <strong>open to internships ✓</strong>
           </motion.div>
         </div>
 
         <div className="about__text">
           <motion.p className="about__lead" variants={para} custom={0} initial="hidden" whileInView="shown" viewport={{ once: true }}>
-            I&apos;m a <Mark>B.Tech Computer Science</Mark> student at <Mark delay={0.15}>VIT Chennai (2024–2028)</Mark>.
+            I&apos;m Simarjot, a <Mark>Computer Science</Mark> student at <Mark delay={0.15}>VIT Chennai</Mark> (2024–2028).
           </motion.p>
 
           <motion.p variants={para} custom={1} initial="hidden" whileInView="shown" viewport={{ once: true }}>
-            I&apos;m deeply passionate about <Mark>Artificial Intelligence &amp; Machine Learning</Mark>,
-            with a growing focus on deep learning architectures and their real-world applications. Alongside that, I love
-            crafting polished, performant web experiences — from pixel-perfect frontends to scalable backend systems.
+            I enjoy <Mark>the whole path of a project</Mark>: finding the data, checking the model honestly, and putting it
+            somewhere people can use it.
           </motion.p>
 
-          <motion.p variants={para} custom={2} initial="hidden" whileInView="shown" viewport={{ once: true }}>
-            I&apos;ve had the opportunity to deploy a <Mark>real-world project for a clinical psychologist</Mark>,
-            turning research-backed insights into a functional tool that makes a tangible difference. Right now I&apos;m
-            building <Mark>FilingLens</Mark>, an AI analyst that answers questions about company annual reports, with
-            citations back to the source.
-          </motion.p>
+          <motion.div className="about__also" variants={para} custom={2} initial="hidden" whileInView="shown" viewport={{ once: true }}>
+            <p className="about__also-title">also —</p>
+            <ul>
+              {ALSO.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </motion.div>
 
           <ul className="about__stamps">
             {STATS.map((s, i) => (

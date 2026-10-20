@@ -156,7 +156,7 @@
   position: absolute;
   width: clamp(48px, 6vw, 78px);
   top: clamp(-58px, -4.6vw, -36px);
-  left: 51%;
+  left: 54%;
   transform: rotate(12deg);
 }
 
@@ -220,6 +220,47 @@
   box-shadow: var(--shadow-paper);
   transform: rotate(-0.7deg);
   clip-path: polygon(0 6px, 4% 1px, 9% 5px, 15% 0, 22% 4px, 30% 1px, 37% 6px, 45% 2px, 53% 5px, 60% 0, 68% 4px, 76% 1px, 83% 6px, 90% 2px, 96% 5px, 100% 1px, 100% calc(100% - 4px), 94% 100%, 87% calc(100% - 5px), 79% calc(100% - 1px), 71% calc(100% - 6px), 63% 100%, 55% calc(100% - 4px), 47% calc(100% - 1px), 39% calc(100% - 5px), 31% 100%, 23% calc(100% - 4px), 15% calc(100% - 1px), 7% calc(100% - 6px), 0 calc(100% - 2px));
+}
+
+.hero__statement {
+  font-size: clamp(1.08rem, 1.5vw, 1.2rem);
+  font-weight: 500;
+  line-height: 1.55;
+  color: var(--ink);
+}
+
+.hero__facts {
+  display: grid;
+  gap: 8px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 2px dashed rgba(21, 19, 15, 0.18);
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.hero__facts div {
+  display: grid;
+  grid-template-columns: 7.5em minmax(0, 1fr);
+  gap: 12px;
+}
+
+.hero__facts dt {
+  padding-top: 0.2em;
+  font-family: var(--f-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.hero__facts a {
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: var(--spot);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
 }
 
 /* ---------- CTAs + socials ---------- */
@@ -588,6 +629,11 @@
 
   .hero__tagline {
     padding: 16px 18px;
+  }
+
+  .hero__facts div {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2px;
   }
 
   .rack__hint {

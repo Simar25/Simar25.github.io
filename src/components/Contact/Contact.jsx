@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { FiCheck, FiCopy, FiMail, FiMapPin, FiPhone, FiSend } from 'react-icons/fi';
 import SectionTitle from '../common/SectionTitle';
 import TornEdge from '../common/TornEdge';
+import { asset } from '../../lib/asset';
 import './Contact.css';
 
 const EMAIL = 'simaranand250@gmail.com';
@@ -10,14 +11,14 @@ const EMAIL = 'simaranand250@gmail.com';
 const INFO = [
   { icon: FiMail, label: 'Email', value: EMAIL, copy: true },
   { icon: FiPhone, label: 'Phone', value: '6263753049', href: 'tel:6263753049' },
-  { icon: FiMapPin, label: 'Location', value: 'VIT Chennai, India' },
+  { icon: FiMapPin, label: 'Location', value: 'Chennai, India' },
 ];
 
 const TABS = [
   { label: 'email me', short: 'copy address', value: EMAIL, action: 'copy' },
   { label: 'GitHub', short: '@Simar25', href: 'https://github.com/Simar25' },
-  { label: 'LinkedIn', short: 'Simarjot S. Anand', href: 'https://linkedin.com/in/simarjot-singh-anand' },
-  { label: 'call me', short: '6263753049', href: 'tel:6263753049' },
+  { label: 'LinkedIn', short: 'Simarjot S. Anand', href: 'https://www.linkedin.com/in/simarjot-singh-anand' },
+  { label: 'resume', short: 'PDF, 1 page', href: asset('Simarjot_Singh_Anand_Resume.pdf') },
 ];
 
 const copyText = async (text) => {
@@ -62,11 +63,8 @@ const Flyer = () => {
       <span className="tape tape--top" />
       <div className="flyer__sheet">
         <p className="flyer__wanted">Wanted:</p>
-        <p className="flyer__what">new opportunities, collabs &amp; interesting conversations</p>
-        <p className="flyer__copy">
-          I&apos;m always open to new opportunities, collaborations, and interesting conversations. Pull a tab — or
-          just say hi.
-        </p>
+        <p className="flyer__what">an AI/ML or software engineering internship</p>
+        <p className="flyer__copy">Email is the quickest way to reach me. Pull a tab, or just say hi.</p>
 
         <ul className="flyer__info">
           {INFO.map(({ icon: Icon, label, value, copy, href }) => (
@@ -99,7 +97,7 @@ const Flyer = () => {
           <li key={tab.label} className="flyer__tab-slot">
             <motion.a
               href={tab.href ?? `mailto:${tab.value}`}
-              target={tab.href?.startsWith('http') ? '_blank' : undefined}
+              target={tab.href ? '_blank' : undefined}
               rel="noopener noreferrer"
               className="flyer__tab"
               onClick={(e) => tear(i, tab, e)}
@@ -214,8 +212,12 @@ const Contact = () => (
   <section id="contact" className="contact section">
     <TornEdge color="var(--paper)" seed={23} />
     <div className="container">
-      <SectionTitle index="05" kicker="holla at me" note="Got a project, an idea, or just want to say hi? My inbox is open.">
-        Get In Touch
+      <SectionTitle
+        index="05"
+        kicker="open to internships"
+        note="I’m looking for AI/ML and software engineering internships. Email is the quickest way to reach me."
+      >
+        Let&apos;s Talk
       </SectionTitle>
 
       <div className="contact__grid">

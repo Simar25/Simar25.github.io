@@ -73,6 +73,22 @@
   color: var(--ink);
 }
 
+.nav__resume {
+  display: inline-block;
+  padding: 5px 12px;
+  font-family: var(--f-marker);
+  font-size: 0.98rem;
+  color: var(--ink);
+  border: 2.5px solid var(--ink);
+  border-radius: var(--hand-radius);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.nav__resume:hover {
+  color: var(--paper);
+  background: var(--ink);
+}
+
 .nav__circle {
   position: absolute;
   inset: -4px -10px;
@@ -134,10 +150,19 @@
 }
 
 .mnav__foot {
+  display: grid;
+  justify-items: start;
+  gap: 6px;
   margin-top: 40px;
   font-family: var(--f-hand);
   font-size: 1.5rem;
   color: rgba(244, 239, 230, 0.7);
+}
+
+@media (max-width: 1040px) {
+  .nav__resume-item {
+    display: none;
+  }
 }
 
 @media (max-width: 860px) {

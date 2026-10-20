@@ -13,34 +13,34 @@ const LANGUAGES = [
   { name: 'Java', value: 70 },
 ];
 
+const MORE_LANGUAGES = ['SQL', 'JavaScript', 'PHP', 'R'];
+
 const BOARDS = [
   {
-    name: 'Web Development',
+    name: 'Machine learning',
     paper: 'var(--sticker)',
-    rotate: -2,
-    skills: [{ name: 'HTML' }, { name: 'CSS' }, { name: 'JavaScript', learning: true }],
-  },
-  {
-    name: 'AI / ML',
-    paper: 'var(--paper)',
-    rotate: 1.6,
-    skills: [
-      { name: 'Machine Learning', learning: true },
-      { name: 'Deep Learning', learning: true },
-    ],
-  },
-  {
-    name: 'Tools & Platforms',
-    paper: 'var(--paper-2)',
-    rotate: -0.8,
+    rotate: -1.2,
     wide: true,
-    skills: [{ name: 'Git' }, { name: 'GitHub' }, { name: 'Kaggle' }, { name: 'scikit-learn' }, { name: 'pandas' }, { name: 'NumPy' }],
+    skills: ['scikit-learn', 'XGBoost', 'SHAP', 'YOLOv8', 'MobileNetV3', 'RAG', 'embeddings', 'Gemini API'],
   },
   {
-    name: 'Databases',
+    name: 'Data & backend',
+    paper: 'var(--paper)',
+    rotate: 0.8,
+    wide: true,
+    skills: ['pandas', 'NumPy', 'DuckDB', 'MySQL', 'SQLite', 'ChromaDB', 'Flask', 'FastAPI', 'Streamlit'],
+  },
+  {
+    name: 'Web',
+    paper: 'var(--paper-2)',
+    rotate: -1.6,
+    skills: ['HTML', 'CSS', 'JavaScript', 'PHP'],
+  },
+  {
+    name: 'Tools',
     paper: 'var(--sticker)',
-    rotate: 2.4,
-    skills: [{ name: 'MySQL' }],
+    rotate: 2,
+    skills: ['Git', 'GitHub', 'pytest', 'Raspberry Pi', 'Kaggle'],
   },
 ];
 
@@ -120,11 +120,11 @@ const Board = ({ board, index }) => {
       </header>
       <ul className="board__stickers">
         {board.skills.map((skill, i) => {
-          const kind = stickerKind(skill.name, i + index);
+          const kind = stickerKind(skill, i + index);
           const tilt = TILTS[(i + index * 3) % TILTS.length];
           return (
             <motion.li
-              key={skill.name}
+              key={skill}
               className={`skill-sticker skill-sticker--${kind}`}
               style={{ '--s': CIRCLE_COLORS[(i + index) % CIRCLE_COLORS.length] }}
               data-cursor="drag"
@@ -139,8 +139,7 @@ const Board = ({ board, index }) => {
               whileHover={{ scale: 1.08, rotate: tilt + 4 }}
               whileDrag={{ scale: 1.15, rotate: 0, zIndex: 20 }}
             >
-              <span className="skill-sticker__label">{skill.name}</span>
-              {skill.learning && <span className="skill-sticker__wip">learning!</span>}
+              <span className="skill-sticker__label">{skill}</span>
             </motion.li>
           );
         })}
@@ -161,9 +160,9 @@ const Skills = () => (
         index="02"
         kicker="the paint rack"
         dark
-        note="A curated set of technologies and tools I use to bring ideas to life — from algorithms to full-stack solutions."
+        note="What I reach for, from models to databases."
       >
-        Technical Arsenal
+        Toolkit
       </SectionTitle>
 
       <div className="skills__layout">
@@ -177,6 +176,14 @@ const Skills = () => (
               <SprayBar key={lang.name} {...lang} index={i} />
             ))}
           </ul>
+          <p className="skills__more">
+            <span>also writes</span>
+            {MORE_LANGUAGES.map((lang, i) => (
+              <span key={lang} className="dymo" style={{ transform: `rotate(${i % 2 ? 2 : -2}deg)` }}>
+                {lang}
+              </span>
+            ))}
+          </p>
           <motion.p
             className="skills__tag"
             aria-hidden="true"

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+import { asset } from '../../lib/asset';
 import './Navbar.css';
 
 const NAV_ITEMS = [
@@ -10,6 +11,8 @@ const NAV_ITEMS = [
   { id: 'education', label: 'Education' },
   { id: 'contact', label: 'Contact' },
 ];
+
+const RESUME = asset('Simarjot_Singh_Anand_Resume.pdf');
 
 const Circle = () => (
   <motion.svg
@@ -117,6 +120,11 @@ const Navbar = () => {
                   </a>
                 </li>
               ))}
+              <li className="nav__resume-item">
+                <a href={RESUME} target="_blank" rel="noopener noreferrer" className="nav__resume">
+                  Resume&nbsp;↗
+                </a>
+              </li>
             </ul>
           </nav>
 
@@ -162,7 +170,12 @@ const Navbar = () => {
                 </motion.li>
               ))}
             </ul>
-            <p className="mnav__foot">simaranand250@gmail.com</p>
+            <p className="mnav__foot">
+              <a href="mailto:simaranand250@gmail.com">simaranand250@gmail.com</a>
+              <a href={RESUME} target="_blank" rel="noopener noreferrer">
+                Resume (PDF) ↗
+              </a>
+            </p>
           </motion.div>
         )}
       </AnimatePresence>

@@ -6,7 +6,10 @@ const CountUp = ({ to, decimals = 0, duration = 1.6, suffix = '' }) => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '0px 0px -10% 0px' });
   const value = useMotionValue(0);
-  const text = useTransform(value, (v) => `${v.toFixed(decimals)}${suffix}`);
+  const text = useTransform(
+    value,
+    (v) => `${v.toLocaleString('en-US', { minimumFractionDigits: decimals, maximumFractionDigits: decimals })}${suffix}`,
+  );
 
   useEffect(() => {
     if (!inView) return undefined;

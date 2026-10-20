@@ -157,6 +157,35 @@
   color: var(--ink);
 }
 
+.about__also-title {
+  font-family: var(--f-hand);
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--ink);
+}
+
+.about__also ul {
+  display: grid;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.about__also li {
+  position: relative;
+  padding-left: 1.7em;
+}
+
+.about__also li::before {
+  content: '✓';
+  position: absolute;
+  left: 0.2em;
+  top: -0.1em;
+  font-family: var(--f-marker);
+  font-size: 1.15em;
+  color: var(--spot);
+}
+
 .about__stamps {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));

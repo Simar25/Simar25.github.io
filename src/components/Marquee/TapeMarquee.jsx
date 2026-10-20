@@ -65,12 +65,12 @@ const TapeMarquee = () => (
     <Tape
       className="tape-run--spot"
       baseVelocity={-2.2}
-      items={['AI / ML', 'Deep Learning', 'Python', 'Web Dev', 'Computer Vision', 'Open to work']}
+      items={['Edge AI', 'Computer vision', 'RAG pipelines', 'Machine learning', 'Data engineering', 'Full-stack web', 'SQL']}
     />
     <Tape
       className="tape-run--ink"
       baseVelocity={1.8}
-      items={['Build', 'Break', 'Learn', 'Repeat', 'VIT Chennai ’28', 'Ship it']}
+      items={['Open to internships', 'Patent filed', 'VIT Chennai ’28', 'Chennai, India', 'Ship it']}
     />
   </div>
 );

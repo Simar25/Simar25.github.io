@@ -129,6 +129,29 @@
   transform: translateX(-50%);
 }
 
+.skills__more {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 8px;
+  margin-top: 40px;
+  font-family: var(--f-hand);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: rgba(244, 239, 230, 0.75);
+}
+
+.skills__more span:first-child {
+  margin-right: 6px;
+}
+
+/* label tape in white on the black wall */
+.skills__more .dymo {
+  color: var(--ink);
+  background: var(--paper);
+  text-shadow: none;
+}
+
 .skills__tag {
   margin-top: clamp(60px, 8vw, 110px);
   font-family: var(--f-tag);
@@ -256,19 +279,6 @@
   border-radius: 50%;
   box-shadow: 0 0 0 2px var(--ink);
   text-shadow: 0.06em 0.06em 0 var(--ink);
-}
-
-.skill-sticker__wip {
-  position: absolute;
-  top: -16px;
-  right: -12px;
-  font-family: var(--f-hand);
-  font-size: 1.1rem;
-  font-weight: 700;
-  line-height: 1;
-  color: var(--spot);
-  transform: rotate(12deg);
-  white-space: nowrap;
 }
 
 .skills__hint {

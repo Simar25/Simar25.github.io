@@ -51,7 +51,7 @@ const Education = () => {
         <SectionTitle
           index="04"
           kicker="school daze"
-          note="My academic background and the certifications that form the foundation of my technical expertise."
+          note="School, college and the courses along the way."
         >
           Education
         </SectionTitle>
