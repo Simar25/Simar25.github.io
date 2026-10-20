@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import Scribble from './Scribble';
-import Splat from './Splat';
 import './SectionTitle.css';
 
 const letter = {
@@ -14,14 +13,14 @@ const letter = {
   }),
 };
 
-/* Big drippy section heading: tape kicker, splat of paint, marker underline. */
-const SectionTitle = ({ index, kicker, children, color = 'pink', dark = false, seed = 1, note }) => {
+/* Big drippy section heading: tape kicker, offset in spot colour, marker underline. */
+const SectionTitle = ({ index, kicker, children, dark = false, note }) => {
   const words = String(children)
     .split(' ')
     .map((word, w, all) => ({ word, start: all.slice(0, w).join('').length }));
 
   return (
-    <header className={`stitle${dark ? ' stitle--dark' : ''}`} style={{ '--c': `var(--${color})` }}>
+    <header className={`stitle${dark ? ' stitle--dark' : ''}`}>
       <motion.p
         className="stitle__kicker"
         initial={{ opacity: 0, y: 14, rotate: -6 }}
@@ -39,7 +38,6 @@ const SectionTitle = ({ index, kicker, children, color = 'pink', dark = false, s
         whileInView="shown"
         viewport={{ once: true, margin: '0px 0px -10% 0px' }}
       >
-        <Splat seed={seed} color={`var(--${color})`} opacity={0.9} className="stitle__splat" delay={0.05} />
         <span className="sr-only">{children}</span>
         <span className="stitle__text" aria-hidden="true">
           {words.map(({ word, start }, w) => (

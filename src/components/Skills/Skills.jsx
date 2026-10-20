@@ -7,22 +7,22 @@ import Scribble from '../common/Scribble';
 import './Skills.css';
 
 const LANGUAGES = [
-  { name: 'Python', value: 90, color: 'var(--yellow)' },
-  { name: 'C', value: 80, color: 'var(--pink)' },
-  { name: 'C++', value: 75, color: '#5f8bff' },
-  { name: 'Java', value: 70, color: 'var(--orange)' },
+  { name: 'Python', value: 90 },
+  { name: 'C', value: 80 },
+  { name: 'C++', value: 75 },
+  { name: 'Java', value: 70 },
 ];
 
 const BOARDS = [
   {
     name: 'Web Development',
-    paper: 'var(--notebook)',
+    paper: 'var(--sticker)',
     rotate: -2,
     skills: [{ name: 'HTML' }, { name: 'CSS' }, { name: 'JavaScript', learning: true }],
   },
   {
     name: 'AI / ML',
-    paper: '#ffc8de',
+    paper: 'var(--paper)',
     rotate: 1.6,
     skills: [
       { name: 'Machine Learning', learning: true },
@@ -31,32 +31,33 @@ const BOARDS = [
   },
   {
     name: 'Tools & Platforms',
-    paper: 'var(--legal)',
+    paper: 'var(--paper-2)',
     rotate: -0.8,
     wide: true,
     skills: [{ name: 'Git' }, { name: 'GitHub' }, { name: 'Kaggle' }, { name: 'scikit-learn' }, { name: 'pandas' }, { name: 'NumPy' }],
   },
   {
     name: 'Databases',
-    paper: '#d3e2ff',
+    paper: 'var(--sticker)',
     rotate: 2.4,
     skills: [{ name: 'MySQL' }],
   },
 ];
 
-const STICKER_COLORS = ['var(--pink)', 'var(--yellow)', 'var(--blue)', 'var(--green)', 'var(--orange)'];
+/* round stickers come in red or black; the rest are white or label tape */
+const CIRCLE_COLORS = ['var(--spot)', 'var(--ink)'];
 const TILTS = [-6, 4, -3, 7, -8, 3, 5, -4];
 
 const stickerKind = (name, i) => (name.length <= 4 ? 'circle' : ['pill', 'dymo', 'tag'][i % 3]);
 
 /* ---------- spray-painted proficiency streak ---------- */
 
-const SprayBar = ({ name, value, color, index }) => {
+const SprayBar = ({ name, value, index }) => {
   const trackRef = useRef(null);
   const inView = useInView(trackRef, { once: true, margin: '0px 0px -10% 0px' });
   const delay = 0.2 + index * 0.18;
   return (
-    <li className="sbar" style={{ '--c': color }}>
+    <li className="sbar">
       <div className="sbar__head">
         <span className="sbar__name">{name}</span>
         <span className="sbar__value">
@@ -125,7 +126,7 @@ const Board = ({ board, index }) => {
             <motion.li
               key={skill.name}
               className={`skill-sticker skill-sticker--${kind}`}
-              style={{ '--s': STICKER_COLORS[(i + index * 2) % STICKER_COLORS.length] }}
+              style={{ '--s': CIRCLE_COLORS[(i + index) % CIRCLE_COLORS.length] }}
               data-cursor="drag"
               drag
               dragConstraints={ref}
@@ -159,8 +160,6 @@ const Skills = () => (
       <SectionTitle
         index="02"
         kicker="the paint rack"
-        color="yellow"
-        seed={4}
         dark
         note="A curated set of technologies and tools I use to bring ideas to life — from algorithms to full-stack solutions."
       >
@@ -171,7 +170,7 @@ const Skills = () => (
         <div className="skills__langs">
           <h3 className="skills__h">
             Languages
-            <Scribble type="zigzag" className="skills__h-line" color="var(--pink)" strokeWidth={4} />
+            <Scribble type="zigzag" className="skills__h-line" color="var(--spot)" strokeWidth={4} />
           </h3>
           <ul className="sbars">
             {LANGUAGES.map((lang, i) => (
@@ -200,7 +199,7 @@ const Skills = () => (
       </div>
 
       <p className="skills__hint">
-        <Scribble type="arrow" className="skills__hint-arrow" color="var(--yellow)" strokeWidth={3} />
+        <Scribble type="arrow" className="skills__hint-arrow" color="var(--paper)" strokeWidth={3} />
         psst — the stickers peel off. drag &apos;em around.
       </p>
     </div>

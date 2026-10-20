@@ -214,7 +214,7 @@ const Contact = () => (
   <section id="contact" className="contact section">
     <TornEdge color="var(--paper)" seed={23} />
     <div className="container">
-      <SectionTitle index="05" kicker="holla at me" color="orange" seed={27} note="Got a project, an idea, or just want to say hi? My inbox is open.">
+      <SectionTitle index="05" kicker="holla at me" note="Got a project, an idea, or just want to say hi? My inbox is open.">
         Get In Touch
       </SectionTitle>
 

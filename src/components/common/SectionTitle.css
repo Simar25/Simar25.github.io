@@ -52,7 +52,7 @@
   display: inline-flex;
   flex-wrap: wrap;
   column-gap: 0.28em;
-  text-shadow: 0.06em 0.06em 0 var(--c);
+  text-shadow: 0.06em 0.06em 0 var(--spot);
 }
 
 .stitle__word {
@@ -64,17 +64,6 @@
 .stitle__letter {
   display: inline-block;
   will-change: transform;
-}
-
-.stitle__splat {
-  position: absolute;
-  z-index: 0;
-  width: 1.9em;
-  height: 1.9em;
-  left: -0.55em;
-  top: -0.55em;
-  opacity: 0.9;
-  pointer-events: none;
 }
 
 .stitle__underline {

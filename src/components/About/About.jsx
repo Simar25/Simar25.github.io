@@ -24,10 +24,9 @@ const CODE = [
 ];
 
 const STATS = [
-  { value: <CountUp to={4} suffix="+" />, label: 'Projects', color: 'var(--red)', rotate: -10 },
-  { value: <CountUp to={8.2} decimals={1} />, label: 'CGPA', color: 'var(--blue)', rotate: 6 },
-  { value: <CountUp to={3} />, label: 'Certs', color: '#127a4b', rotate: -4 },
-  { value: '✓', label: 'Research team', color: 'var(--ink)', rotate: 9 },
+  { value: <CountUp to={4} suffix="+" />, label: 'Projects', color: 'var(--spot)', rotate: -10 },
+  { value: '1', label: 'Live client site', color: 'var(--ink)', rotate: 6 },
+  { value: <CountUp to={3} />, label: 'Certs', color: 'var(--spot)', rotate: -4 },
 ];
 
 const page = {
@@ -57,8 +56,6 @@ const About = () => (
       <SectionTitle
         index="01"
         kicker="who dis?"
-        color="pink"
-        seed={12}
         note="A quick snapshot of who I am, what drives me, and where I'm headed."
       >
         About Me
@@ -94,7 +91,7 @@ const About = () => (
             <span className="blackbook__tag" aria-hidden="true">
               simar
             </span>
-            <Scribble type="crown" className="blackbook__crown" color="var(--yellow)" strokeWidth={3.5} delay={1.2} />
+            <Scribble type="crown" className="blackbook__crown" color="var(--paper)" strokeWidth={3.5} delay={1.2} />
           </motion.div>
 
           <motion.div
@@ -112,22 +109,20 @@ const About = () => (
 
         <div className="about__text">
           <motion.p className="about__lead" variants={para} custom={0} initial="hidden" whileInView="shown" viewport={{ once: true }}>
-            I&apos;m a <Mark>B.Tech Computer Science</Mark> student at <Mark delay={0.15}>VIT Chennai (2024–2028)</Mark>{' '}
-            with a CGPA of <Mark color="var(--pink)" delay={0.3}>8.2 / 10.0</Mark>.
+            I&apos;m a <Mark>B.Tech Computer Science</Mark> student at <Mark delay={0.15}>VIT Chennai (2024–2028)</Mark>.
           </motion.p>
 
           <motion.p variants={para} custom={1} initial="hidden" whileInView="shown" viewport={{ once: true }}>
-            I&apos;m deeply passionate about <Mark color="var(--green)">Artificial Intelligence &amp; Machine Learning</Mark>,
+            I&apos;m deeply passionate about <Mark>Artificial Intelligence &amp; Machine Learning</Mark>,
             with a growing focus on deep learning architectures and their real-world applications. Alongside that, I love
             crafting polished, performant web experiences — from pixel-perfect frontends to scalable backend systems.
           </motion.p>
 
           <motion.p variants={para} custom={2} initial="hidden" whileInView="shown" viewport={{ once: true }}>
-            I&apos;ve had the opportunity to deploy a{' '}
-            <Mark color="var(--blue)">real-world project for a clinical psychologist</Mark>, turning research-backed
-            insights into a functional tool that makes a tangible difference. I&apos;m also part of a{' '}
-            <Mark color="var(--orange)">research team working on biodiversity estimation using satellite data</Mark>,
-            combining remote sensing with ML to tackle ecological challenges at scale.
+            I&apos;ve had the opportunity to deploy a <Mark>real-world project for a clinical psychologist</Mark>,
+            turning research-backed insights into a functional tool that makes a tangible difference. Right now I&apos;m
+            building <Mark>FilingLens</Mark>, an AI analyst that answers questions about company annual reports, with
+            citations back to the source.
           </motion.p>
 
           <ul className="about__stamps">

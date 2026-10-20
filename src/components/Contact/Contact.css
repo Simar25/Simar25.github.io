@@ -28,7 +28,7 @@
   font-size: clamp(3rem, 7vw, 4.8rem);
   line-height: 1;
   text-transform: uppercase;
-  color: var(--red);
+  color: var(--spot);
 }
 
 .flyer__what {
@@ -64,7 +64,6 @@
   height: 40px;
   font-size: 1.1rem;
   color: var(--ink);
-  background: var(--yellow);
   border: 2.5px solid var(--ink);
   border-radius: 50%;
 }
@@ -78,7 +77,7 @@
 }
 
 .flyer__row-text a:hover {
-  text-decoration: underline wavy var(--pink);
+  text-decoration: underline wavy var(--spot);
 }
 
 .flyer__row-label {
@@ -103,7 +102,7 @@
 }
 
 .flyer__copy-btn:hover {
-  background: var(--yellow);
+  background: var(--paper-2);
 }
 
 .flyer__tabs {
@@ -142,7 +141,7 @@
 .flyer__tab-label {
   font-family: var(--f-marker);
   font-size: 1.05rem;
-  color: var(--pink);
+  color: var(--spot);
 }
 
 .flyer__tab-value {
@@ -161,11 +160,11 @@
   font-family: var(--f-hand);
   font-size: 1.4rem;
   font-weight: 700;
-  color: var(--ink);
-  background: var(--green);
+  color: var(--paper);
+  background: var(--ink);
   border: 2.5px solid var(--ink);
   border-radius: 12px;
-  box-shadow: 3px 3px 0 var(--ink);
+  box-shadow: 3px 3px 0 var(--spot);
 }
 
 /* ---------- legal pad ---------- */
@@ -176,9 +175,9 @@
   gap: 4px;
   padding: 54px 34px 34px 64px;
   background:
-    linear-gradient(90deg, transparent 44px, rgba(215, 38, 61, 0.55) 44px 46px, transparent 46px, transparent 50px, rgba(215, 38, 61, 0.55) 50px 52px, transparent 52px),
-    repeating-linear-gradient(180deg, transparent 0 35px, rgba(45, 91, 255, 0.22) 35px 36px) 0 40px / 100% calc(100% - 40px) no-repeat,
-    var(--legal);
+    linear-gradient(90deg, transparent 44px, rgba(228, 65, 42, 0.5) 44px 46px, transparent 46px, transparent 50px, rgba(228, 65, 42, 0.5) 50px 52px, transparent 52px),
+    repeating-linear-gradient(180deg, transparent 0 35px, rgba(21, 19, 15, 0.1) 35px 36px) 0 40px / 100% calc(100% - 40px) no-repeat,
+    var(--sticker);
   box-shadow: var(--shadow-lift);
   will-change: transform;
 }
@@ -187,7 +186,7 @@
   position: absolute;
   inset: 0 0 auto;
   height: 26px;
-  background: linear-gradient(180deg, #7a1424, #5a0e1a);
+  background: linear-gradient(180deg, #2b2824, var(--ink));
   box-shadow: 0 3px 4px rgba(0, 0, 0, 0.25);
 }
 
@@ -227,7 +226,7 @@
   font-size: 1.65rem;
   font-weight: 500;
   line-height: 36px;
-  color: var(--pen);
+  color: var(--ink);
   background: transparent;
   border: 0;
   border-bottom: 2px solid transparent;
@@ -242,12 +241,12 @@
 
 .pad__field input::placeholder,
 .pad__field textarea::placeholder {
-  color: rgba(31, 63, 184, 0.35);
+  color: rgba(21, 19, 15, 0.32);
 }
 
 .pad__field input:focus-visible,
 .pad__field textarea:focus-visible {
-  border-bottom-color: var(--pink);
+  border-bottom-color: var(--spot);
 }
 
 .pad__actions {
@@ -256,11 +255,6 @@
   align-items: center;
   gap: 16px 22px;
   margin-top: 22px;
-}
-
-.pad__send {
-  --btn-bg: var(--pink);
-  --btn-fg: #fff;
 }
 
 .pad__fine {
@@ -300,9 +294,8 @@
   font-family: var(--f-tag);
   font-size: 3rem;
   line-height: 1;
-  color: var(--pink);
+  color: var(--spot);
   transform: rotate(-6deg);
-  text-shadow: 0 0 14px rgba(255, 46, 126, 0.45);
 }
 
 .footer__text {
@@ -319,7 +312,7 @@
 .footer__aside {
   font-family: var(--f-hand);
   font-size: 1.25rem;
-  color: var(--yellow);
+  color: rgba(244, 239, 230, 0.6);
 }
 
 .footer__top {
@@ -329,9 +322,9 @@
   padding: 10px 18px;
   font-family: var(--f-marker);
   color: var(--ink);
-  background: var(--yellow);
+  background: var(--paper);
   border-radius: 999px;
-  box-shadow: 3px 3px 0 var(--pink);
+  box-shadow: 3px 3px 0 var(--spot);
 }
 
 .footer__zig {
@@ -339,7 +332,7 @@
   right: 4%;
   bottom: 10px;
   width: 160px;
-  opacity: 0.6;
+  opacity: 0.5;
 }
 
 @media (max-width: 960px) {

@@ -13,27 +13,20 @@
 :root {
   /* paper stock */
   --paper: #f4efe6;
-  --paper-2: #ece4d5;
-  --paper-3: #e1d5bf;
-  --kraft: #cfb48a;
-  --kraft-2: #bf9f6f;
+  --paper-2: #ebe6dc;
+  --paper-3: #ddd6c9;
+  --kraft: #c8b08d;
   --notebook: #fbf8f1;
-  --legal: #fff3a6;
+  --sticker: #fffdf8;
   --black-paper: #161412;
 
   /* ink */
   --ink: #15130f;
   --ink-2: #3f3933;
   --ink-3: #6b6258;
-  --pen: #1f3fb8;
 
-  /* spray cans */
-  --pink: #ff2e7e;
-  --yellow: #ffd23f;
-  --blue: #2d5bff;
-  --green: #1fc47a;
-  --orange: #ff6b2c;
-  --red: #d7263d;
+  /* the one can of colour on the wall */
+  --spot: #e4412a;
 
   /* type */
   --f-drip: 'Rubik Wet Paint', 'Permanent Marker', 'Arial Black', sans-serif;
@@ -124,12 +117,12 @@ ul {
 }
 
 ::selection {
-  background: var(--yellow);
-  color: var(--ink);
+  background: var(--ink);
+  color: var(--paper);
 }
 
 :focus-visible {
-  outline: 3px dashed var(--blue);
+  outline: 3px dashed var(--spot);
   outline-offset: 4px;
   border-radius: 4px;
 }
@@ -149,7 +142,7 @@ ul {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--pink);
+  background: var(--spot);
 }
 
 /* custom cursor (fine pointers only, see Cursor.jsx) */
@@ -237,24 +230,23 @@ ul {
   transform: rotate(-36deg);
 }
 
-/* ---------- highlighter ---------- */
+/* ---------- marker underline (swiped low, behind the words) ---------- */
 
 .hl {
-  --hl: var(--yellow);
-  padding: 0 0.18em;
-  margin: 0 -0.08em;
+  --hl: var(--spot);
+  padding: 0 0.12em;
+  margin: 0 -0.06em;
   background-image: linear-gradient(
     100deg,
     transparent 0.4%,
-    color-mix(in srgb, var(--hl) 85%, transparent) 1.6%,
-    color-mix(in srgb, var(--hl) 62%, transparent) 6%,
-    color-mix(in srgb, var(--hl) 45%, transparent) 92%,
-    color-mix(in srgb, var(--hl) 80%, transparent) 97%,
+    color-mix(in srgb, var(--hl) 50%, transparent) 1.6%,
+    color-mix(in srgb, var(--hl) 36%, transparent) 50%,
+    color-mix(in srgb, var(--hl) 46%, transparent) 97%,
     transparent 99%
   );
   background-repeat: no-repeat;
-  background-position: 0 70%;
-  background-size: 0% 72%;
+  background-position: 0 90%;
+  background-size: 0% 36%;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
   border-radius: 0.4em 0.2em;
@@ -263,7 +255,7 @@ ul {
 /* ---------- buttons ---------- */
 
 .btn-sticker {
-  --btn-bg: var(--yellow);
+  --btn-bg: var(--spot);
   --btn-fg: var(--ink);
   position: relative;
   display: inline-flex;

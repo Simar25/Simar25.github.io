@@ -1,5 +1,5 @@
 import { motion, useMotionValue, useSpring } from 'framer-motion';
-import { FiArrowUpRight, FiGithub, FiGlobe, FiHeart, FiMic, FiMusic } from 'react-icons/fi';
+import { FiArrowUpRight, FiFileText, FiGithub, FiHeart, FiMic, FiMusic } from 'react-icons/fi';
 import SectionTitle from '../common/SectionTitle';
 import TornEdge from '../common/TornEdge';
 import Stamp from '../common/Stamp';
@@ -9,14 +9,15 @@ import './Projects.css';
 
 const PROJECTS = [
   {
-    title: 'Multimodal Biodiversity Estimation',
+    title: 'FilingLens',
     description:
-      'Predicted species richness across Costa Rica using satellite imagery, climate records & occurrence data. Compared XGBoost and deep learning pipelines for best biodiversity estimates at scale.',
-    tech: ['Python', 'XGBoost', 'scikit-learn'],
+      'An AI analyst for company annual reports. Ask a question in plain English and get an answer drawn from the report and the numbers, with citations. 84 SEC 10-K filings, split into 21,005 searchable passages.',
+    tech: ['Python', 'DuckDB', 'ChromaDB', 'Gemini'],
     category: 'AI/ML',
-    status: 'Completed',
+    status: 'In Progress',
     featured: true,
-    icon: FiGlobe,
+    repoUrl: 'https://github.com/Simar25/FilingLens',
+    icon: FiFileText,
   },
   {
     title: 'Online Counselling Platform',
@@ -48,14 +49,15 @@ const PROJECTS = [
   },
 ];
 
+/* photocopies on the wall: off-white stock, printed in black or the one red */
 const POSTERS = [
-  { paper: 'var(--notebook)', accent: 'var(--pink)', rotate: -1.8, seed: 31 },
-  { paper: '#ffe066', accent: 'var(--blue)', rotate: 1.4, seed: 47 },
-  { paper: '#ffc8de', accent: 'var(--green)', rotate: 1.2, seed: 59 },
-  { paper: '#d3e2ff', accent: 'var(--orange)', rotate: -1.4, seed: 73 },
+  { paper: 'var(--sticker)', accent: 'var(--spot)', rotate: -1.8, seed: 31 },
+  { paper: 'var(--paper-2)', accent: 'var(--ink)', rotate: 1.4, seed: 47 },
+  { paper: 'var(--notebook)', accent: 'var(--ink)', rotate: 1.2, seed: 59 },
+  { paper: 'var(--sticker)', accent: 'var(--spot)', rotate: -1.4, seed: 73 },
 ];
 
-const STATUS_COLOR = { Completed: 'var(--blue)', Deployed: 'var(--red)', 'In Progress': '#c2410c' };
+const STATUS_COLOR = { Completed: 'var(--ink)', Deployed: 'var(--spot)', 'In Progress': 'var(--spot)' };
 const FEATURED_BURST = burstClip(18, 0.8, 11);
 
 const Poster = ({ project, index }) => {
@@ -120,6 +122,10 @@ const Poster = ({ project, index }) => {
               <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="poster__link" data-cursor="open">
                 visit the live site <FiArrowUpRight />
               </a>
+            ) : project.repoUrl ? (
+              <a href={project.repoUrl} target="_blank" rel="noopener noreferrer" className="poster__link" data-cursor="open">
+                <FiGithub /> code on GitHub <FiArrowUpRight />
+              </a>
             ) : (
               <a href="https://github.com/Simar25" target="_blank" rel="noopener noreferrer" className="poster__link poster__link--quiet">
                 <FiGithub /> more on my GitHub
@@ -164,8 +170,6 @@ const Projects = () => (
       <SectionTitle
         index="03"
         kicker="wall of work"
-        color="blue"
-        seed={8}
         note="A curated selection of things I’ve built — from machine learning pipelines to production web apps."
       >
         Featured Projects

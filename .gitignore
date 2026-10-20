@@ -25,3 +25,6 @@ dist-ssr
 
 # backup of the old design (kept locally only)
 _previous-design
+
+# personal photo (kept locally, not published)
+profile.jpg

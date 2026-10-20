@@ -9,7 +9,7 @@ const getShape = (seed, drips) => {
 };
 
 /* A paint splat with drips. Pops in when scrolled into view. */
-const Splat = ({ seed = 1, color = 'var(--pink)', drips = 3, opacity = 1, className, style, delay = 0, onMount = false }) => {
+const Splat = ({ seed = 1, color = 'var(--spot)', drips = 3, opacity = 1, className, style, delay = 0, onMount = false }) => {
   const { blobs, dots, runs } = getShape(seed, drips);
   const show = { scale: 1, opacity, transition: { type: 'spring', stiffness: 260, damping: 16, delay } };
   const trigger = onMount ? { animate: show } : { whileInView: show, viewport: { once: true } };

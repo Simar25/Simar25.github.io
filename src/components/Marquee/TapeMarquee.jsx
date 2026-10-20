@@ -63,7 +63,7 @@ const Tape = ({ items, baseVelocity, className }) => {
 const TapeMarquee = () => (
   <div className="tapes" aria-hidden="true">
     <Tape
-      className="tape-run--caution"
+      className="tape-run--spot"
       baseVelocity={-2.2}
       items={['AI / ML', 'Deep Learning', 'Python', 'Web Dev', 'Computer Vision', 'Open to work']}
     />

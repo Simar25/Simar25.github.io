@@ -32,7 +32,7 @@ const Footer = () => (
         <FiArrowUp /> back to top
       </motion.a>
     </div>
-    <Scribble type="zigzag" className="footer__zig" color="var(--pink)" strokeWidth={3} />
+    <Scribble type="zigzag" className="footer__zig" color="var(--spot)" strokeWidth={3} />
   </footer>
 );
 

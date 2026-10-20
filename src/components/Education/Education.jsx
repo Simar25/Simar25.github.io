@@ -10,8 +10,6 @@ const EDUCATION = [
     institution: 'Vellore Institute of Technology, Chennai',
     degree: 'B.Tech — Computer Science & Engineering',
     period: '2024 – 2028',
-    score: { label: 'CGPA', value: '8.2 / 10.0' },
-    remark: 'keep it up!',
   },
   {
     institution: 'Class 12 (CBSE)',
@@ -26,18 +24,18 @@ const EDUCATION = [
 ];
 
 const CERTIFICATIONS = [
-  { title: 'Basics of Python', issuer: 'Infosys Springboard', date: 'Feb 2025', color: 'var(--pink)' },
+  { title: 'Basics of Python', issuer: 'Infosys Springboard', date: 'Feb 2025', color: 'var(--ink)' },
   {
     title: 'Programming Fundamentals using Python – Part 1',
     issuer: 'Infosys Springboard',
     date: 'Feb 2025',
-    color: 'var(--blue)',
+    color: 'var(--spot)',
   },
   {
     title: '19 Google Cloud Skill Courses, Study Jams 2025',
     issuer: 'GDG on Campus VITC',
     date: '2025',
-    color: 'var(--green)',
+    color: 'var(--ink)',
   },
 ];
 
@@ -53,8 +51,6 @@ const Education = () => {
         <SectionTitle
           index="04"
           kicker="school daze"
-          color="green"
-          seed={15}
           note="My academic background and the certifications that form the foundation of my technical expertise."
         >
           Education
@@ -76,7 +72,7 @@ const Education = () => {
                 transition={{ type: 'spring', stiffness: 140, damping: 18 }}
               >
                 <span className="timeline__node" aria-hidden="true">
-                  <Scribble type="star" color="var(--ink)" strokeWidth={4} duration={0.5} delay={0.15} />
+                  <Scribble type="star" color="var(--paper)" strokeWidth={4} duration={0.5} delay={0.15} />
                 </span>
 
                 <article className="index-card">
@@ -88,12 +84,14 @@ const Education = () => {
                       {item.degree && <p className="index-card__degree">{item.degree}</p>}
                     </div>
 
-                    <div className="index-card__grade">
-                      <span className="index-card__grade-label">{item.score.label}</span>
-                      <span className="index-card__grade-value">{item.score.value}</span>
-                      <Scribble type="circle" className="index-card__ring" color="var(--red)" strokeWidth={3.5} delay={0.4} duration={0.8} />
-                      <span className="index-card__remark">{item.remark}</span>
-                    </div>
+                    {item.score && (
+                      <div className="index-card__grade">
+                        <span className="index-card__grade-label">{item.score.label}</span>
+                        <span className="index-card__grade-value">{item.score.value}</span>
+                        <Scribble type="circle" className="index-card__ring" color="var(--spot)" strokeWidth={3.5} delay={0.4} duration={0.8} />
+                        <span className="index-card__remark">{item.remark}</span>
+                      </div>
+                    )}
                   </div>
                 </article>
               </motion.li>
@@ -103,7 +101,7 @@ const Education = () => {
 
         <h3 className="certs__title">
           Certifications
-          <Scribble type="squiggle" className="certs__title-line" color="var(--blue)" strokeWidth={3.5} />
+          <Scribble type="squiggle" className="certs__title-line" color="var(--spot)" strokeWidth={3.5} />
         </h3>
 
         <ul className="certs">

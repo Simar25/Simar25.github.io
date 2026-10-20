@@ -34,8 +34,8 @@
   padding-right: 0.9em;
 }
 
-/* yellow caution tape */
-.tape-run--caution {
+/* red gaffer tape with black edges */
+.tape-run--spot {
   top: 22%;
   padding: 14px 0;
   font-family: var(--f-mono);
@@ -47,12 +47,12 @@
   background:
     repeating-linear-gradient(-45deg, var(--ink) 0 12px, transparent 12px 24px) top / 100% 7px no-repeat,
     repeating-linear-gradient(-45deg, var(--ink) 0 12px, transparent 12px 24px) bottom / 100% 7px no-repeat,
-    var(--yellow);
+    var(--spot);
   transform: rotate(-2.6deg);
 }
 
-.tape-run--caution .tape-run__sep {
-  color: var(--pink);
+.tape-run--spot .tape-run__sep {
+  color: var(--ink);
 }
 
 /* black gaffer tape */
@@ -67,5 +67,5 @@
 }
 
 .tape-run--ink .tape-run__sep {
-  color: var(--yellow);
+  color: var(--spot);
 }

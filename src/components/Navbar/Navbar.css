@@ -36,8 +36,7 @@
   font-family: var(--f-tag);
   font-size: 2.05rem;
   line-height: 1;
-  color: var(--pink);
-  text-shadow: 0.05em 0.05em 0 var(--ink);
+  color: var(--ink);
   transform: rotate(-4deg);
 }
 
@@ -45,8 +44,7 @@
   width: 0.24em;
   height: 0.24em;
   margin: 0 0 0.16em 0.06em;
-  background: var(--yellow);
-  border: 2px solid var(--ink);
+  background: var(--spot);
   border-radius: 50%;
 }
 
@@ -120,11 +118,12 @@
   font-size: clamp(2.6rem, 12vw, 4.4rem);
   line-height: 1.1;
   text-transform: uppercase;
-  color: var(--c);
+  color: var(--paper);
 }
 
 .mnav__link.is-active {
-  text-decoration: underline wavy var(--paper) 3px;
+  color: var(--spot);
+  text-decoration: underline wavy var(--spot) 3px;
   text-underline-offset: 8px;
 }
 

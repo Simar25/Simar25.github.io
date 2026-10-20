@@ -72,8 +72,7 @@
   font-family: var(--f-drip);
   font-size: 3.4rem;
   line-height: 1;
-  color: var(--ink);
-  text-shadow: 0.06em 0.06em 0 var(--accent);
+  color: var(--accent);
 }
 
 .poster__cat {
@@ -186,8 +185,8 @@
   font-size: 0.95rem;
   line-height: 1.05;
   text-align: center;
-  color: var(--ink);
-  background: var(--yellow);
+  color: var(--sticker);
+  background: var(--ink);
 }
 
 @media (max-width: 860px) {

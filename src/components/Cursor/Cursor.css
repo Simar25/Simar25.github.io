@@ -44,16 +44,16 @@
 }
 
 .cursor__ring-inner--link {
-  background: rgba(255, 210, 63, 0.45);
+  background: rgba(228, 65, 42, 0.2);
 }
 
 .cursor__ring-inner--drag,
 .cursor__ring-inner--open {
-  background: var(--yellow);
+  background: var(--spot);
 }
 
 .cursor__ring-inner--spray {
-  background: rgba(255, 46, 126, 0.15);
+  background: rgba(228, 65, 42, 0.12);
   border-style: dashed;
 }
 

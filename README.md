@@ -24,4 +24,4 @@ and for project repos served at `username.github.io/<repo>/`.
 
 ## Your CV
 
-The "Download CV" button links to `public/resume.pdf` — drop your PDF there.
+The "Download CV" button links to `public/Simarjot_Singh_Anand_Resume.pdf` — replace that file to update the CV.

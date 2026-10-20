@@ -11,8 +11,6 @@ const NAV_ITEMS = [
   { id: 'contact', label: 'Contact' },
 ];
 
-const MOBILE_COLORS = ['var(--pink)', 'var(--yellow)', 'var(--blue)', 'var(--green)', 'var(--orange)', 'var(--paper)'];
-
 const Circle = () => (
   <motion.svg
     layoutId="nav-circle"
@@ -25,7 +23,7 @@ const Circle = () => (
     <motion.path
       d="M120 8 C 175 6, 214 26, 210 52 C 206 80, 150 94, 96 90 C 42 86, 6 70, 10 44 C 14 20, 62 6, 128 10 C 152 12, 172 18, 186 26"
       fill="none"
-      stroke="var(--pink)"
+      stroke="var(--spot)"
       strokeWidth="9"
       strokeLinecap="round"
       initial={{ pathLength: 0 }}
@@ -157,7 +155,6 @@ const Navbar = () => {
                     href={`#${id}`}
                     onClick={go(id)}
                     className={`mnav__link${active === id ? ' is-active' : ''}`}
-                    style={{ '--c': MOBILE_COLORS[i] }}
                   >
                     <span className="mnav__num">0{i}</span>
                     {label}

@@ -34,7 +34,7 @@
   bottom: -6px;
   right: 46px;
   width: 12px;
-  background: var(--pink);
+  background: var(--spot);
   border-radius: 3px;
   box-shadow: 2px 0 4px rgba(0, 0, 0, 0.35);
   opacity: 0.92;
@@ -73,27 +73,23 @@
   user-select: none;
 }
 
-.c-k {
-  color: var(--pink);
-  text-shadow: 0 0 8px rgba(255, 46, 126, 0.5);
+/* white paint pen, with the red one for keywords */
+.c-k,
+.c-b {
+  color: var(--spot);
 }
 
 .c-v {
-  color: var(--yellow);
-  text-shadow: 0 0 8px rgba(255, 210, 63, 0.4);
+  color: var(--paper);
+  font-weight: 700;
 }
 
 .c-a {
-  color: #8fb3ff;
+  color: rgba(244, 239, 230, 0.55);
 }
 
 .c-s {
-  color: #7cf0b0;
-}
-
-.c-b {
-  color: var(--orange);
-  text-shadow: 0 0 8px rgba(255, 107, 44, 0.5);
+  color: var(--paper);
 }
 
 .c-p {
@@ -107,10 +103,9 @@
   font-family: var(--f-tag);
   font-size: 2.8rem;
   line-height: 1;
-  color: var(--pink);
+  color: var(--paper);
   transform: rotate(-9deg);
-  text-shadow: 0 0 10px rgba(255, 46, 126, 0.45);
-  opacity: 0.9;
+  opacity: 0.85;
 }
 
 .blackbook__crown {
@@ -136,7 +131,7 @@
   font-weight: 500;
   line-height: 1.15;
   color: var(--ink-2);
-  background: linear-gradient(180deg, #fff27a, var(--yellow));
+  background: var(--sticker);
   box-shadow: var(--shadow-paper);
 }
 
@@ -164,7 +159,7 @@
 
 .about__stamps {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   justify-items: center;
   gap: 14px;
   margin-top: 18px;
@@ -195,11 +190,6 @@
 }
 
 @media (max-width: 560px) {
-  .about__stamps {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    row-gap: 22px;
-  }
-
   .blackbook {
     padding: 22px 18px 30px 30px;
   }

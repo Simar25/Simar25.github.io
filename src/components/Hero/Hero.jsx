@@ -3,7 +3,6 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { FiArrowRight, FiCamera, FiDownload, FiGithub, FiLinkedin, FiMail, FiTrash2 } from 'react-icons/fi';
 import SprayCanvas from '../SprayCanvas/SprayCanvas';
 import Scribble from '../common/Scribble';
-import Splat from '../common/Splat';
 import { asset } from '../../lib/asset';
 import { between, burstClip, mulberry32 } from '../../lib/random';
 import './Hero.css';
@@ -17,17 +16,16 @@ const TILT = (() => {
 const ROLES = ['B.Tech CS student @ VIT', 'AI / ML enthusiast', 'web developer'];
 
 const CANS = [
-  { name: 'Hot pink', hex: '#ff2e7e' },
-  { name: 'Sun yellow', hex: '#ffd23f' },
-  { name: 'Electric blue', hex: '#2d5bff' },
-  { name: 'Mint green', hex: '#1fc47a' },
+  { name: 'Fire red', hex: '#e4412a' },
   { name: 'Ink black', hex: '#15130f' },
+  { name: 'Chrome', hex: '#a9a6a0' },
+  { name: 'Buff white', hex: '#fffdf8' },
 ];
 
 const SOCIALS = [
-  { icon: FiGithub, href: 'https://github.com/Simar25', label: 'GitHub', bg: 'var(--ink)', fg: '#fff', rot: -8 },
-  { icon: FiLinkedin, href: 'https://linkedin.com/in/simarjot-singh-anand', label: 'LinkedIn', bg: 'var(--blue)', fg: '#fff', rot: 6 },
-  { icon: FiMail, href: 'mailto:simaranand250@gmail.com', label: 'Email', bg: 'var(--pink)', fg: '#fff', rot: -4 },
+  { icon: FiGithub, href: 'https://github.com/Simar25', label: 'GitHub', bg: 'var(--ink)', fg: 'var(--sticker)', rot: -8 },
+  { icon: FiLinkedin, href: 'https://linkedin.com/in/simarjot-singh-anand', label: 'LinkedIn', bg: 'var(--sticker)', fg: 'var(--ink)', rot: 6 },
+  { icon: FiMail, href: 'mailto:simaranand250@gmail.com', label: 'Email', bg: 'var(--spot)', fg: 'var(--ink)', rot: -4 },
 ];
 
 const BURST = burstClip(16, 0.76, 3);
@@ -66,7 +64,6 @@ const ThrowUp = () => (
         <span className="throwup__shadow">{ch}</span>
         <span className="throwup__outline">{ch}</span>
         <span className="throwup__fill">{ch}</span>
-        <span className="throwup__shine">{ch}</span>
       </motion.span>
     ))}
   </span>
@@ -167,9 +164,6 @@ const Hero = () => {
         <span className="hero__ghost hero__ghost--1">AI·ML</span>
         <span className="hero__ghost hero__ghost--2">VIT</span>
         <span className="hero__ghost hero__ghost--3">&lt;/&gt;</span>
-        <Splat seed={21} color="var(--pink)" drips={4} opacity={0.9} className="hero__splat hero__splat--name" onMount delay={0.2} />
-        <Splat seed={5} color="var(--yellow)" drips={3} className="hero__splat hero__splat--photo" onMount delay={0.9} />
-        <Splat seed={33} color="var(--blue)" drips={2} opacity={0.5} className="hero__splat hero__splat--corner" onMount delay={1.2} />
       </div>
 
       <SprayCanvas
@@ -183,10 +177,7 @@ const Hero = () => {
         <div className="hero__text">
           <motion.div className="hero__kicker" {...rise(0.1)}>
             <span className="dymo">Portfolio · Vol. 01</span>
-            <span className="hero__hey">
-              hey there, I&apos;m
-              <Scribble type="sparkle" className="hero__sparkle" color="var(--pink)" strokeWidth={3} onMount delay={0.9} />
-            </span>
+            <span className="hero__hey">hey there, I&apos;m</span>
           </motion.div>
 
           <h1 className="hero__name">
@@ -218,7 +209,7 @@ const Hero = () => {
             <a href="#projects" className="btn-sticker">
               See my work <FiArrowRight />
             </a>
-            <a href={asset('resume.pdf')} className="btn-marker" target="_blank" rel="noopener noreferrer">
+            <a href={asset('Simarjot_Singh_Anand_Resume.pdf')} className="btn-marker" target="_blank" rel="noopener noreferrer">
               <FiDownload /> Download CV
             </a>
           </motion.div>
@@ -244,37 +235,12 @@ const Hero = () => {
         </div>
 
         <div className="hero__visual">
-          <motion.figure
-            className="polaroid"
-            initial={{ opacity: 0, y: 60, rotate: 18, scale: 0.85 }}
-            animate={{ opacity: 1, y: 0, rotate: 4, scale: 1 }}
-            transition={{ type: 'spring', stiffness: 140, damping: 16, delay: 0.7 }}
-            whileHover={{ rotate: 0, scale: 1.03, transition: { type: 'spring', stiffness: 300, damping: 18 } }}
-          >
-            <span className="tape tape--top" />
-            <div className="polaroid__photo">
-              <img src={asset('images/profile.jpg')} alt="Simarjot Singh Anand in a grey suit, smiling" />
-            </div>
-            <figcaption className="polaroid__caption">me, mid-way through a big idea ✌</figcaption>
-          </motion.figure>
-
-          <motion.div
-            className="hero__me"
-            aria-hidden="true"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.6 }}
-          >
-            <span>that&apos;s me!</span>
-            <Scribble type="arrow" className="hero__me-arrow" color="var(--ink)" strokeWidth={3.5} onMount delay={1.7} />
-          </motion.div>
-
-          <Sticker className="hello" rotate={-9} delay={1.3} constraints={heroRef} label="Hello, my name is Simar">
+          <Sticker className="hello" rotate={-6} delay={0.8} constraints={heroRef} label="Hello, my name is Simar">
             <span className="hello__top">
               <strong>HELLO</strong>
               <small>my name is</small>
             </span>
-            <span className="hello__name">Simar</span>
+            <span className="hello__name">simar</span>
           </Sticker>
         </div>
       </div>
@@ -292,13 +258,6 @@ const Hero = () => {
       <Sticker className="hs-pill" rotate={-6} delay={1.8} constraints={heroRef} label="Open to work">
         <span className="hs-pill__dot" /> open to work
       </Sticker>
-      <Sticker className="hs-smile" rotate={10} delay={1.95} constraints={heroRef} label="Smiley face">
-        <svg viewBox="0 0 64 64" aria-hidden="true">
-          <circle cx="32" cy="32" r="29" fill="var(--yellow)" stroke="var(--ink)" strokeWidth="3" />
-          <path d="M22 24v6M42 24v6" stroke="var(--ink)" strokeWidth="4.5" strokeLinecap="round" />
-          <path d="M18 38c6 10 22 10 28 0" stroke="var(--ink)" strokeWidth="4" fill="none" strokeLinecap="round" />
-        </svg>
-      </Sticker>
       <Sticker className="hs-code" rotate={4} delay={2.1} constraints={heroRef} label="Code">
         <span className="dymo">&lt;/&gt; ship it</span>
       </Sticker>
@@ -311,7 +270,7 @@ const Hero = () => {
         transition={{ delay: 2, type: 'spring', stiffness: 160, damping: 18 }}
       >
         <p className="rack__hint" aria-live="polite">
-          {sprayed ? 'nice tag. now save it 📸' : sprayOn ? 'click + drag on the wall to spray' : 'grab a can & tag the wall'}
+          {sprayed ? 'nice tag. now save it' : sprayOn ? 'click + drag on the wall to spray' : 'grab a can & tag the wall'}
         </p>
         <div className="rack__cans" role="radiogroup" aria-label="Spray paint colour">
           {CANS.map((can) => {
