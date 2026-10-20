@@ -201,8 +201,8 @@ const Hero = () => {
           </motion.p>
 
           <motion.p className="hero__tagline" {...rise(1.4)}>
-            Building intelligent systems &amp; beautiful interfaces. Passionate about AI/ML, deep learning, and
-            creating real-world impact through technology.
+            I build end-to-end AI systems, from edge computer vision (patent filed) to LLM-powered search over company
+            annual reports.
           </motion.p>
 
           <motion.div className="hero__ctas" {...rise(1.55)}>
