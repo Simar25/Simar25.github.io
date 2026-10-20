@@ -1,0 +1,12 @@
+.spray-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  touch-action: pan-y;
+}
+
+.spray-canvas.is-on {
+  pointer-events: auto;
+  touch-action: none;
+}

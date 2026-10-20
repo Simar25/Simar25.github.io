@@ -1,0 +1,71 @@
+.tapes {
+  position: relative;
+  z-index: 5;
+  height: clamp(130px, 16vw, 170px);
+  margin-block: -40px -30px;
+  overflow-x: clip;
+  pointer-events: none;
+}
+
+.tape-run {
+  position: absolute;
+  left: -5%;
+  width: 110%;
+  overflow: hidden;
+  white-space: nowrap;
+  box-shadow: 0 6px 12px -4px rgba(30, 20, 8, 0.35);
+}
+
+.tape-run__track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+
+.tape-run__chunk {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.tape-run__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9em;
+  padding-right: 0.9em;
+}
+
+/* yellow caution tape */
+.tape-run--caution {
+  top: 22%;
+  padding: 14px 0;
+  font-family: var(--f-mono);
+  font-weight: 700;
+  font-size: clamp(0.95rem, 1.6vw, 1.2rem);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background:
+    repeating-linear-gradient(-45deg, var(--ink) 0 12px, transparent 12px 24px) top / 100% 7px no-repeat,
+    repeating-linear-gradient(-45deg, var(--ink) 0 12px, transparent 12px 24px) bottom / 100% 7px no-repeat,
+    var(--yellow);
+  transform: rotate(-2.6deg);
+}
+
+.tape-run--caution .tape-run__sep {
+  color: var(--pink);
+}
+
+/* black gaffer tape */
+.tape-run--ink {
+  top: 50%;
+  padding: 10px 0;
+  font-family: var(--f-marker);
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  color: var(--paper);
+  background: var(--ink);
+  transform: rotate(1.8deg);
+}
+
+.tape-run--ink .tape-run__sep {
+  color: var(--yellow);
+}
