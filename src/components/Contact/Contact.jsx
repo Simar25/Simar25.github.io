@@ -216,6 +216,7 @@ const Contact = () => (
         index="04"
         kicker="open to internships"
         note="I’m looking for AI/ML and software engineering internships. Email is the quickest way to reach me."
+        accent="#f07800"
       >
         Let&apos;s Talk
       </SectionTitle>

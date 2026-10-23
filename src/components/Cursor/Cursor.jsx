@@ -3,7 +3,7 @@ import { AnimatePresence, motion, useMotionValue, useSpring } from 'framer-motio
 import './Cursor.css';
 
 const FINE = '(hover: hover) and (pointer: fine)';
-const LABELS = { drag: 'drag me', spray: 'spray!', open: 'open ↗' };
+const LABELS = { drag: 'drag me', spray: 'spray!', open: 'open ↗', paste: 'paste up' };
 
 /* Marker-cap cursor: a dot that tracks exactly, and a ring that trails it. */
 const Cursor = () => {

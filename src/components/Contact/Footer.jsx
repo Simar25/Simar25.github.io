@@ -28,7 +28,7 @@ const Footer = () => (
         <FiArrowUp /> back to top
       </motion.a>
     </div>
-    <Scribble type="zigzag" className="footer__zig" color="var(--paper)" strokeWidth={3} />
+    <Scribble type="zigzag" className="footer__zig" color="var(--pop-yellow)" strokeWidth={3} />
   </footer>
 );
 

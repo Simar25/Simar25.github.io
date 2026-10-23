@@ -35,7 +35,7 @@
 .timeline__ink {
   position: absolute;
   inset: 0;
-  background: var(--ink);
+  background: var(--pop-red);
   border-radius: 4px;
   transform-origin: top;
   filter: url(#f-rough);

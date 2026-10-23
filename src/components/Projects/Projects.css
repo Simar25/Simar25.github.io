@@ -34,6 +34,77 @@
   color: var(--ink-2);
 }
 
+/* ---------- heading: move across it and it gets pasted over ---------- */
+
+.projects__intro {
+  position: relative;
+}
+
+.projects__trail {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.projects__intro .stitle {
+  position: relative;
+  z-index: 1;
+}
+
+.trail__item {
+  position: absolute;
+  will-change: transform;
+}
+
+.trail__inner {
+  transform: translate(-50%, -50%);
+}
+
+.paste {
+  display: block;
+  box-shadow: 0 2px 2px rgba(30, 20, 8, 0.15), 0 10px 18px -6px rgba(30, 20, 8, 0.35);
+}
+
+.paste--print {
+  width: 150px;
+  padding: 6px;
+  background: #fff;
+  border-bottom: 6px solid var(--accent);
+}
+
+.paste--print img {
+  width: 100%;
+  height: 104px;
+  object-fit: cover;
+  object-position: top;
+  filter: grayscale(1) contrast(1.15);
+}
+
+.paste--card {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  width: 124px;
+  height: 124px;
+  font-family: var(--f-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: var(--accent);
+  border: 3px solid var(--ink);
+}
+
+.paste--card b {
+  font-family: var(--f-drip);
+  font-size: 3rem;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
 /* ---------- the wall: one poster per project, staggered left and right ---------- */
 
 .posters {
@@ -46,6 +117,7 @@
 }
 
 .poster-slot {
+  position: relative;
   margin-right: clamp(0px, 5vw, 72px);
   scroll-margin-top: 110px;
 }
@@ -53,6 +125,25 @@
 .poster-slot--flip {
   margin-right: 0;
   margin-left: clamp(0px, 5vw, 72px);
+}
+
+/* paint sprayed on the wall, peeking out from behind the poster */
+.poster-slot__splat {
+  position: absolute;
+  z-index: -1;
+  top: -96px;
+  right: -130px;
+  width: clamp(200px, 26vw, 320px);
+  height: auto;
+  overflow: visible;
+  transform-origin: 30% 70%;
+}
+
+.poster-slot--flip .poster-slot__splat {
+  top: auto;
+  right: auto;
+  bottom: -110px;
+  left: -140px;
 }
 
 .poster {
@@ -101,6 +192,7 @@
   font-size: 3.2rem;
   line-height: 1;
   color: var(--ink);
+  text-shadow: 0.07em 0.07em 0 var(--accent);
 }
 
 .poster__cat {
@@ -224,8 +316,8 @@
   font-size: 0.95rem;
   line-height: 1.05;
   text-align: center;
-  color: var(--sticker);
-  background: var(--ink);
+  color: var(--ink);
+  background: var(--accent);
 }
 
 /* ---------- figures ---------- */
@@ -307,7 +399,7 @@
 .flow__node--accent {
   color: rgba(255, 253, 248, 0.8);
   background: var(--ink);
-  box-shadow: 3px 3px 0 var(--grey);
+  box-shadow: 4px 4px 0 var(--accent);
 }
 
 .flow__node--accent b {
@@ -324,7 +416,7 @@
   font-size: clamp(2.6rem, 4.6vw, 3.6rem);
   line-height: 1;
   color: var(--ink);
-  text-shadow: 0.05em 0.05em 0 var(--grey-2);
+  text-shadow: 0.05em 0.05em 0 var(--accent);
 }
 
 .funnel__label {
@@ -367,11 +459,11 @@
 
 .churn-stats .is-hi {
   color: var(--sticker);
-  background: var(--ink);
+  background: var(--accent);
 }
 
 .churn-stats .is-hi dt {
-  color: rgba(255, 253, 248, 0.7);
+  color: rgba(255, 253, 248, 0.85);
 }
 
 /* screenshots, taped on like photo prints */

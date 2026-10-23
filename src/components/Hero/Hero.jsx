@@ -4,6 +4,7 @@ import { FiArrowRight, FiCamera, FiDownload, FiGithub, FiLinkedin, FiMail, FiTra
 import SprayCanvas from '../SprayCanvas/SprayCanvas';
 import Scribble from '../common/Scribble';
 import Mark from '../common/Mark';
+import Magnetic from '../common/Magnetic';
 import { asset } from '../../lib/asset';
 import { between, burstClip, mulberry32 } from '../../lib/random';
 import './Hero.css';
@@ -18,13 +19,25 @@ const ROLES = ['B.Tech CS student @ VIT', 'AI / ML enthusiast', 'web developer']
 
 const CANS = [
   { name: 'Ink black', hex: '#15130f' },
-  { name: 'Chrome', hex: '#a9a6a0' },
+  { name: 'Star yellow', hex: '#ffd028' },
+  { name: 'Fire red', hex: '#d01818' },
+  { name: 'Teal', hex: '#189890' },
+  { name: 'Cobalt blue', hex: '#0858a8' },
   { name: 'Buff white', hex: '#fffdf8' },
+];
+
+/* two-tone fades for the throw-up fill; hovering a letter re-sprays it in the next one */
+const FADES = [
+  ['#ffd028', '#f07800'],
+  ['#f07800', '#d01818'],
+  ['#3ac9bd', '#0858a8'],
+  ['#fffdf8', '#ffd028'],
+  ['#d4dc3a', '#189890'],
 ];
 
 const SOCIALS = [
   { icon: FiGithub, href: 'https://github.com/Simar25', label: 'GitHub', bg: 'var(--ink)', fg: 'var(--sticker)', rot: -8 },
-  { icon: FiLinkedin, href: 'https://linkedin.com/in/simarjot-singh-anand', label: 'LinkedIn', bg: 'var(--sticker)', fg: 'var(--ink)', rot: 6 },
+  { icon: FiLinkedin, href: 'https://linkedin.com/in/simarjot-singh-anand', label: 'LinkedIn', bg: 'var(--pop-yellow)', fg: 'var(--ink)', rot: 6 },
   { icon: FiMail, href: 'mailto:simaranand250@gmail.com', label: 'Email', bg: 'var(--ink)', fg: 'var(--sticker)', rot: -4 },
 ];
 
@@ -68,16 +81,18 @@ const rise = (delay) => ({
 
 /* ---------- pieces ---------- */
 
-const ThrowUp = () => (
-  <span className="throwup" aria-hidden="true">
+const ThrowUp = ({ fades, onLetterHover, lettersRef }) => (
+  <span className="throwup" aria-hidden="true" ref={lettersRef}>
     {[...NAME].map((ch, i) => (
       <motion.span
         key={i}
         className="throwup__letter"
+        style={{ '--fa': fades[i][0], '--fb': fades[i][1] }}
         custom={i}
         variants={letterVariants}
         initial="hidden"
         animate="shown"
+        onHoverStart={() => onLetterHover(i)}
         whileHover={{ y: -14, rotate: TILT[i] * -1.5, transition: { type: 'spring', stiffness: 600, damping: 12 } }}
       >
         <span className="throwup__shadow">{ch}</span>
@@ -170,6 +185,8 @@ const Hero = () => {
   );
   const [sprayed, setSprayed] = useState(false);
   const [shakeKey, setShakeKey] = useState(0);
+  const lettersRef = useRef(null);
+  const [fades, setFades] = useState(() => [...NAME].map(() => FADES[0]));
 
   const pickCan = (hex) => {
     setColor(hex);
@@ -177,8 +194,28 @@ const Hero = () => {
     if (!sprayOn) setSprayOn(true);
   };
 
+  /* hover a letter: next fade */
+  const respray = (i) =>
+    setFades((f) => f.map((v, j) => (j === i ? FADES[(FADES.indexOf(v) + 1) % FADES.length] : v)));
+
+  /* spray across a letter: it takes the can's colour */
+  const paintLetters = (e) => {
+    if (!sprayOn || !(e.buttons & 1) || !lettersRef.current) return;
+    [...lettersRef.current.children].forEach((letter, i) => {
+      const r = letter.getBoundingClientRect();
+      if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) return;
+      setFades((f) => (f[i][0] === color && f[i][1] === color ? f : f.map((v, j) => (j === i ? [color, color] : v))));
+    });
+  };
+
   return (
-    <section id="home" className={`hero${sprayOn ? ' hero--spraying' : ''}`} ref={heroRef}>
+    <section
+      id="home"
+      className={`hero${sprayOn ? ' hero--spraying' : ''}`}
+      ref={heroRef}
+      onPointerDown={paintLetters}
+      onPointerMove={paintLetters}
+    >
       <div className="hero__bg" aria-hidden="true">
         <span className="hero__ghost hero__ghost--1">AI·ML</span>
         <span className="hero__ghost hero__ghost--2">VIT</span>
@@ -201,7 +238,7 @@ const Hero = () => {
 
           <h1 className="hero__name">
             <span className="sr-only">Simarjot Singh Anand</span>
-            <ThrowUp />
+            <ThrowUp fades={fades} onLetterHover={respray} lettersRef={lettersRef} />
             <motion.span
               className="hero__tag"
               aria-hidden="true"
@@ -239,29 +276,35 @@ const Hero = () => {
           </motion.div>
 
           <motion.div className="hero__ctas" {...rise(1.55)}>
-            <a href="#projects" className="btn-sticker">
-              See my work <FiArrowRight />
-            </a>
-            <a href={asset('Simarjot_Singh_Anand_Resume.pdf')} className="btn-marker" target="_blank" rel="noopener noreferrer">
-              <FiDownload /> Download CV
-            </a>
+            <Magnetic>
+              <a href="#projects" className="btn-sticker">
+                See my work <FiArrowRight />
+              </a>
+            </Magnetic>
+            <Magnetic strength={0.25}>
+              <a href={asset('Simarjot_Singh_Anand_Resume.pdf')} className="btn-marker" target="_blank" rel="noopener noreferrer">
+                <FiDownload /> Download CV
+              </a>
+            </Magnetic>
           </motion.div>
 
           <motion.ul className="hero__socials" {...rise(1.7)}>
             {SOCIALS.map(({ icon: Icon, href, label, bg, fg, rot }) => (
               <li key={label}>
-                <motion.a
-                  href={href}
-                  target={href.startsWith('http') ? '_blank' : undefined}
-                  rel="noopener noreferrer"
-                  aria-label={label}
-                  className="hero__social"
-                  style={{ '--bg': bg, '--fg': fg, rotate: rot }}
-                  whileHover={{ scale: 1.15, rotate: rot + 20 }}
-                  whileTap={{ scale: 0.92 }}
-                >
-                  <Icon />
-                </motion.a>
+                <Magnetic strength={0.5}>
+                  <motion.a
+                    href={href}
+                    target={href.startsWith('http') ? '_blank' : undefined}
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    className="hero__social"
+                    style={{ '--bg': bg, '--fg': fg, rotate: rot }}
+                    whileHover={{ scale: 1.15, rotate: rot + 20 }}
+                    whileTap={{ scale: 0.92 }}
+                  >
+                    <Icon />
+                  </motion.a>
+                </Magnetic>
               </li>
             ))}
           </motion.ul>

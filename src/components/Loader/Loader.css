@@ -45,7 +45,7 @@
   position: absolute;
   inset: 0 0.1em;
   color: var(--ink);
-  text-shadow: 0.035em 0.035em 0 var(--grey-2);
+  text-shadow: 0.035em 0.035em 0 var(--pop-yellow);
 }
 
 .loader__drip {

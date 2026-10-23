@@ -1,4 +1,4 @@
-import { Fragment } from 'react';
+import { Fragment, useRef } from 'react';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 import { FiArrowUpRight, FiGithub, FiLock } from 'react-icons/fi';
 import SectionTitle from '../common/SectionTitle';
@@ -6,6 +6,8 @@ import TornEdge from '../common/TornEdge';
 import Stamp from '../common/Stamp';
 import CountUp from '../common/CountUp';
 import Scribble from '../common/Scribble';
+import Splat from '../common/Splat';
+import ImageTrail from '../common/ImageTrail';
 import { asset } from '../../lib/asset';
 import { burstClip, tornClip } from '../../lib/random';
 import './Projects.css';
@@ -23,6 +25,7 @@ const PROJECTS = [
     note: 'Code is private while the patent is pending.',
     role: 'Co-inventor. Built the on-device inference pipeline and the REST API.',
     tech: ['Raspberry Pi', 'YOLOv8-nano', 'MobileNetV3', 'Flask/FastAPI'],
+    accent: 'var(--pop-teal)',
     figure: { kind: 'flow', caption: 'How the prototype works. The models run on the Raspberry Pi itself.' },
   },
   {
@@ -39,6 +42,7 @@ const PROJECTS = [
     tech: ['Python', 'DuckDB', 'ChromaDB', 'bge-base-en-v1.5', 'Gemini', 'pytest'],
     links: [{ label: 'Code on GitHub', href: 'https://github.com/Simar25/FilingLens', github: true }],
     burst: '★ Now building',
+    accent: 'var(--pop-yellow)',
     figure: { kind: 'funnel', caption: 'From raw filings to passages an LLM can cite.' },
   },
   {
@@ -55,6 +59,7 @@ const PROJECTS = [
       { label: 'Live demo', href: 'https://customer-churn-prediction-simar25.streamlit.app/' },
       { label: 'Code on GitHub', href: 'https://github.com/Simar25/Customer-Churn-Prediction', github: true },
     ],
+    accent: 'var(--pop-red)',
     figure: {
       kind: 'churn',
       src: 'images/churn-shap.png',
@@ -76,6 +81,7 @@ const PROJECTS = [
     role: 'Developer, built for a real client',
     tech: ['HTML', 'CSS', 'JavaScript', 'PHP', 'MySQL', 'EmailJS'],
     links: [{ label: 'Visit the live site', href: 'https://www.mannsay.com' }],
+    accent: 'var(--pop-blue)',
     figure: {
       kind: 'shot',
       src: 'images/mannsay.jpg',
@@ -96,6 +102,7 @@ const PROJECTS = [
     ],
     tech: ['SQLite', 'SQL', 'Python', 'HTML', 'CSS', 'JavaScript'],
     links: [{ label: 'Code on GitHub', href: 'https://github.com/PranjalSingh2217/DBMS_PROJECT', github: true }],
+    accent: 'var(--pop-orange)',
     figure: {
       kind: 'shot',
       src: 'images/campus-finder.jpg',
@@ -262,7 +269,17 @@ const Poster = ({ project, index }) => {
       whileInView={{ opacity: 1, y: 0, rotate: style.rotate, scale: 1 }}
       viewport={{ once: true, margin: '0px 0px -10% 0px' }}
       transition={{ type: 'spring', stiffness: 110, damping: 17 }}
+      style={{ '--accent': project.accent }}
     >
+      {/* the wall got a coat of paint before the poster went up */}
+      <Splat
+        className="poster-slot__splat"
+        seed={style.seed}
+        color={project.accent}
+        drips={4}
+        opacity={0.92}
+        delay={0.25}
+      />
       <motion.article
         className="poster"
         style={{ '--paper-c': style.paper, rotateX, rotateY, transformPerspective: 1400 }}
@@ -275,7 +292,7 @@ const Poster = ({ project, index }) => {
               <span className="poster__num">{number}</span>
               <span className="poster__cat">{project.tags}</span>
               <span className="poster__stamp">
-                <Stamp rotate={index % 2 ? 6 : -8} delay={0.4}>
+                <Stamp rotate={index % 2 ? 6 : -8} delay={0.4} color="var(--pop-red)">
                   {project.status}
                 </Stamp>
               </span>
@@ -358,24 +375,53 @@ const Poster = ({ project, index }) => {
   );
 };
 
-const Projects = () => (
-  <section id="projects" className="projects section">
-    <TornEdge color="var(--wall)" fibre="rgba(255, 250, 240, 0.85)" seed={11} />
-    <div className="projects__ghost" aria-hidden="true">
-      WALL OF WORK
-    </div>
-    <div className="container">
-      <SectionTitle index="02" kicker="wall of work" note="Five projects I’ve built or helped build.">
-        Selected Work
-      </SectionTitle>
+/* mini posters that get pasted up behind the cursor as it crosses the heading */
+const PasteUp = ({ project, index }) =>
+  project.figure.src ? (
+    <span className="paste paste--print" style={{ '--accent': project.accent }}>
+      <img src={asset(project.figure.src)} alt="" width={project.figure.width} height={project.figure.height} />
+    </span>
+  ) : (
+    <span className="paste paste--card" style={{ '--accent': project.accent }}>
+      <b>{String(index + 1).padStart(2, '0')}</b>
+      {project.tags.split(' · ')[0]}
+    </span>
+  );
 
-      <ol className="posters">
-        {PROJECTS.map((project, i) => (
-          <Poster key={project.id} project={project} index={i} />
-        ))}
-      </ol>
-    </div>
-  </section>
-);
+const Projects = () => {
+  const introRef = useRef(null);
+
+  return (
+    <section id="projects" className="projects section">
+      <TornEdge color="var(--wall)" fibre="rgba(255, 250, 240, 0.85)" seed={11} />
+      <div className="projects__ghost" aria-hidden="true">
+        WALL OF WORK
+      </div>
+      <div className="container">
+        <div className="projects__intro" ref={introRef} data-cursor="paste">
+          <ImageTrail containerRef={introRef} className="projects__trail">
+            {PROJECTS.map((project, i) => (
+              <PasteUp key={project.id} project={project} index={i} />
+            ))}
+          </ImageTrail>
+          <SectionTitle
+            index="02"
+            kicker="wall of work"
+            note="Five projects I’ve built or helped build."
+            accent="#0858a8"
+          >
+            Selected Work
+          </SectionTitle>
+        </div>
+
+        <ol className="posters">
+          {PROJECTS.map((project, i) => (
+            <Poster key={project.id} project={project} index={i} />
+          ))}
+        </ol>
+      </div>
+    </section>
+  );
+};
 
 export default Projects;

@@ -34,7 +34,7 @@
   padding-right: 0.9em;
 }
 
-/* white barrier tape with black edges */
+/* yellow caution tape with black edges */
 .tape-run--barrier {
   top: 50%;
   padding: 14px 0;
@@ -47,10 +47,10 @@
   background:
     repeating-linear-gradient(-45deg, var(--ink) 0 12px, transparent 12px 24px) top / 100% 7px no-repeat,
     repeating-linear-gradient(-45deg, var(--ink) 0 12px, transparent 12px 24px) bottom / 100% 7px no-repeat,
-    var(--sticker);
+    var(--pop-yellow);
   transform: translateY(-50%) rotate(-2.6deg);
 }
 
 .tape-run--barrier .tape-run__sep {
-  color: var(--ink);
+  color: var(--pop-red);
 }

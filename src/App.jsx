@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { AnimatePresence, MotionConfig } from 'framer-motion'
 import FilterDefs from './components/common/FilterDefs'
+import PaintProgress from './components/common/PaintProgress'
 import Loader from './components/Loader/Loader'
 import Cursor from './components/Cursor/Cursor'
 import Navbar from './components/Navbar/Navbar'
@@ -34,6 +35,7 @@ function App() {
       {!loading && (
         <>
           <Cursor />
+          <PaintProgress />
           <Navbar />
           <main>
             <Hero />

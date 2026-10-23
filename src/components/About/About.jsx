@@ -65,6 +65,7 @@ const About = () => (
         index="01"
         kicker="who dis?"
         note="The short version, and a few things that don't fit anywhere else."
+        accent="#d01818"
       >
         About Me
       </SectionTitle>
@@ -137,7 +138,7 @@ const About = () => (
           <ul className="about__stamps">
             {STATS.map((s, i) => (
               <li key={s.label}>
-                <Stamp rotate={s.rotate} delay={0.15 + i * 0.14} round>
+                <Stamp rotate={s.rotate} delay={0.15 + i * 0.14} round color="var(--pop-red)">
                   <span className="about__stamp-value">{s.value}</span>
                   <span className="about__stamp-label">{s.label}</span>
                 </Stamp>

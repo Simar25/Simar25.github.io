@@ -52,7 +52,7 @@
   display: inline-flex;
   flex-wrap: wrap;
   column-gap: 0.28em;
-  text-shadow: 0.06em 0.06em 0 var(--grey-2);
+  text-shadow: 0.06em 0.06em 0 var(--pop-yellow);
 }
 
 .stitle__word {
@@ -64,6 +64,11 @@
 .stitle__letter {
   display: inline-block;
   will-change: transform;
+}
+
+.proximity-letter {
+  display: inline-block;
+  transform-origin: 50% 70%;
 }
 
 .stitle__underline {

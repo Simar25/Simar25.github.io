@@ -1,6 +1,10 @@
 import { motion } from 'framer-motion';
 import Scribble from './Scribble';
+import { ProximityField, ProximityLetter } from './TextCursorProximity';
 import './SectionTitle.css';
+
+const INK = '#15130f';
+const PAPER = '#f4efe6';
 
 const letter = {
   hidden: { opacity: 0, y: -40, rotate: -12, scale: 1.3 },
@@ -13,8 +17,8 @@ const letter = {
   }),
 };
 
-/* Big drippy section heading: tape kicker, grey offset, marker underline. */
-const SectionTitle = ({ index, kicker, children, dark = false, note }) => {
+/* Big drippy section heading: tape kicker, yellow offset, marker underline. Letters swell toward the cursor. */
+const SectionTitle = ({ index, kicker, children, dark = false, note, accent = '#d01818' }) => {
   const words = String(children)
     .split(' ')
     .map((word, w, all) => ({ word, start: all.slice(0, w).join('').length }));
@@ -39,26 +43,28 @@ const SectionTitle = ({ index, kicker, children, dark = false, note }) => {
         viewport={{ once: true, margin: '0px 0px -10% 0px' }}
       >
         <span className="sr-only">{children}</span>
-        <span className="stitle__text" aria-hidden="true">
-          {words.map(({ word, start }, w) => (
-            <span className="stitle__word" key={start}>
-              {[...word].map((ch, j) => (
-                <motion.span key={j} className="stitle__letter" custom={start + j} variants={letter}>
-                  {ch}
-                </motion.span>
-              ))}
-              {w === words.length - 1 && (
-                <Scribble
-                  type="underline"
-                  className="stitle__underline"
-                  color={dark ? 'var(--paper)' : 'var(--ink)'}
-                  strokeWidth={5}
-                  delay={0.55}
-                />
-              )}
-            </span>
-          ))}
-        </span>
+        <ProximityField from={dark ? PAPER : INK} to={accent} radius={110} scale={1.3}>
+          <span className="stitle__text" aria-hidden="true">
+            {words.map(({ word, start }, w) => (
+              <span className="stitle__word" key={start}>
+                {[...word].map((ch, j) => (
+                  <motion.span key={j} className="stitle__letter" custom={start + j} variants={letter}>
+                    <ProximityLetter>{ch}</ProximityLetter>
+                  </motion.span>
+                ))}
+                {w === words.length - 1 && (
+                  <Scribble
+                    type="underline"
+                    className="stitle__underline"
+                    color={dark ? 'var(--paper)' : 'var(--ink)'}
+                    strokeWidth={5}
+                    delay={0.55}
+                  />
+                )}
+              </span>
+            ))}
+          </span>
+        </ProximityField>
       </motion.h2>
 
       {note && (

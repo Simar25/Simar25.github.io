@@ -22,18 +22,18 @@ const EDUCATION = [
 ];
 
 const CERTIFICATIONS = [
-  { title: 'Basics of Python', issuer: 'Infosys Springboard', date: 'Feb 2025', color: 'var(--ink)' },
+  { title: 'Basics of Python', issuer: 'Infosys Springboard', date: 'Feb 2025', color: 'var(--pop-blue)' },
   {
     title: 'Programming Fundamentals using Python – Part 1',
     issuer: 'Infosys Springboard',
     date: 'Feb 2025',
-    color: 'var(--ink)',
+    color: 'var(--pop-red)',
   },
   {
     title: '19 Google Cloud Skill Courses, Study Jams 2025',
     issuer: 'GDG on Campus VITC',
     date: '2025',
-    color: 'var(--ink)',
+    color: 'var(--pop-teal)',
   },
 ];
 
@@ -50,6 +50,7 @@ const Education = () => {
           index="03"
           kicker="school daze"
           note="School, college and the courses along the way."
+          accent="#189890"
         >
           Education
         </SectionTitle>
@@ -86,7 +87,7 @@ const Education = () => {
                       <div className="index-card__grade">
                         <span className="index-card__grade-label">{item.score.label}</span>
                         <span className="index-card__grade-value">{item.score.value}</span>
-                        <Scribble type="circle" className="index-card__ring" color="var(--ink)" strokeWidth={3.5} delay={0.4} duration={0.8} />
+                        <Scribble type="circle" className="index-card__ring" color="var(--pop-red)" strokeWidth={3.5} delay={0.4} duration={0.8} />
                       </div>
                     )}
                   </div>

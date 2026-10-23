@@ -136,8 +136,28 @@
   -webkit-text-stroke: 0.1em var(--ink);
 }
 
+/* registered so a re-spray fades between colours instead of snapping */
+@property --fa {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #ffd028;
+}
+
+@property --fb {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #f07800;
+}
+
+.throwup__letter {
+  transition: --fa 0.35s ease, --fb 0.35s ease;
+}
+
 .throwup__fill {
-  color: var(--sticker);
+  color: transparent;
+  background: linear-gradient(180deg, var(--fa) 38%, var(--fb) 92%);
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 
 .hero__tag {
@@ -313,8 +333,8 @@
   height: 118px;
   font-family: var(--f-marker);
   font-size: 1.2rem;
-  color: var(--sticker);
-  background: var(--ink);
+  color: var(--ink);
+  background: var(--pop-yellow);
 }
 
 .hs-circle {
@@ -328,9 +348,10 @@
   font-family: var(--f-drip);
   line-height: 0.9;
   color: var(--sticker);
-  background: var(--ink);
+  background: var(--pop-red);
   border: 4px solid var(--sticker);
   border-radius: 50%;
+  box-shadow: 0 0 0 2px var(--ink);
 }
 
 .hs-circle span {
@@ -362,7 +383,7 @@
 .hs-pill__dot {
   width: 10px;
   height: 10px;
-  background: var(--ink);
+  background: var(--pop-teal);
   border: 2px solid var(--ink);
   border-radius: 50%;
   animation: pulse 1.6s ease-in-out infinite;
@@ -382,6 +403,7 @@
 .hs-code .dymo {
   font-size: 0.85rem;
   padding: 0.5em 0.9em;
+  background: var(--pop-blue);
 }
 
 /* ---------- paint rack ---------- */
@@ -412,7 +434,7 @@
 .rack__cans {
   display: flex;
   align-items: flex-end;
-  gap: 6px;
+  gap: 4px;
   padding-top: 12px;
 }
 

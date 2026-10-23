@@ -25,9 +25,17 @@
   --ink-2: #3f3933;
   --ink-3: #6b6258;
 
-  /* no colour on this wall: just greys for shadows and marker swipes */
+  /* greys for shadows */
   --grey: #9a9389;
   --grey-2: #c9c1b4;
+
+  /* spray paint: the "Pop Art Paper" palette from 21st.dev, star yellow plus print-label inks */
+  --pop-yellow: #ffd028;
+  --pop-orange: #f07800;
+  --pop-red: #d01818;
+  --pop-teal: #189890;
+  --pop-blue: #0858a8;
+  --pop-olive: #b2ba12;
 
   /* type */
   --f-drip: 'Rubik Wet Paint', 'Permanent Marker', 'Arial Black', sans-serif;
@@ -118,8 +126,8 @@ ul {
 }
 
 ::selection {
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--pop-yellow);
+  color: var(--ink);
 }
 
 :focus-visible {
@@ -234,7 +242,7 @@ ul {
 /* ---------- marker underline (swiped low, behind the words) ---------- */
 
 .hl {
-  --hl: var(--grey);
+  --hl: var(--pop-yellow);
   padding: 0 0.12em;
   margin: 0 -0.06em;
   background-image: linear-gradient(
@@ -271,19 +279,19 @@ ul {
   background: var(--btn-bg);
   border: 3px solid var(--ink);
   border-radius: 14px 6px 16px 8px;
-  box-shadow: 5px 5px 0 var(--grey);
+  box-shadow: 5px 5px 0 var(--pop-yellow), 5px 5px 0 2.5px var(--ink);
   transform: rotate(-1.5deg);
   transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
 
 .btn-sticker:hover {
   transform: rotate(-1.5deg) translate(-2px, -3px);
-  box-shadow: 8px 9px 0 var(--grey);
+  box-shadow: 8px 9px 0 var(--pop-yellow), 8px 9px 0 2.5px var(--ink);
 }
 
 .btn-sticker:active {
   transform: rotate(-1.5deg) translate(3px, 3px);
-  box-shadow: 1px 1px 0 var(--grey);
+  box-shadow: 1px 1px 0 var(--pop-yellow), 1px 1px 0 2.5px var(--ink);
 }
 
 .btn-sticker[disabled] {
@@ -312,14 +320,18 @@ ul {
 }
 
 .btn-marker:hover {
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--pop-yellow);
+  color: var(--ink);
   transform: rotate(1deg);
 }
 
 .btn-marker svg {
   width: 1.05em;
   height: 1.05em;
+}
+
+.magnetic {
+  display: inline-block;
 }
 
 /* ---------- label-maker tape (Dymo) ---------- */
@@ -337,6 +349,28 @@ ul {
   border-radius: 3px;
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.6), 0 -1px 0 rgba(255, 255, 255, 0.25);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+/* ---------- scroll progress: one long stroke through every can on the rack ---------- */
+
+.paint-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 8000;
+  height: 6px;
+  background: linear-gradient(
+    90deg,
+    var(--pop-yellow),
+    var(--pop-orange) 25%,
+    var(--pop-red) 50%,
+    var(--pop-blue) 75%,
+    var(--pop-teal)
+  );
+  transform-origin: 0 50%;
+  filter: url(#f-rough);
+  pointer-events: none;
 }
 
 /* ---------- torn strip between sections ---------- */
