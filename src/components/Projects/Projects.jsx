@@ -87,7 +87,7 @@ const PROJECTS = [
       src: 'images/mannsay.jpg',
       width: 1200,
       height: 708,
-      alt: 'Mannsay homepage with the headline “We Have The Power To Help People Thrive” and a Book Appointment button',
+      alt: 'Mannsay homepage with the headline “Your mind matters. Let’s talk.” and a Book a session button',
       caption: 'The homepage of the client site.',
     },
   },
