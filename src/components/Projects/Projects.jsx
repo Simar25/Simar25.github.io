@@ -1,6 +1,15 @@
-import { Fragment, useRef } from 'react';
-import { motion, useMotionValue, useSpring } from 'framer-motion';
-import { FiArrowUpRight, FiGithub, FiLock } from 'react-icons/fi';
+import { Fragment, useCallback, useEffect, useRef, useState } from 'react';
+import {
+  motion,
+  useInView,
+  useMotionValue,
+  useMotionValueEvent,
+  useReducedMotion,
+  useScroll,
+  useSpring,
+  useTransform,
+} from 'framer-motion';
+import { FiArrowLeft, FiArrowRight, FiArrowUpRight, FiGithub, FiLock, FiPause, FiPlay } from 'react-icons/fi';
 import SectionTitle from '../common/SectionTitle';
 import TornEdge from '../common/TornEdge';
 import Stamp from '../common/Stamp';
@@ -26,7 +35,63 @@ const PROJECTS = [
     role: 'Co-inventor. Built the on-device inference pipeline and the REST API.',
     tech: ['Raspberry Pi', 'YOLOv8-nano', 'MobileNetV3', 'Flask/FastAPI'],
     accent: 'var(--pop-teal)',
-    figure: { kind: 'flow', caption: 'How the prototype works. The models run on the Raspberry Pi itself.' },
+    figure: {
+      kind: 'flow',
+      steps: [
+        { label: 'Input', nodes: [{ title: 'Raspberry Pi camera', text: 'live video of the room' }] },
+        {
+          label: 'On the device',
+          nodes: [
+            { title: 'YOLOv8-nano', text: 'how full the room is' },
+            { title: 'MobileNetV3', text: 'what the space looks like' },
+            { title: 'Lighting & infrastructure', text: 'extra signals' },
+          ],
+        },
+        {
+          label: 'Output',
+          nodes: [
+            { title: 'Vibe score', text: 'updated in real time', accent: true },
+            { title: 'REST API', text: 'feeds artist–venue matching' },
+          ],
+        },
+      ],
+      caption: 'How the prototype works. The models run on the Raspberry Pi itself.',
+    },
+  },
+  {
+    id: 'liveness',
+    title: 'Single-Frame Face Liveness Detection',
+    status: 'Team project',
+    tags: 'Edge AI · Biometric security',
+    lede: 'Tells a real face from a printed photo or a video replayed on a phone, running entirely on a Raspberry Pi 5 with an ordinary camera.',
+    detail: [
+      'No depth or infrared sensor, and the user never has to blink or turn their head. MediaPipe finds the face and turns away ones that are too far or not facing the camera. Two small MiniFASNet networks score it at two crop sizes, and an FFT check looks for the moiré pattern a screen leaves. Scores are smoothed over 20 frames so the verdict does not flicker, and a Flask dashboard streams it to any browser on the network.',
+      'It reached an ACER of 3.4% on OULU-NPU Protocol 1, cross-dataset HTERs of 24.5% and 27.2%, and 16.2 ms per frame on a laptop CPU. INT8 quantisation cost only 0.8 ACER points. Our first two versions used blink and head-turn challenges; we dropped them because they were slow and a replayed video could pass them.',
+    ],
+    tech: ['Raspberry Pi 5', 'MediaPipe', 'MiniFASNet', 'ONNX Runtime', 'OpenCV', 'Flask'],
+    accent: 'var(--pop-olive)',
+    figure: {
+      kind: 'flow',
+      steps: [
+        { label: 'Input', nodes: [{ title: 'Pi Camera v2', text: 'one RGB frame, 640×480' }] },
+        {
+          label: 'On the Pi',
+          nodes: [
+            { title: 'MediaPipe', text: 'finds the face, checks pose' },
+            { title: '2 × MiniFASNet', text: 'real-face score' },
+            { title: 'FFT cue', text: 'screen moiré texture' },
+          ],
+        },
+        {
+          label: 'Output',
+          nodes: [
+            { title: 'LIVE / SPOOF', text: 'steady over 20 frames', accent: true },
+            { title: 'Flask dashboard', text: 'any browser on the network' },
+          ],
+        },
+      ],
+      caption: 'What runs on the Pi for every frame. No depth sensor, no cloud.',
+    },
   },
   {
     id: 'filinglens',
@@ -121,30 +186,12 @@ const POSTERS = [
   { paper: 'var(--notebook)', rotate: -0.7, seed: 59 },
   { paper: 'var(--sticker)', rotate: 1.1, seed: 73 },
   { paper: 'var(--paper-2)', rotate: -0.9, seed: 89 },
+  { paper: 'var(--notebook)', rotate: 0.8, seed: 97 },
 ];
 
 const BURST = burstClip(18, 0.8, 11);
 
 /* ---------- figures (fig. 01–05 from the old site, redrawn by hand) ---------- */
-
-const FLOW = [
-  { label: 'Input', nodes: [{ title: 'Raspberry Pi camera', text: 'live video of the room' }] },
-  {
-    label: 'On the device',
-    nodes: [
-      { title: 'YOLOv8-nano', text: 'how full the room is' },
-      { title: 'MobileNetV3', text: 'what the space looks like' },
-      { title: 'Lighting & infrastructure', text: 'extra signals' },
-    ],
-  },
-  {
-    label: 'Output',
-    nodes: [
-      { title: 'Vibe score', text: 'updated in real time', accent: true },
-      { title: 'REST API', text: 'feeds artist–venue matching' },
-    ],
-  },
-];
 
 const FUNNEL = [
   { value: 84, label: '10-K annual reports' },
@@ -164,9 +211,9 @@ const Arrow = () => (
   </span>
 );
 
-const Flow = () => (
+const Flow = ({ steps }) => (
   <div className="flow">
-    {FLOW.map((col, i) => (
+    {steps.map((col, i) => (
       <Fragment key={col.label}>
         {i > 0 && <Arrow />}
         <div className="flow__col">
@@ -218,7 +265,7 @@ const Shot = ({ figure, className = '' }) => (
 
 const Figure = ({ figure, number }) => (
   <figure className={`poster__figure poster__figure--${figure.kind}`}>
-    {figure.kind === 'flow' && <Flow />}
+    {figure.kind === 'flow' && <Flow steps={figure.steps} />}
     {figure.kind === 'funnel' && <Funnel />}
     {figure.kind === 'churn' && (
       <>
@@ -242,13 +289,26 @@ const Figure = ({ figure, number }) => (
 
 /* ---------- poster ---------- */
 
-const Poster = ({ project, index }) => {
+const Poster = ({ project, index, trackRef }) => {
   const style = POSTERS[index % POSTERS.length];
   const number = String(index + 1).padStart(2, '0');
+  const slotRef = useRef(null);
+  const reduce = useReducedMotion();
   const rx = useMotionValue(0);
   const ry = useMotionValue(0);
   const rotateX = useSpring(rx, { stiffness: 200, damping: 20 });
   const rotateY = useSpring(ry, { stiffness: 200, damping: 20 });
+
+  // 0.5 = centred in the row: full size; posters sliding off either side shrink back
+  const { scrollXProgress } = useScroll({
+    container: trackRef,
+    target: slotRef,
+    axis: 'x',
+    offset: ['start end', 'end start'],
+    layoutEffect: false, // the track ref lives in the parent, so wait until it's attached
+  });
+  const scale = useTransform(scrollXProgress, [0, 0.5, 1], [0.86, 1, 0.86]);
+  const fade = useTransform(scrollXProgress, [0, 0.5, 1], [0.5, 1, 0.5]);
 
   const tilt = (e) => {
     if (e.pointerType !== 'mouse') return;
@@ -263,11 +323,12 @@ const Poster = ({ project, index }) => {
 
   return (
     <motion.li
+      ref={slotRef}
       id={project.id}
       className={`poster-slot${index % 2 ? ' poster-slot--flip' : ''}`}
-      initial={{ opacity: 0, y: 90, rotate: style.rotate * 4, scale: 0.94 }}
-      whileInView={{ opacity: 1, y: 0, rotate: style.rotate, scale: 1 }}
-      viewport={{ once: true, margin: '0px 0px -10% 0px' }}
+      initial={{ opacity: 0, y: 50, rotate: style.rotate * 4 }}
+      whileInView={{ opacity: 1, y: 0, rotate: style.rotate }}
+      viewport={{ once: true }}
       transition={{ type: 'spring', stiffness: 110, damping: 17 }}
       style={{ '--accent': project.accent }}
     >
@@ -282,7 +343,13 @@ const Poster = ({ project, index }) => {
       />
       <motion.article
         className="poster"
-        style={{ '--paper-c': style.paper, rotateX, rotateY, transformPerspective: 1400 }}
+        style={{
+          '--paper-c': style.paper,
+          rotateX,
+          rotateY,
+          transformPerspective: 1400,
+          ...(!reduce && { scale, opacity: fade }),
+        }}
         onPointerMove={tilt}
         onPointerLeave={reset}
       >
@@ -388,15 +455,89 @@ const PasteUp = ({ project, index }) =>
     </span>
   );
 
+const pad = (n) => String(n).padStart(2, '0');
+const AUTOPLAY_MS = 6000;
+
 const Projects = () => {
   const introRef = useRef(null);
+  const sectionRef = useRef(null);
+  const trackRef = useRef(null);
+  const drag = useRef(null);
+  const reduce = useReducedMotion();
+  const [at, setAt] = useState(0);
+  const last = PROJECTS.length - 1;
+
+  // padding centres the first and last poster, so scroll progress maps straight onto the index
+  const { scrollXProgress } = useScroll({ container: trackRef });
+  useMotionValueEvent(scrollXProgress, 'change', (p) => setAt(Math.round(p * last)));
+  const bar = useTransform(scrollXProgress, [0, 1], [1 / PROJECTS.length, 1]);
+
+  // scrolling down into the section: the wall text drifts and the row glides in from the right
+  const { scrollYProgress: sectionY } = useScroll({ target: sectionRef, offset: ['start end', 'end start'] });
+  const ghostX = useTransform(sectionY, [0, 1], ['14%', '-14%']);
+  const { scrollYProgress: trackY } = useScroll({ target: trackRef, offset: ['start end', 'start 35%'] });
+  const glide = useTransform(trackY, [0, 1], ['32%', '0%']);
+
+  const go = useCallback(
+    (i) => {
+      const el = trackRef.current;
+      const card = el.children[Math.max(0, Math.min(last, i))];
+      el.scrollTo({ left: card.offsetLeft - (el.clientWidth - card.offsetWidth) / 2, behavior: reduce ? 'auto' : 'smooth' });
+    },
+    [last, reduce]
+  );
+
+  // autoplay: on while the row is on screen, held while a mouse or focus is on it, off once touched
+  const [paused, setPaused] = useState(() => window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  const [hold, setHold] = useState(false);
+  const inView = useInView(trackRef, { amount: 0.3 });
+  useEffect(() => {
+    if (paused || hold || !inView) return undefined;
+    const id = setTimeout(() => go(at === last ? 0 : at + 1), AUTOPLAY_MS);
+    return () => clearTimeout(id);
+  }, [at, paused, hold, inView, go, last]);
+
+  // mouse drag to slide; touch and trackpads scroll natively
+  const dragStart = (e) => {
+    if (e.pointerType !== 'mouse') {
+      setPaused(true);
+      return;
+    }
+    if (e.button !== 0) return;
+    drag.current = { x: e.clientX, left: trackRef.current.scrollLeft, moved: false };
+  };
+  const dragMove = (e) => {
+    const d = drag.current;
+    if (!d) return;
+    const dx = e.clientX - d.x;
+    if (!d.moved) {
+      if (Math.abs(dx) < 6) return;
+      d.moved = true;
+      trackRef.current.setPointerCapture(e.pointerId);
+      trackRef.current.classList.add('is-dragging');
+      window.getSelection()?.removeAllRanges();
+    }
+    trackRef.current.scrollLeft = d.left - dx;
+  };
+  const dragEnd = () => {
+    const d = drag.current;
+    if (!d?.moved) {
+      drag.current = null;
+      return;
+    }
+    const el = trackRef.current;
+    el.classList.remove('is-dragging');
+    go(Math.round((el.scrollLeft / (el.scrollWidth - el.clientWidth)) * last));
+    // keep `moved` until the click that ends the drag has been swallowed
+    setTimeout(() => (drag.current = null));
+  };
 
   return (
-    <section id="projects" className="projects section">
+    <section id="projects" className="projects section" ref={sectionRef}>
       <TornEdge color="var(--wall)" fibre="rgba(255, 250, 240, 0.85)" seed={11} />
-      <div className="projects__ghost" aria-hidden="true">
+      <motion.div className="projects__ghost" aria-hidden="true" style={reduce ? undefined : { x: ghostX }}>
         WALL OF WORK
-      </div>
+      </motion.div>
       <div className="container">
         <div className="projects__intro" ref={introRef} data-cursor="paste">
           <ImageTrail containerRef={introRef} className="projects__trail">
@@ -404,21 +545,59 @@ const Projects = () => {
               <PasteUp key={project.id} project={project} index={i} />
             ))}
           </ImageTrail>
-          <SectionTitle
-            index="02"
-            kicker="wall of work"
-            note="Five projects I’ve built or helped build."
-            accent="#0858a8"
-          >
+          <SectionTitle index="02" kicker="wall of work" accent="#0858a8">
             Selected Work
           </SectionTitle>
         </div>
 
-        <ol className="posters">
-          {PROJECTS.map((project, i) => (
-            <Poster key={project.id} project={project} index={i} />
-          ))}
-        </ol>
+        <div
+          onMouseEnter={() => setHold(true)}
+          onMouseLeave={() => setHold(false)}
+          onFocus={() => setHold(true)}
+          onBlur={(e) => !e.currentTarget.contains(e.relatedTarget) && setHold(false)}
+        >
+          <div className="posters__nav">
+            <button type="button" className="posters__btn" onClick={() => go(at - 1)} disabled={at === 0} aria-label="Previous project">
+              <FiArrowLeft />
+            </button>
+            <span className="posters__count" aria-live={paused ? 'polite' : 'off'}>
+              <b>{pad(at + 1)}</b> / {pad(PROJECTS.length)}
+            </span>
+            <span className="posters__bar" aria-hidden="true">
+              <motion.span style={{ scaleX: bar }} />
+            </span>
+            <button
+              type="button"
+              className="posters__btn posters__btn--play"
+              onClick={() => setPaused((p) => !p)}
+              aria-label={paused ? 'Play slideshow' : 'Pause slideshow'}
+            >
+              {paused ? <FiPlay /> : <FiPause />}
+            </button>
+            <button type="button" className="posters__btn" onClick={() => go(at + 1)} disabled={at === last} aria-label="Next project">
+              <FiArrowRight />
+            </button>
+          </div>
+
+          <motion.ol
+            ref={trackRef}
+            className="posters"
+            tabIndex={0}
+            aria-label="Projects. Scroll sideways to see more."
+            data-cursor="drag"
+            style={reduce ? undefined : { x: glide }}
+            onPointerDown={dragStart}
+            onPointerMove={dragMove}
+            onPointerUp={dragEnd}
+            onPointerCancel={dragEnd}
+            onDragStart={(e) => e.preventDefault()}
+            onClickCapture={(e) => drag.current?.moved && e.preventDefault()}
+          >
+            {PROJECTS.map((project, i) => (
+              <Poster key={project.id} project={project} index={i} trackRef={trackRef} />
+            ))}
+          </motion.ol>
+        </div>
       </div>
     </section>
   );

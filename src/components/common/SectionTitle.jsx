@@ -1,4 +1,5 @@
-import { motion } from 'framer-motion';
+import { useRef } from 'react';
+import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
 import Scribble from './Scribble';
 import { ProximityField, ProximityLetter } from './TextCursorProximity';
 import './SectionTitle.css';
@@ -23,8 +24,14 @@ const SectionTitle = ({ index, kicker, children, dark = false, note, accent = '#
     .split(' ')
     .map((word, w, all) => ({ word, start: all.slice(0, w).join('').length }));
 
+  // headings drift a little slower than the page as it scrolls past
+  const ref = useRef(null);
+  const reduce = useReducedMotion();
+  const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] });
+  const y = useTransform(scrollYProgress, [0, 1], [40, -40]);
+
   return (
-    <header className={`stitle${dark ? ' stitle--dark' : ''}`}>
+    <motion.header ref={ref} className={`stitle${dark ? ' stitle--dark' : ''}`} style={reduce ? undefined : { y }}>
       <motion.p
         className="stitle__kicker"
         initial={{ opacity: 0, y: 14, rotate: -6 }}
@@ -78,7 +85,7 @@ const SectionTitle = ({ index, kicker, children, dark = false, note, accent = '#
           {note}
         </motion.p>
       )}
-    </header>
+    </motion.header>
   );
 };
 

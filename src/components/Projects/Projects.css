@@ -25,7 +25,9 @@
   line-height: 1;
   color: transparent;
   -webkit-text-stroke: 2px rgba(21, 19, 15, 0.09);
-  transform: translateX(-50%) rotate(-4deg);
+  /* individual properties so the scroll-linked `transform` from framer stacks on top */
+  translate: -50% 0;
+  rotate: -4deg;
   pointer-events: none;
   user-select: none;
 }
@@ -105,34 +107,118 @@
   letter-spacing: 0;
 }
 
-/* ---------- the wall: one poster per project, staggered left and right ---------- */
+/* ---------- the wall: one row of posters that slides sideways ---------- */
+
+.posters__nav {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  max-width: 520px;
+  margin-left: auto;
+}
+
+.posters__btn {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 48px;
+  height: 48px;
+  font-size: 1.3rem;
+  color: var(--ink);
+  background: var(--sticker);
+  border: 2.5px solid var(--ink);
+  border-radius: 50%;
+  box-shadow: 3px 3px 0 var(--ink);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.2s ease;
+}
+
+.posters__btn:hover:not(:disabled) {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 var(--ink);
+}
+
+.posters__btn:active:not(:disabled) {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--ink);
+}
+
+.posters__btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.posters__count {
+  flex: none;
+  font-family: var(--f-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--ink-3);
+}
+
+.posters__count b {
+  color: var(--ink);
+}
+
+.posters__bar {
+  flex: 1;
+  height: 6px;
+  overflow: hidden;
+  background: rgba(21, 19, 15, 0.12);
+  border-radius: 99px;
+}
+
+.posters__bar span {
+  display: block;
+  height: 100%;
+  background: var(--ink);
+  transform-origin: left;
+}
 
 .posters {
-  display: grid;
-  gap: clamp(64px, 8vw, 112px);
-  max-width: 1120px;
-  margin-inline: auto;
-  padding-top: 20px;
+  --card: min(980px, 86vw);
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: clamp(24px, 4vw, 56px);
+  /* full-bleed, padded so the first and last poster can sit in the centre */
+  margin-inline: calc(50% - 50vw);
+  padding: 96px calc((100vw - var(--card)) / 2) 110px;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
   list-style: none;
+}
+
+.posters::-webkit-scrollbar {
+  display: none;
+}
+
+.posters:focus-visible {
+  outline: 3px dashed var(--ink);
+  outline-offset: -12px;
+}
+
+.posters.is-dragging {
+  scroll-snap-type: none;
+  user-select: none;
 }
 
 .poster-slot {
   position: relative;
-  margin-right: clamp(0px, 5vw, 72px);
+  flex: 0 0 var(--card);
+  scroll-snap-align: center;
   scroll-margin-top: 110px;
-}
-
-.poster-slot--flip {
-  margin-right: 0;
-  margin-left: clamp(0px, 5vw, 72px);
 }
 
 /* paint sprayed on the wall, peeking out from behind the poster */
 .poster-slot__splat {
   position: absolute;
   z-index: -1;
-  top: -96px;
-  right: -130px;
+  top: -78px;
+  right: 4%;
   width: clamp(200px, 26vw, 320px);
   height: auto;
   overflow: visible;
@@ -142,8 +228,8 @@
 .poster-slot--flip .poster-slot__splat {
   top: auto;
   right: auto;
-  bottom: -110px;
-  left: -140px;
+  bottom: -90px;
+  left: 4%;
 }
 
 .poster {
@@ -510,9 +596,8 @@
     row-gap: 26px;
   }
 
-  .poster-slot,
-  .poster-slot--flip {
-    margin-inline: 0;
+  .posters__nav {
+    max-width: none;
   }
 }
 
