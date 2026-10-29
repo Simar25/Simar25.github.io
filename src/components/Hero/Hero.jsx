@@ -318,10 +318,6 @@ const Hero = () => {
           AI / ML
         </span>
       </Sticker>
-      <Sticker className="hs-circle" rotate={-14} delay={1.65} constraints={heroRef} label="VIT class of 2028">
-        <span>VIT</span>
-        <small>&apos;28</small>
-      </Sticker>
       <Sticker className="hs-pill" rotate={-6} delay={1.8} constraints={heroRef} label="Open to work">
         <span className="hs-pill__dot" /> open to work
       </Sticker>

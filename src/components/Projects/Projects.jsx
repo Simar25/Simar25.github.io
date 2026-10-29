@@ -456,7 +456,8 @@ const PasteUp = ({ project, index }) =>
   );
 
 const pad = (n) => String(n).padStart(2, '0');
-const AUTOPLAY_MS = 6000;
+const AUTOPLAY_MS = 1200;
+const READ_MS = 15000;
 
 const Projects = () => {
   const introRef = useRef(null);
@@ -487,23 +488,24 @@ const Projects = () => {
     [last, reduce]
   );
 
-  // autoplay: on while the row is on screen, held while a mouse or focus is on it, off once touched
+  // autoplay: on while the row is on screen, held while a mouse or keyboard focus is on it,
+  // and a tap buys READ_MS of reading time before it moves on
   const [paused, setPaused] = useState(() => window.matchMedia('(prefers-reduced-motion: reduce)').matches);
   const [hold, setHold] = useState(false);
+  const [tap, setTap] = useState(0);
   const inView = useInView(trackRef, { amount: 0.3 });
   useEffect(() => {
     if (paused || hold || !inView) return undefined;
-    const id = setTimeout(() => go(at === last ? 0 : at + 1), AUTOPLAY_MS);
+    const id = setTimeout(() => {
+      setTap(0);
+      go(at === last ? 0 : at + 1);
+    }, tap ? READ_MS : AUTOPLAY_MS);
     return () => clearTimeout(id);
-  }, [at, paused, hold, inView, go, last]);
+  }, [at, paused, hold, inView, go, last, tap]);
 
   // mouse drag to slide; touch and trackpads scroll natively
   const dragStart = (e) => {
-    if (e.pointerType !== 'mouse') {
-      setPaused(true);
-      return;
-    }
-    if (e.button !== 0) return;
+    if (e.pointerType !== 'mouse' || e.button !== 0) return;
     drag.current = { x: e.clientX, left: trackRef.current.scrollLeft, moved: false };
   };
   const dragMove = (e) => {
@@ -551,9 +553,11 @@ const Projects = () => {
         </div>
 
         <div
-          onMouseEnter={() => setHold(true)}
-          onMouseLeave={() => setHold(false)}
-          onFocus={() => setHold(true)}
+          // pointer, not mouse, events: phones fake a mouseenter on tap that never leaves
+          onPointerEnter={(e) => e.pointerType === 'mouse' && setHold(true)}
+          onPointerLeave={(e) => e.pointerType === 'mouse' && setHold(false)}
+          onPointerDown={(e) => e.pointerType !== 'mouse' && setTap(Date.now())}
+          onFocus={(e) => e.target.matches(':focus-visible') && setHold(true)}
           onBlur={(e) => !e.currentTarget.contains(e.relatedTarget) && setHold(false)}
         >
           <div className="posters__nav">
